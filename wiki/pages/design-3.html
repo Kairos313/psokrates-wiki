@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{% include 'designs/_head.html' %}
+    <link href="{{ url_for('static', filename = 'designs/d3.css') }}" rel="stylesheet">
+    <title>Design 3 · Strata | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="d3">
+  <a class="dz-skip" href="#d3-main">Skip to content</a>
+  <canvas class="dz-stage" id="d3-stage" aria-hidden="true"></canvas>
+  <div class="d3-veil" aria-hidden="true"></div>
+
+  <a class="dz-brand" href="{{ url_for('home') }}">
+    <img src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+    <span>CUHK-HongKong-SBS</span>
+  </a>
+
+  <aside class="d3-gauge" aria-hidden="true">
+    <span class="d3-gauge-label">Layer</span>
+    <span class="d3-gauge-num"><b id="d3-layer">00</b>/06</span>
+    <span class="d3-gauge-track">
+      {% for i in range(7) %}<i style="top: {{ (i / 6 * 100)|round(2) }}%"></i>{% endfor %}
+      <em id="d3-marker"></em>
+    </span>
+  </aside>
+
+  <main class="dz-content" id="d3-main">
+    <section class="d3-hero" data-layer="0">
+      <p class="d3-kicker">iGEM 2026 &mdash; CUHK-HongKong-SBS</p>
+      <h1 class="d3-title"><span class="dz-line"><span class="d3-title-in">[PROJECT</span></span><span class="dz-line"><span class="d3-title-in">NAME]</span></span></h1>
+      <p class="d3-tagline">[One-line project tagline]</p>
+      <div class="d3-dive"><span>Dive</span><i></i></div>
+    </section>
+
+    {% for i in range(1, 6) %}
+    <section class="d3-layer {{ 'is-alt' if i is even }}" data-layer="{{ i }}">
+      <div class="d3-glass">
+        <p class="d3-layer-tag">Layer {{ '%02d' % i }}</p>
+        <h2>[Section title]</h2>
+        <p>[Short paragraph — team to write]</p>
+        <a class="d3-chip" href="#">[Link label]</a>
+      </div>
+    </section>
+    {% endfor %}
+
+    <section class="d3-floor" data-layer="6">
+      <p class="d3-layer-tag">Layer 06 &middot; The floor</p>
+      <h2 class="d3-floor-title">Where to next?</h2>
+      <div class="d3-portals">
+        {% set nav = [('Project','description'),('Wet Lab','experiments'),('Dry Lab','model'),('Human Practices','human-practices'),('Education','education'),('Team','team')] %}
+        {% for label, page in nav %}
+        <a class="d3-portal" href="{{ url_for('pages', page=page) }}">
+          <span class="d3-portal-n">{{ '%02d' % loop.index }}</span>
+          <span class="d3-portal-label">{{ label }}</span>
+          <span class="d3-portal-arrow" aria-hidden="true">&#8600;</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+  {% set current = 3 %}{% include 'designs/_switcher.html' %}
+{% include 'designs/_scripts.html' %}
+  <script src="{{ url_for('static', filename = 'designs/d3.js') }}"></script>
+  </body>
+</html>

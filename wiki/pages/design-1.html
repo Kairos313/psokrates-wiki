@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{% include 'designs/_head.html' %}
+    <link href="{{ url_for('static', filename = 'designs/d1.css') }}" rel="stylesheet">
+    <title>Design 1 · Stoa | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="d1">
+  <a class="dz-skip" href="#d1-main">Skip to content</a>
+  <canvas class="dz-stage" id="d1-stage" aria-hidden="true"></canvas>
+  <div class="d1-sky" aria-hidden="true">
+    <img class="d1-cloud d1-cloud-a" src="https://static.igem.wiki/teams/6309/wiki/home/cloud.avif" alt="">
+    <img class="d1-cloud d1-cloud-b" src="https://static.igem.wiki/teams/6309/wiki/home/cloud.avif" alt="">
+    <img class="d1-cloud d1-cloud-c" src="https://static.igem.wiki/teams/6309/wiki/home/cloud.avif" alt="">
+  </div>
+
+  <a class="dz-brand" href="{{ url_for('home') }}">
+    <img src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+    <span>CUHK-HongKong-SBS</span>
+  </a>
+
+  <div class="d1-progress" aria-hidden="true">
+    <span class="d1-progress-num" id="d1-num">I</span>
+    <span class="d1-progress-bar"><i id="d1-bar"></i></span>
+    <span class="d1-progress-num">VI</span>
+  </div>
+
+  <main class="dz-content" id="d1-main">
+    <section class="d1-hero">
+      <p class="d1-kicker">CUHK-HongKong-SBS &middot; iGEM 2026</p>
+      <h1 class="d1-title" id="d1-title">[PROJECT NAME]</h1>
+      <p class="d1-tagline">[One-line project tagline]</p>
+      <p class="d1-cue"><span>Scroll to enter the stoa</span><i aria-hidden="true"></i></p>
+    </section>
+
+    <div class="d1-track">
+      {% set chapters = ['I','II','III','IV','V'] %}
+      {% for n in chapters %}
+      <section class="d1-chapter {{ 'is-right' if loop.index is even else 'is-left' }}" data-num="{{ n }}">
+        <article class="d1-plaque">
+          <span class="d1-numeral">{{ n }}</span>
+          <h2>[Section title]</h2>
+          <p>[Short paragraph — team to write]</p>
+          <a class="d1-link" href="#">[Link label] &rarr;</a>
+        </article>
+      </section>
+      {% endfor %}
+    </div>
+
+    <section class="d1-temple" data-num="VI">
+      <header class="d1-temple-head">
+        <span class="d1-numeral">VI</span>
+        <h2>Enter the temple</h2>
+      </header>
+      <div class="d1-plaques">
+        {% set nav = [('Project','description'),('Wet Lab','experiments'),('Dry Lab','model'),('Human Practices','human-practices'),('Education','education'),('Team','team')] %}
+        {% for label, page in nav %}
+        <a class="d1-nav" href="{{ url_for('pages', page=page) }}">
+          <span class="d1-nav-n">{{ ['I','II','III','IV','V','VI'][loop.index0] }}</span>
+          <span class="d1-nav-label">{{ label }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+  {% set current = 1 %}{% include 'designs/_switcher.html' %}
+{% include 'designs/_scripts.html' %}
+  <script src="{{ url_for('static', filename = 'designs/d1.js') }}"></script>
+  </body>
+</html>

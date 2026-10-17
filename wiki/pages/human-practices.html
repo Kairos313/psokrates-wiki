@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}Human Practices{% endblock %}
+{% block html_class %}page-ihp{% endblock %}
+{% block body_class %}page-ihp nv-no-read{% endblock %}
+
+{% block page_content %}
+{# Stakeholder names and notes are carried over verbatim from the original page. #}
+{% set stakeholders = [
+  ('Bioethics experts', 'Stakeholder note coming soon.'),
+  ('Patients', 'Stakeholder note coming soon.'),
+  ('Clinician / Dermatologist', 'Stakeholder note coming soon.'),
+  ('Biotech, business sector', 'Stakeholder note coming soon.'),
+  ('Public', 'Stakeholder note coming soon.'),
+  ('Professors', 'Stakeholder note coming soon.'),
+  ('iGEM outreach', 'Stakeholder note coming soon.')
+] %}
+<section class="nv-orbit" data-nova-scene="nova-orbit" aria-label="Stakeholders">
+  <div class="nv-orbit-pin">
+    <canvas class="nv-orbit-canvas" aria-hidden="true"></canvas>
+    <div class="nv-orbit-head">
+      <p class="nv-label">[ Integrated ]</p>
+      <h2 class="nv-orbit-title">Human Practice</h2>
+    </div>
+    <ol class="nv-orbit-list" id="nv-orbit-list">
+      {% for name, note in stakeholders %}
+      <li><button type="button" data-i="{{ loop.index0 }}" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">{{ '%02d' % loop.index }}</span><span>{{ name }}</span></button></li>
+      {% endfor %}
+    </ol>
+    <aside class="nv-orbit-panel" id="nv-orbit-panel" aria-live="polite">
+      {% for name, note in stakeholders %}
+      <div class="nv-orbit-card" data-i="{{ loop.index0 }}" hidden>
+        <p class="nv-label">[ {{ '%02d' % loop.index }} / {{ '%02d' % stakeholders|length }} ]</p>
+        <h3>{{ name }}</h3>
+        <p>{{ note }}</p>
+      </div>
+      {% endfor %}
+    </aside>
+    <div class="nv-orbit-tags" aria-hidden="true">
+      {% for name, note in stakeholders %}<span class="nv-orbit-tag" data-i="{{ loop.index0 }}">{{ name }}</span>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

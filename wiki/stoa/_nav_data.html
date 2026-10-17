@@ -1,0 +1,45 @@
+{#- Page order + section labels for the Stoa portico header and the pager.
+    Imported in layout.html with: {% import 'stoa/_nav_data.html' as sn with context %} -#}
+{%- set order = [
+  ('home', 'Home', ''),
+  ('description', 'Description', 'Project'),
+  ('engineering', 'Engineering', 'Project'),
+  ('results', 'Results', 'Project'),
+  ('contribution', 'Contribution', 'Project'),
+  ('software', 'Software', 'Project'),
+  ('experiments', 'Experiments', 'Wet Lab'),
+  ('notebook', 'Notebook', 'Wet Lab'),
+  ('safety-and-security', 'Safety and Security', 'Wet Lab'),
+  ('model', 'Model', 'Dry Lab'),
+  ('human-practices', 'Human Practices', 'Human Practices'),
+  ('education', 'Education', 'Human Practices'),
+  ('team', 'Team', 'Team'),
+  ('members', 'Team Roster', 'Team')
+] -%}
+{%- set numerals = {'Project': 'I', 'Wet Lab': 'II', 'Dry Lab': 'III', 'Human Practices': 'IV', 'Team': 'V'} -%}
+{%- set slug = (request.view_args.page if request.view_args and request.view_args.page else 'home')|lower -%}
+{%- set idx = namespace(i=-1) -%}
+{%- for s, label, section in order -%}{%- if s == slug -%}{%- set idx.i = loop.index0 -%}{%- endif -%}{%- endfor -%}
+{%- set index = idx.i -%}
+{%- set section = order[index][2] if index >= 0 else '' -%}
+
+{%- macro href(s) -%}{{ url_for('home') if s == 'home' else url_for('pages', page=s) }}{%- endmacro -%}
+
+{%- macro pager() -%}
+{%- if index >= 0 -%}
+<nav class="stoa-pager" aria-label="Previous and next page">
+  {%- if index > 0 %}{% set p = order[index - 1] %}
+  <a class="stoa-pager-link stoa-pager-prev" href="{{ href(p[0]) }}">
+    <span class="stoa-pager-dir">&larr; Previous</span>
+    <span class="stoa-pager-title">{{ p[1] }}</span>
+  </a>
+  {%- else %}<span></span>{% endif %}
+  {%- if index < order|length - 1 %}{% set n = order[index + 1] %}
+  <a class="stoa-pager-link stoa-pager-next" href="{{ href(n[0]) }}">
+    <span class="stoa-pager-dir">Next &rarr;</span>
+    <span class="stoa-pager-title">{{ n[1] }}</span>
+  </a>
+  {%- endif %}
+</nav>
+{%- endif -%}
+{%- endmacro -%}

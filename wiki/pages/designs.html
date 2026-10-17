@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{% include 'designs/_head.html' %}
+    <link href="{{ url_for('static', filename = 'designs/gallery.css') }}" rel="stylesheet">
+    <title>Design Directions | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="dg">
+  <header class="dg-head">
+    <p class="dg-kicker">CUHK-HongKong-SBS &middot; iGEM 2026 &middot; Wiki prototypes</p>
+    <h1 class="dg-title">Five directions.<br><span>Pick one.</span></h1>
+    <p class="dg-sub">Each is a live, scroll-driven homepage prototype with placeholder text. Open one, scroll all the way down, then compare. The chosen direction gets rolled out across every page.</p>
+  </header>
+
+  {% set designs = [
+    (1, 'Stoa', 'Evolves our Greek identity', 'Walk through a sunlit marble colonnade in 3D. Every scroll step moves the camera one column further, ending at a temple facade that opens into the site navigation.', 'Three.js colonnade · real-time shadows · golden dust · scroll-scrubbed camera path'),
+    (2, 'Amphora', 'Evolves our Greek identity', 'A black-figure Greek vase, painted procedurally, turns a quarter at a time so each painted panel faces you as its section arrives. Navigation is a pile of pottery shards.', 'Lathe-turned 3D vase · canvas-painted glaze · animated meander borders · shard cards'),
+    (3, 'Strata', 'Bold departure', 'A cinematic dive. The camera descends from a bright surface through six glowing, rippling translucent layers into deep indigo, with a depth gauge tracking where you are.', 'GLSL noise sheets · fresnel glow orbs · colour-graded descent · glass cards'),
+    (4, 'Signal', 'Bold departure', 'A dark lab HUD. Sixteen thousand GPU particles morph from helix to sphere to wave field to ring as you scroll, scatter around your cursor, and live readouts track the page state.', 'Particle morphing shader · cursor repulsion · scramble text · pinned horizontal rail'),
+    (5, 'Kinetic', 'Bold departure', 'Editorial and confident. Giant type, scroll-speed marquees, a manifesto that lights up word by word, and an iridescent liquid blob that travels between sections.', 'Noise-displaced blob shader · velocity-driven marquee · bento index · magnetic cursor')
+  ] %}
+
+  <main class="dg-grid">
+    {% for n, name, tag, desc, tech in designs %}
+    <a class="dg-card dg-card-{{ n }}" href="{{ url_for('pages', page='design-' ~ n) }}">
+      <div class="dg-preview" aria-hidden="true"><div class="dg-art dg-art-{{ n }}">{% if n == 1 %}<i></i><i></i><i></i><i></i><i></i><i></i>{% elif n == 4 %}{% for k in range(24) %}<i style="--k: {{ k }}"></i>{% endfor %}{% endif %}</div></div>
+      <div class="dg-body">
+        <p class="dg-num">0{{ n }} <span>{{ tag }}</span></p>
+        <h2>{{ name }}</h2>
+        <p class="dg-desc">{{ desc }}</p>
+        <p class="dg-tech">{{ tech }}</p>
+        <span class="dg-open">Open prototype &rarr;</span>
+      </div>
+    </a>
+    {% endfor %}
+  </main>
+
+  <section class="dg-notes">
+    <h2>Notes for the team</h2>
+    <ul>
+      <li>All text in brackets, such as <code>[Section title]</code>, is a placeholder for the team to write.</li>
+      <li>All 3D is procedural and decorative, with no downloaded models. Everything uses only the libraries already in <code>static/vendor/</code>.</li>
+      <li>Every prototype respects <em>reduced motion</em> (it shows a static frame) and falls back gracefully without WebGL.</li>
+      <li>Before publishing, upload any new images to <code>static.igem.wiki</code> via tools.igem.org.</li>
+    </ul>
+  </section>
+
+  {% include 'footer.html' %}
+  {% set current = 0 %}{% include 'designs/_switcher.html' %}
+  <script src="{{ url_for('static', filename = 'vendor/gsap.min.js') }}"></script>
+  <script>
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      gsap.from(".dg-title, .dg-kicker, .dg-sub", { y: 30, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out" });
+      gsap.from(".dg-card", { y: 60, opacity: 0, duration: 1, stagger: 0.08, ease: "power3.out", delay: 0.3 });
+      if (window.matchMedia("(pointer: coarse)").matches) return;
+      document.querySelectorAll(".dg-card").forEach(function (card) {
+        card.addEventListener("pointermove", function (e) {
+          var b = card.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - 0.5, y = (e.clientY - b.top) / b.height - 0.5;
+          gsap.to(card, { rotateY: x * 8, rotateX: -y * 8, duration: 0.5, ease: "power3.out", transformPerspective: 1000 });
+        });
+        card.addEventListener("pointerleave", function () { gsap.to(card, { rotateY: 0, rotateX: 0, duration: 0.8, ease: "elastic.out(1, .5)" }); });
+      });
+    })();
+  </script>
+  </body>
+</html>

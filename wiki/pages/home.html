@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+{% import 'content/home_text.html' as T %}
+
+{% block title %}Home{% endblock %}
+{% block html_class %}page-home{% endblock %}
+{% block body_class %}page-home nv-no-read{% endblock %}
+{% block site_header %}{% endblock %}
+
+{% block intro_overlay %}
+<div class="nh" data-nova-home>
+  <canvas class="nh-stage" id="nh-stage" aria-hidden="true"></canvas>
+
+  <!-- I · Hero -->
+  <section class="nh-act nh-hero" data-act="hero" aria-label="CUHK-HongKong-SBS iGEM 2026">
+    <div class="nh-hero-inner">
+      <p class="nv-label nh-hero-kicker">[ iGEM 2026 ] &nbsp; CUHK-HongKong-SBS</p>
+      <h1 class="nh-wordmark"><img src="https://static.igem.wiki/teams/6309/wiki/home/logo-text.avif" alt="PSOKRATES"></h1>
+    </div>
+    <div class="nh-hero-foot">
+      <p class="nv-label">[ 01 ] &mdash; Move the cursor across the surface</p>
+      <p class="nv-label nv-scrollcue">Scroll</p>
+    </div>
+  </section>
+
+  <!-- II · The clock -->
+  <section class="nh-act nh-clock" data-act="clock" data-pin>
+    <div class="nh-pin">
+      <div class="nh-clock-col nh-clock-a">
+        <p class="nv-label">[ 02 ]</p>
+        <p class="nh-big">{{ T.s1 }}</p>
+        <p class="nh-count"><span data-count-to="28">0</span><small>days</small></p>
+      </div>
+      <div class="nh-clock-col nh-clock-b">
+        <p class="nh-mid">{{ T.s2a }}</p>
+        <p class="nh-mid">{{ T.s2b }}</p>
+        <p class="nh-count nh-count-hot"><span data-count-to="3">0</span><small>days</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- III · The armour -->
+  <section class="nh-act nh-armor" data-act="armor">
+    <p class="nh-giant" data-reveal>{{ T.s3 }}</p>
+  </section>
+
+  <!-- IV · Types -->
+  <section class="nh-act nh-types" data-act="types" id="nh-types">
+    <div class="nh-types-copy">
+      <p class="nv-label">[ 03 ] &mdash; {{ T.types_hint }}</p>
+      <ul class="nh-types-list" id="nh-types-list"></ul>
+      <div class="nh-types-detail" aria-live="polite"><h3 id="nh-types-name"></h3><p id="nh-types-text"></p></div>
+    </div>
+  </section>
+
+  <!-- V · History (horizontal) -->
+  <section class="nh-act nh-story" data-act="story" data-pin>
+    <div class="nh-pin">
+      <div class="nh-track" id="nh-track">
+        <article class="nh-panel nh-panel-title"><p class="nv-label">[ 04 ]</p><h2 class="nh-story-title">{{ T.story_title }}</h2></article>
+        <article class="nh-panel"><p class="nh-year">{{ T.y460 }}</p><p class="nh-mid">{{ T.hippocrates }}</p></article>
+        <article class="nh-panel"><p class="nh-year">{{ T.y150 }}</p><p class="nh-mid">{{ T.galen }}</p></article>
+        <article class="nh-panel nh-panel-wide"><p class="nh-big">{{ T.castout }}</p><p class="nh-mid">{{ T.leprosy }}</p><p class="nh-mid">{{ T.exile }}</p></article>
+        <article class="nh-panel nh-panel-wide"><p class="nh-year">{{ T.y2026 }}</p><p class="nh-big">{{ T.centuries }}</p><p class="nh-mid">{{ T.tragedy }}</p><p class="nh-mid">{{ T.riddle }}</p></article>
+      </div>
+      <div class="nh-track-bar" aria-hidden="true"><i id="nh-track-bar"></i></div>
+    </div>
+  </section>
+
+  <!-- VI · Voices -->
+  <section class="nh-act nh-voices" data-act="voices" data-pin>
+    <div class="nh-pin">
+      <p class="nh-giant nh-stigma" data-reveal>{{ T.stigma }}</p>
+      <p class="nv-label nh-voices-hint">[ 05 ] &mdash; {{ T.voices_hint }}</p>
+      <blockquote class="nh-quote" id="nh-quote" aria-live="polite"></blockquote>
+    </div>
+  </section>
+
+  <!-- VII · Treatments -->
+  <section class="nh-act nh-balance" data-act="balance" data-pin>
+    <div class="nh-pin">
+      <div class="nh-balance-grid">
+        <p class="nh-mid nh-bal-a">{{ T.steroids }}</p>
+        <p class="nh-mid nh-bal-b">{{ T.methotrexate }}</p>
+      </div>
+      <div class="nh-bal-tags" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- VIII · How might we -->
+  <section class="nh-act nh-hmw" data-act="hmw">
+    <p class="nv-label">[ 06 ]</p>
+    <p class="nh-hmw-text" id="nh-hmw">{{ T.hmw }}</p>
+  </section>
+
+  <!-- IX · Solution -->
+  <section class="nh-act nh-solution" data-act="solution" data-pin>
+    <div class="nh-pin">
+      <div class="nh-sol-head">
+        <p class="nv-label">[ 07 ]</p>
+        <h2 class="nh-sol-title">{{ T.solution }}</h2>
+        <p class="nh-sol-text">{{ T.engineered }}</p>
+      </div>
+      <div class="nh-tags" aria-hidden="true">
+        <span class="nh-tag" data-tag="0">{{ T.l_il23ra }}</span>
+        <span class="nh-tag" data-tag="1">{{ T.l_tace }}</span>
+        <span class="nh-tag" data-tag="2">{{ T.l_lkekk }}</span>
+      </div>
+      <ol class="nh-steps">
+        <li class="nh-step" data-step="0">{{ T.tnfa }}</li>
+        <li class="nh-step" data-step="1">{{ T.cleaved }}</li>
+        <li class="nh-step" data-step="2"><b>{{ T.macrophage }}</b> &mdash; {{ T.lkekk_up }}</li>
+        <li class="nh-step" data-step="3">{{ T.inhibited }}</li>
+      </ol>
+      <div class="nh-sol-bar" aria-hidden="true"><i id="nh-sol-bar"></i></div>
+    </div>
+  </section>
+
+  <!-- X · Hub -->
+  <section class="nh-act nh-hub" data-act="hub">
+    <p class="nv-label">[ 08 ]</p>
+    <div class="nh-hub-grid">
+      {% set hub = [(T.hub_hp, 'human-practices'), (T.hub_eng, 'engineering'), (T.hub_lab, 'experiments'), (T.hub_edu, 'education')] %}
+      {% for label, page in hub %}
+      <a class="nh-hub-card" href="{{ url_for('pages', page=page) }}" data-cursor="Enter" data-blip>
+        <span class="nv-label">[ {{ '%02d' % loop.index }} ]</span>
+        <span class="nh-hub-label" data-scramble>{{ label }}</span>
+        <span class="nh-hub-arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block page_content %}{% endblock %}

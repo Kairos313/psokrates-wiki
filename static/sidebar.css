@@ -1,0 +1,425 @@
+/* ==========================================================================
+   Dynamic Table-of-Contents Sidebar
+   Floating left rail with animated dots, sliding labels, glow effects,
+   and a scroll-progress track.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container: fixed on the left, vertically centred
+   -------------------------------------------------------------------------- */
+.toc-sidebar {
+  position: fixed;
+  left: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Always visible - bar and dots stay visible */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Glass rail behind the dots
+   The rail spans from the centre of the first dot to the centre of the last.
+   Centered perfectly on the dots.
+   -------------------------------------------------------------------------- */
+.toc-rail {
+  position: absolute;
+  left: 3px;            /* centre of 12px dot = 6px, minus half rail width (3px) = 3px */
+  top: 0px;             /* extended 20% above first dot (was 6px, now 0px) */
+  bottom: 0px;          /* extended 20% below last dot (was 6px, now 0px) */
+  width: 6px;           /* width stays the same */
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Animated fill that maps to the active dot position, not raw scroll */
+.toc-rail-fill {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #6366f1, #8b5cf6, #a78bfa, #c084fc);
+  border-radius: 3px;
+  transition: height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   Nav list
+   -------------------------------------------------------------------------- */
+.toc-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Each link: dot + label
+   -------------------------------------------------------------------------- */
+.toc-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: var(--muted, #555a6b);
+  position: relative;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The dot - reduced size */
+.toc-dot {
+  position: relative;
+  width: 12px;          /* reduced from 16px */
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  transition: background 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.4s ease;
+  z-index: 2;
+}
+
+/* Dots above current position: permanently filled */
+.toc-link.visited .toc-dot {
+  background: #6366f1;
+}
+
+/* Glow ring behind active dot */
+.toc-dot::after {
+  content: "";
+  position: absolute;
+  inset: -6px;          /* reduced glow to match smaller dot */
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* The label - hidden by default, shown only while scrolling or hovering */
+.toc-text {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.3s ease, font-weight 0.3s ease;
+  pointer-events: none;
+}
+
+/* Show text when scrolling */
+.toc-sidebar.scrolling .toc-text {
+  opacity: 0.85;
+  transform: translateX(0);
+}
+
+/* Show ALL text labels when hovering near sidebar area */
+.toc-sidebar:hover .toc-text {
+  opacity: 0.7;
+  transform: translateX(0);
+}
+
+/* Active section text: most prominent when hovering */
+.toc-sidebar:hover .toc-link.active .toc-text {
+  opacity: 1;
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: var(--accent, #101018);
+  transform: translateX(0);
+}
+
+/* Visited sections: slightly less prominent */
+.toc-sidebar:hover .toc-link.visited .toc-text {
+  opacity: 0.65;
+  color: rgba(99, 102, 241, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   Hover state: dot interaction
+   -------------------------------------------------------------------------- */
+.toc-link:hover .toc-dot {
+  transform: scale(1.25);
+}
+
+.toc-link.visited:hover .toc-dot {
+  background: #8b5cf6;  /* slightly lighter purple on hover for visited */
+}
+
+/* --------------------------------------------------------------------------
+   Active state: glowing dot + visible label (only while scrolling)
+   -------------------------------------------------------------------------- */
+.toc-link.active .toc-dot {
+  background: #6366f1;
+  transform: scale(1.4);        /* slightly reduced active scale */
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.6);
+}
+
+.toc-link.active .toc-dot::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.toc-sidebar.scrolling .toc-link.active .toc-text {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--accent, #101018);
+  font-weight: 800;
+  font-size: 0.78rem;
+}
+
+/* --------------------------------------------------------------------------
+   Number badge on each dot (optional, set via data-index in JS)
+   -------------------------------------------------------------------------- */
+.toc-dot .toc-num {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;            /* hidden by default */
+  color: #fff;
+  font-weight: 800;
+  transition: font-size 0.3s ease;
+}
+
+.toc-link.active .toc-dot .toc-num {
+  font-size: 7px;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile: shrink and hide labels, show only dots
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .toc-sidebar {
+    left: 0.6rem;
+  }
+
+  .toc-text {
+    display: none;
+  }
+
+  .toc-nav {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .toc-sidebar {
+    display: none;       /* hide entirely on very small screens */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Push page content right so sidebar doesn't overlap.
+   Pages should add the class .has-toc-sidebar to <body> or simply
+   rely on this rule targeting the common wrappers.
+   -------------------------------------------------------------------------- */
+@media (min-width: 901px) {
+  /* Attribution page */
+  .attr-main {
+    margin-left: 3.2rem;
+  }
+
+  /* Members page sections */
+  .team-section {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(clamp(1.5rem, 5vw, 5rem) + 2rem);
+  }
+}
+
+/* ==========================================================================
+   PSOCRATES Ancient Greece test theme
+   Backup-only sidebar adaptation.
+   ========================================================================== */
+
+.page-home .toc-sidebar {
+  left: clamp(1.1rem, 1.9vw, 1.8rem);
+  z-index: 120;
+  max-width: calc(100vw - 2rem);
+  overflow: hidden;
+  filter: drop-shadow(0 0.8rem 1.4rem rgba(0, 0, 0, 0.28));
+  --greek-gold: #d8ad5d;
+  --greek-bronze: #8f6634;
+  --greek-marble: #eee4cf;
+  --greek-ink: #19120a;
+}
+
+.page-home .toc-sidebar::before,
+.page-home .toc-sidebar::after {
+  display: none;
+}
+
+.page-home .toc-lottie-column {
+  position: absolute;
+  left: -1.35rem;
+  top: -2.2rem;
+  width: 3.6rem;
+  height: calc(100% + 4.4rem);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.96;
+}
+
+.page-home .toc-rail {
+  left: 6px;
+  width: 2px;
+  background: transparent;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.page-home .toc-rail-fill {
+  display: none;
+}
+
+.page-home .toc-link {
+  color: rgba(245, 238, 216, 0.74);
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  gap: 0.95rem;
+  z-index: 3;
+}
+
+.page-home .toc-dot {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(255, 229, 160, 0.8);
+  background:
+    radial-gradient(circle at 34% 28%, #fff2c9 0 15%, transparent 16%),
+    linear-gradient(135deg, #b6843e, #5f3b18 55%, #d9ae62);
+  box-shadow:
+    inset 0 0 0 1px rgba(65, 38, 12, 0.32),
+    0 0.16rem 0.35rem rgba(0, 0, 0, 0.24);
+}
+
+.page-home .toc-link.visited .toc-dot,
+.page-home .toc-link.active .toc-dot {
+  background:
+    radial-gradient(circle at 34% 28%, #fff3c9 0 14%, transparent 15%),
+    linear-gradient(135deg, #f0ca75, #9a6426 55%, #f5d894);
+}
+
+.page-home .toc-dot::after {
+  inset: -6px;
+  background: radial-gradient(circle, rgba(216, 173, 93, 0.36), transparent 70%);
+}
+
+.page-home .toc-link.active .toc-dot {
+  box-shadow:
+    inset 0 0 0 1px rgba(65, 38, 12, 0.26),
+    0 0 0 0.18rem rgba(216, 173, 93, 0.15),
+    0 0 0.85rem rgba(216, 173, 93, 0.5);
+}
+
+.page-home .toc-dot .toc-num {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 0;
+  color: #201407;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 240, 188, 0.48);
+}
+
+.page-home .toc-link.active .toc-dot .toc-num,
+.page-home .toc-link:hover .toc-dot .toc-num {
+  font-size: 6px;
+}
+
+.page-home .toc-link .toc-dot .toc-num {
+  font-weight: 800;
+}
+
+.page-home .toc-sidebar.scrolling .toc-link.active .toc-text,
+.page-home .toc-sidebar:hover .toc-link.active .toc-text {
+  color: #2a1706;
+}
+
+.page-home .toc-sidebar:hover .toc-link.visited .toc-text {
+  color: rgba(255, 235, 186, 0.88);
+}
+
+.page-home .toc-text {
+  position: relative;
+  padding: 0.28rem 0.64rem;
+  border: 1px solid rgba(185, 142, 68, 0.34);
+  border-radius: 0.18rem;
+  background:
+    linear-gradient(90deg, rgba(255, 248, 230, 0.9), rgba(222, 207, 176, 0.84)),
+    repeating-linear-gradient(135deg, rgba(88, 68, 44, 0.06) 0 1px, transparent 1px 13px);
+  letter-spacing: 0.1em;
+  color: #38220c;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+    0 0.38rem 0.75rem rgba(0, 0, 0, 0.18);
+}
+
+.page-home .toc-text::before,
+.page-home .toc-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 0.28rem;
+  height: 0.28rem;
+  border-radius: 50%;
+  background: var(--greek-bronze);
+  transform: translateY(-50%);
+}
+
+.page-home .toc-text::before {
+  left: 0.18rem;
+}
+
+.page-home .toc-text::after {
+  right: 0.18rem;
+}
+
+/* Sidebar behavior update:
+   - no dot/medallion UI
+   - active section label is visible
+   - all section labels are visible only while hovering the sidebar */
+.page-home .toc-dot {
+  display: none;
+}
+
+.page-home .toc-link {
+  gap: 0;
+  padding-left: 1.35rem;
+}
+
+.page-home .toc-text,
+.page-home .toc-sidebar.scrolling .toc-text {
+  opacity: 0;
+  transform: translateX(-0.35rem);
+}
+
+.page-home .toc-sidebar:hover .toc-text {
+  opacity: 0.74;
+  transform: translateX(0);
+}
+
+.page-home .toc-sidebar.section-label-visible .toc-link.active .toc-text,
+.page-home .toc-sidebar:hover .toc-link.active .toc-text {
+  opacity: 1;
+  transform: translateX(0);
+  color: #2a1706;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .page-home .toc-lottie-column {
+    display: none;
+  }
+}

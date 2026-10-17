@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+
+{% block title %}Team Roster{% endblock %}
+{% block html_class %}page-roster{% endblock %}
+{% block body_class %}page-roster{% endblock %}
+{% block site_header %}{% endblock %}
+
+{% block page_content %}
+
+<div class="roster-page">
+  <header class="roster-hero">
+    <h1 class="roster-title">Team Roster</h1>
+    <p class="roster-lead">Meet our wonderful team!</p>
+    <div class="roster-hero-photo" id="roster-hero-photo">
+      <span class="roster-frame" aria-hidden="true"></span>
+      <img class="is-active" src="https://static.igem.wiki/teams/6309/wiki/members/team-photo-1.avif" alt="CUHK SBS iGEM team group photo 1">
+      <img class="is-crop" src="https://static.igem.wiki/teams/6309/wiki/members/team-photo-2.avif" alt="CUHK SBS iGEM team group photo 2" style="left:-10.26%;top:-13.71%;width:112.93%;height:112.99%">
+      <img src="https://static.igem.wiki/teams/6309/wiki/members/team-photo-3.avif" alt="CUHK SBS iGEM team group photo 3">
+      <img class="is-crop" src="https://static.igem.wiki/teams/6309/wiki/members/team-photo-4.avif" alt="CUHK SBS iGEM team group photo 4" style="left:-8.60%;top:-0.72%;width:118.25%;height:100%">
+      <button type="button" class="roster-hero-arrow is-prev" aria-label="Previous team photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="roster-hero-arrow is-next" aria-label="Next team photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  {% macro card(name, role, file, crop='') %}
+  <article class="roster-card">
+    <span class="roster-frame" aria-hidden="true"></span>
+    <div class="roster-photo">
+      {% if file %}
+      <img
+        src="{% if file.startswith('http') %}{{ file }}{% else %}{{ url_for('static', filename = 'images/team roaster/' + file) }}{% endif %}"
+        alt="{{ name }}"
+        {% if crop %}style="{{ crop }}"{% endif %}
+      >
+      {% endif %}
+    </div>
+    <div class="roster-info">
+      <h3 class="roster-name{% if name|length > 14 %} is-long{% endif %}">{{ name }}</h3>
+      <p class="roster-role">{{ role }}</p>
+    </div>
+  </article>
+  {% endmacro %}
+
+  <section class="roster-section" aria-labelledby="roster-leaders">
+    <h2 id="roster-leaders">Our Team Leaders</h2>
+    <div class="roster-grid is-center">
+      {{ card('Julia', 'Captain', 'https://static.igem.wiki/teams/6309/wiki/members/julia.avif', 'left:-41.9%;top:-13.6%;width:182.1%;height:123.8%') }}
+    </div>
+    <div class="roster-grid">
+      {{ card('Eric', 'DA Team Leader', 'https://static.igem.wiki/teams/6309/wiki/members/eric.avif', 'left:-58.8%;top:-3.7%;width:196.1%;height:133.3%') }}
+      {{ card('Shannon', 'IHP Team Leader', 'https://static.igem.wiki/teams/6309/wiki/members/shannon.avif', 'left:-50.5%;top:-22.0%;width:184.9%;height:125.6%') }}
+      {{ card('Hippo', 'Education Team Leader', 'https://static.igem.wiki/teams/6309/wiki/members/hippo.avif', 'left:-56.6%;top:-16.5%;width:200.4%;height:136.3%') }}
+      {{ card('Vincent', 'Lab Team Leader', 'https://static.igem.wiki/teams/6309/wiki/members/vincent.avif', 'left:-51.6%;top:-5.9%;width:184.6%;height:125.6%') }}
+      {{ card('Cristy', 'Lab Team Leader', 'https://static.igem.wiki/teams/6309/wiki/members/cristy.avif', 'left:-51.3%;top:-3.7%;width:181.4%;height:123.4%') }}
+      {{ card('Sigmund', 'Lab Team Leader', 'https://static.igem.wiki/teams/6309/wiki/members/sigmund.avif', 'left:-55.6%;top:-8.4%;width:188.9%;height:128.2%') }}
+    </div>
+  </section>
+
+  <section class="roster-section" aria-labelledby="roster-members">
+    <h2 id="roster-members">Our Team Members</h2>
+    <div class="roster-grid">
+      {{ card('Diana', 'DA/ IHP', 'https://static.igem.wiki/teams/6309/wiki/members/diana.avif', 'left:-52.7%;top:-10.6%;width:191.8%;height:130.4%') }}
+      {{ card('Sharon', 'DA/ Education', 'https://static.igem.wiki/teams/6309/wiki/members/sharon.avif', 'left:-48.4%;top:-3.7%;width:176.0%;height:119.8%') }}
+      {{ card('Snoopy', 'Lab', 'https://static.igem.wiki/teams/6309/wiki/members/snoopy.avif', 'left:-52.0%;top:-13.2%;width:181.4%;height:123.1%') }}
+      {{ card('Quin', 'Lab', 'https://static.igem.wiki/teams/6309/wiki/members/quin.avif', 'left:-40.1%;top:-1.1%;width:178.1%;height:120.9%') }}
+      {{ card('Balzhan', 'Lab', 'https://static.igem.wiki/teams/6309/wiki/members/balzhan.avif', 'left:-52.3%;top:-6.6%;width:186.0%;height:126.4%') }}
+      {{ card('Brian', 'IHP', 'https://static.igem.wiki/teams/6309/wiki/members/brian.avif', 'left:-11.5%;top:-28.9%;width:107.2%;height:164.8%') }}
+      {{ card('Derek', 'Education', 'https://static.igem.wiki/teams/6309/wiki/members/derek.avif', 'left:-47.7%;top:-3.7%;width:186.6%;height:126.9%') }}
+      {{ card('Daniela', 'DA/ Education', 'https://static.igem.wiki/teams/6309/wiki/members/daniela.avif', 'left:-48.4%;top:-19.0%;width:190.0%;height:129.3%') }}
+      {{ card('Alpha', 'Education', 'https://static.igem.wiki/teams/6309/wiki/members/alpha.avif', 'left:-50.9%;top:-3.7%;width:181.7%;height:123.4%') }}
+      {{ card('Isaac', 'Lab', 'https://static.igem.wiki/teams/6309/wiki/members/isaac.avif', 'left:-50.2%;top:-7.7%;width:173.8%;height:117.9%') }}
+      {{ card('Tristan', 'Education/ Lab', 'https://static.igem.wiki/teams/6309/wiki/members/tristan.avif', 'left:-57.3%;top:-10.6%;width:191.8%;height:130.4%') }}
+      {{ card('Thomas', 'DA/ Lab', 'https://static.igem.wiki/teams/6309/wiki/members/thomas.avif', 'left:-15.4%;top:-31.9%;width:114.7%;height:176.2%') }}
+    </div>
+  </section>
+
+  <section class="roster-section" aria-labelledby="roster-pis">
+    <h2 id="roster-pis">Our Principle Investigators</h2>
+    <div class="roster-grid">
+      {{ card('Prof. Stephen Tsui', 'Principal Investigator', 'https://static.igem.wiki/teams/6309/wiki/members/stephen.avif', 'left:-16.1%;top:-3.7%;width:125.8%;height:115.8%') }}
+      {{ card('Jacky Yuen', 'Secondary Principal Investigator', 'https://static.igem.wiki/teams/6309/wiki/members/jacky.avif', 'left:-3.6%;top:-23.4%;width:100.4%;height:153.8%') }}
+    </div>
+  </section>
+
+  <section class="roster-section" aria-labelledby="roster-advisors">
+    <h2 id="roster-advisors">Our Advisors</h2>
+    <div class="roster-grid">
+      {{ card('Jasamine', 'Advisor', 'https://static.igem.wiki/teams/6309/wiki/members/jasamine.avif', 'left:-41.2%;top:-19.0%;width:190.0%;height:129.3%') }}
+      {{ card('Arthur', 'Advisor', 'https://static.igem.wiki/teams/6309/wiki/members/arthur.avif', 'left:-5.4%;top:-28.9%;width:103.6%;height:235.2%') }}
+    </div>
+  </section>
+
+  <section class="roster-section" aria-labelledby="roster-helpers">
+    <h2 id="roster-helpers">Our External Helpers</h2>
+    <div class="roster-grid">
+      {{ card('Freeby', 'External Design Helper', 'https://static.igem.wiki/teams/6309/wiki/members/freeby.avif', 'left:-7.5%;top:-6.6%;width:153.8%;height:117.9%') }}
+      {{ card('Moses', 'External Design Helper', 'https://static.igem.wiki/teams/6309/wiki/members/moses.avif', 'left:-3.6%;top:-11.4%;width:108.2%;height:147.3%') }}
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script>
+(function () {
+  var frame = document.getElementById("roster-hero-photo");
+  if (!frame) return;
+  var slides = Array.prototype.slice.call(frame.querySelectorAll("img"));
+  var index = 0;
+  var timer = null;
+
+  function show(next) {
+    if (!slides.length) return;
+    slides[index].classList.remove("is-active");
+    index = (next + slides.length) % slides.length;
+    slides[index].classList.add("is-active");
+  }
+
+  function start() {
+    window.clearInterval(timer);
+    timer = window.setInterval(function () { show(index + 1); }, 5000);
+  }
+
+  function drop(img) {
+    var at = slides.indexOf(img);
+    if (at < 0) return;
+    img.remove();
+    slides.splice(at, 1);
+    if (at <= index) index = Math.max(0, index - 1);
+    if (slides[index]) slides[index].classList.add("is-active");
+  }
+
+  slides.slice().forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0) drop(img);
+    else img.addEventListener("error", function () { drop(img); });
+  });
+
+  var prev = frame.querySelector(".is-prev");
+  var next = frame.querySelector(".is-next");
+
+  if (prev) {
+    prev.addEventListener("click", function (event) {
+      event.stopPropagation();
+      show(index - 1);
+      start();
+    });
+  }
+  if (next) {
+    next.addEventListener("click", function (event) {
+      event.stopPropagation();
+      show(index + 1);
+      start();
+    });
+  }
+
+  frame.addEventListener("click", function (event) {
+    if (event.target.closest(".roster-hero-arrow")) return;
+    show(index + 1);
+    start();
+  });
+
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) start();
+})();
+</script>
+{% endblock %}

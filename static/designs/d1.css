@@ -1,0 +1,108 @@
+/* Design 1 — Stoa: a fly-through of a marble colonnade. */
+.d1 {
+  --dz-bg: #efe4d0;
+  --dz-ink: #2b2219;
+  --dz-muted: #7a6a58;
+  --dz-accent: #c0782c;
+  --d1-gold: #b98a3e;
+  --d1-marble: #fbf7ef;
+  --dz-footer-bg: #2b2219;
+  --dz-footer-ink: #efe4d0;
+  --dz-footer-logo-filter: brightness(0) invert(.92);
+  background: linear-gradient(#f5ead6, #e9dcc3);
+}
+
+.d1-sky { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+.d1-cloud { position: absolute; width: min(34vw, 420px); opacity: .9; will-change: transform; }
+.d1-cloud-a { top: 12vh; left: -4vw; }
+.d1-cloud-b { top: 22vh; right: -6vw; width: min(26vw, 320px); }
+.d1-cloud-c { top: 54vh; left: 30vw; width: min(18vw, 220px); opacity: .7; }
+
+.d1 .dz-brand { color: var(--dz-ink); }
+
+.d1-progress {
+  position: fixed; right: 26px; top: 50%; z-index: 40;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font: 400 15px/1 "Fredericka", serif; color: var(--dz-ink);
+}
+.d1-progress-bar { width: 2px; height: 34vh; background: rgba(43, 34, 25, .15); position: relative; overflow: hidden; border-radius: 2px; }
+.d1-progress-bar i { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: var(--d1-gold); transform-origin: top; transform: scaleY(0); }
+
+/* Hero */
+.d1-hero {
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 120px 20px 80px;
+}
+.d1-kicker { margin: 0 0 18px; font: 600 12px/1 var(--dz-sans); letter-spacing: .32em; text-transform: uppercase; color: var(--dz-ink); text-shadow: 0 0 12px #f5ead6, 0 0 4px #f5ead6; }
+.d1-title {
+  margin: 0; font: 400 clamp(46px, 10vw, 150px)/.95 "Fredericka", serif;
+  letter-spacing: -.01em; color: var(--dz-ink);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .6);
+}
+.d1-title .dz-char { transform-origin: 50% 100%; }
+.d1-tagline { margin: 22px 0 0; font-size: clamp(16px, 2vw, 21px); color: var(--dz-muted); }
+.d1-cue { position: absolute; bottom: 84px; left: 50%; transform: translateX(-50%); margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--dz-muted); }
+.d1-cue i { width: 1px; height: 46px; background: linear-gradient(var(--d1-gold), transparent); animation: d1-drip 2.2s ease-in-out infinite; transform-origin: top; }
+@keyframes d1-drip { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+/* Chapters overlay the 3D walk */
+.d1-chapter {
+  min-height: 130vh;
+  display: flex; align-items: center;
+  padding: 0 clamp(20px, 7vw, 120px);
+}
+.d1-chapter.is-right { justify-content: flex-end; }
+.d1-plaque {
+  width: min(440px, 100%);
+  padding: 34px 34px 30px;
+  background: rgba(251, 247, 239, .82);
+  backdrop-filter: blur(8px) saturate(1.1); -webkit-backdrop-filter: blur(8px) saturate(1.1);
+  border: 1px solid rgba(185, 138, 62, .35);
+  box-shadow: 0 30px 60px -30px rgba(60, 40, 15, .45), inset 0 0 0 6px rgba(255, 255, 255, .45);
+  position: relative;
+}
+.d1-plaque::before, .d1-plaque::after {
+  content: ""; position: absolute; left: 14px; right: 14px; height: 10px;
+  background: repeating-linear-gradient(90deg, var(--d1-gold) 0 2px, transparent 2px 10px);
+  opacity: .5;
+}
+.d1-plaque::before { top: 10px; }
+.d1-plaque::after { bottom: 10px; }
+.d1-numeral { display: block; font: 400 54px/1 "Fredericka", serif; color: var(--d1-gold); margin: 8px 0 10px; }
+.d1-plaque h2 { margin: 0 0 12px; font: 400 clamp(28px, 3.2vw, 40px)/1.1 "Fredericka", serif; }
+.d1-plaque p { margin: 0 0 18px; color: var(--dz-muted); }
+.d1-link { font-weight: 600; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--d1-gold); padding-bottom: 2px; }
+
+/* Temple / navigation */
+.d1-temple { min-height: 120vh; padding: 20vh clamp(20px, 6vw, 100px) 14vh; display: flex; flex-direction: column; justify-content: flex-end; }
+.d1-temple-head { text-align: center; margin-bottom: 34px; }
+.d1-temple-head h2 { margin: 0; font: 400 clamp(36px, 6vw, 84px)/1 "Fredericka", serif; text-shadow: 0 2px 0 rgba(255,255,255,.6); }
+.d1-plaques { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 1080px; margin: 0 auto; width: 100%; }
+.d1-nav {
+  position: relative; display: flex; align-items: baseline; gap: 16px;
+  padding: 26px 26px; text-decoration: none;
+  background: linear-gradient(160deg, #fffdf8, #efe5d3);
+  border: 1px solid rgba(185, 138, 62, .4);
+  box-shadow: 0 18px 36px -24px rgba(60, 40, 15, .6);
+  transform-style: preserve-3d; transition: transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s;
+  overflow: hidden;
+}
+.d1-nav::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255, 230, 170, .55) 50%, transparent 70%); transform: translateX(-120%); transition: transform .8s; }
+.d1-nav:hover { transform: translateY(-6px) rotateX(6deg); box-shadow: 0 28px 50px -24px rgba(60, 40, 15, .7); }
+.d1-nav:hover::after { transform: translateX(120%); }
+.d1-nav-n { font: 400 26px/1 "Fredericka", serif; color: var(--d1-gold); min-width: 42px; }
+.d1-nav-label { font: 400 clamp(20px, 2vw, 26px)/1.1 "Fredericka", serif; }
+
+@media (max-width: 760px) {
+  .d1-chapter, .d1-chapter.is-right { justify-content: center; min-height: 110vh; }
+  .d1-plaques { grid-template-columns: 1fr 1fr; }
+  .d1-progress { right: 10px; }
+  .d1-progress-bar { height: 22vh; }
+}
+@media (max-width: 420px) {
+  .d1-plaques { grid-template-columns: 1fr; }
+  .d1-plaque { padding: 28px 22px 24px; }
+}
+.d1.no-webgl { background: linear-gradient(#f5ead6, #e2cfae); }

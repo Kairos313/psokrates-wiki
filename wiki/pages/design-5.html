@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{% include 'designs/_head.html' %}
+    <link href="{{ url_for('static', filename = 'designs/d5.css') }}" rel="stylesheet">
+    <title>Design 5 · Kinetic | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="d5">
+  <a class="dz-skip" href="#d5-main">Skip to content</a>
+  <canvas class="dz-stage" id="d5-stage" aria-hidden="true"></canvas>
+
+  <header class="d5-bar">
+    <a class="d5-logo" href="{{ url_for('home') }}"><img src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt=""><span>CUHK&#8209;HongKong&#8209;SBS</span></a>
+    <nav class="d5-menu" aria-label="Main">
+      <a href="{{ url_for('pages', page='description') }}">Project</a>
+      <a href="{{ url_for('pages', page='experiments') }}">Wet Lab</a>
+      <a href="{{ url_for('pages', page='model') }}">Dry Lab</a>
+      <a href="{{ url_for('pages', page='human-practices') }}">HP</a>
+      <a href="{{ url_for('pages', page='team') }}">Team</a>
+    </nav>
+  </header>
+
+  <main class="dz-content" id="d5-main">
+    <section class="d5-hero">
+      <p class="d5-meta"><span>iGEM 2026</span><span>Hong Kong</span><span>(Scroll)</span></p>
+      <h1 class="d5-title">
+        <span class="dz-line"><span class="d5-row">[PROJECT</span></span>
+        <span class="dz-line"><span class="d5-row d5-row-indent">NAME]<sup>&reg;</sup></span></span>
+      </h1>
+      <div class="d5-hero-foot">
+        <p class="d5-tagline">[One-line project tagline]</p>
+        <a class="d5-round" href="#d5-manifesto" data-hover><span>Start<br>here</span></a>
+      </div>
+    </section>
+
+    <div class="d5-marquee" aria-hidden="true">
+      <div class="d5-marquee-row"><span>CUHK-HongKong-SBS ✳ iGEM 2026 ✳ [PROJECT NAME] ✳&nbsp;</span><span>CUHK-HongKong-SBS ✳ iGEM 2026 ✳ [PROJECT NAME] ✳&nbsp;</span></div>
+      <div class="d5-marquee-row is-outline"><span>[Keyword] — [Keyword] — [Keyword] — [Keyword] —&nbsp;</span><span>[Keyword] — [Keyword] — [Keyword] — [Keyword] —&nbsp;</span></div>
+    </div>
+
+    <section class="d5-manifesto" id="d5-manifesto">
+      <p class="d5-label">(01) — Manifesto</p>
+      <p class="d5-big" id="d5-big">[A bold two or three sentence statement about the project, written by the team. This text lights up word by word as the reader scrolls, so keep it punchy and readable.]</p>
+    </section>
+
+    <section class="d5-stats">
+      {% for i in range(3) %}
+      <div class="d5-stat"><span class="d5-stat-n">[00]</span><span class="d5-stat-l">[Stat label]</span></div>
+      {% endfor %}
+    </section>
+
+    <section class="d5-chapters">
+      <div class="d5-chapters-pin">
+        <p class="d5-label">(02) — Chapters</p>
+        <div class="d5-strip">
+          {% for i in range(1, 6) %}
+          <article class="d5-card">
+            <span class="d5-card-n">{{ '%02d' % i }}</span>
+            <div class="d5-card-art" style="--h: {{ [14, 330, 260, 190, 40][i - 1] }}"></div>
+            <h2>[Section title]</h2>
+            <p>[Short paragraph — team to write]</p>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section class="d5-index">
+      <p class="d5-label">(03) — Index</p>
+      <div class="d5-bento">
+        {% set nav = [('Project','description','b1'),('Wet Lab','experiments','b2'),('Dry Lab','model','b3'),('Human Practices','human-practices','b4'),('Education','education','b5'),('Team','team','b6')] %}
+        {% for label, page, cls in nav %}
+        <a class="d5-tile {{ cls }}" href="{{ url_for('pages', page=page) }}">
+          <span class="d5-tile-n">{{ '%02d' % loop.index }}</span>
+          <span class="d5-tile-label">{{ label }}</span>
+          <span class="d5-tile-arrow" aria-hidden="true">&#8599;</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="d5-outro">
+      <p class="d5-outro-big"><span class="dz-line"><span class="d5-row">Let's</span></span><span class="dz-line"><span class="d5-row"><em>talk</em> science.</span></span></p>
+      <a class="d5-round d5-round-lg" href="{{ url_for('pages', page='team') }}" data-hover><span>Meet the<br>team</span></a>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+  {% set current = 5 %}{% include 'designs/_switcher.html' %}
+{% include 'designs/_scripts.html' %}
+  <script src="{{ url_for('static', filename = 'designs/d5.js') }}"></script>
+  </body>
+</html>

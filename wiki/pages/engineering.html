@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}Engineering{% endblock %}
+{% block html_class %}page-engineering{% endblock %}
+{% block body_class %}page-engineering{% endblock %}
+{% block site_header %}{% endblock %}
+
+{% block page_content %}
+<link href="{{ url_for('static', filename = 'engineering.css') }}" rel="stylesheet">
+
+<div class="eng-page">
+  <header class="eng-hero">
+    <div class="eng-hero-copy">
+      <h1 class="eng-hero-title">Engineering Cycle</h1>
+      <p class="eng-hero-sub">Design, Build, Test and Learn.</p>
+    </div>
+  </header>
+
+  {% macro eng_section(section_id, title) %}
+  <section class="eng-block" id="eng-{{ section_id }}" data-eng-section="{{ section_id }}">
+    <div class="eng-stage">
+      <div class="eng-board">
+        <div class="eng-cluster">
+          <h2 class="eng-section-title">{{ title }}</h2>
+          <div class="eng-head">
+            <h3 class="eng-head-title"></h3>
+            <p class="eng-head-cycle"></p>
+          </div>
+          <nav class="eng-sidebar" aria-label="{{ title }} engineering topics"></nav>
+          <div class="eng-cycle-col">
+            <div
+              class="eng-lottie"
+              data-lottie-path="{{ url_for('static', filename = 'images/engineering/cycle.json') }}"
+              aria-hidden="true"
+            ></div>
+            <div
+              class="eng-progress"
+              role="progressbar"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+              aria-label="Progress through this theme"
+            >
+              <div class="eng-progress-track">
+                <div class="eng-progress-fill"></div>
+              </div>
+              <span class="eng-progress-label">0%</span>
+            </div>
+            <p class="eng-progress-caption"></p>
+          </div>
+          <div class="eng-frame" aria-live="polite">
+            <article class="eng-phase" data-phase="intro">
+              <h4>Why this theme</h4>
+              <div class="eng-phase-body"></div>
+            </article>
+            <article class="eng-phase" data-phase="design">
+              <h4>Design</h4>
+              <div class="eng-phase-body"></div>
+            </article>
+            <article class="eng-phase" data-phase="build">
+              <h4>Build</h4>
+              <div class="eng-phase-body"></div>
+            </article>
+            <article class="eng-phase" data-phase="test">
+              <h4>Test</h4>
+              <div class="eng-phase-body"></div>
+            </article>
+            <article class="eng-phase" data-phase="learn">
+              <h4>Learn</h4>
+              <div class="eng-phase-body"></div>
+            </article>
+          </div>
+          <div class="eng-stepper">
+            <p class="eng-stepper-cue">Hint: Scroll right or press Next</p>
+            <button type="button" class="eng-step eng-step-prev">Back</button>
+            <button type="button" class="eng-step eng-step-next">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endmacro %}
+
+  {{ eng_section('lab', 'Lab') }}
+  {{ eng_section('drylab', 'Dry Lab') }}
+  {{ eng_section('ihp', 'IHP') }}
+  {{ eng_section('education', 'Education') }}
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+<script src="{{ url_for('static', filename = 'education-engineering.js') }}"></script>
+<script src="{{ url_for('static', filename = 'dry-lab-engineering.js') }}"></script>
+<script src="{{ url_for('static', filename = 'engineering.js') }}"></script>
+{% endblock %}

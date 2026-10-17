@@ -1,0 +1,1001 @@
+.home-figma-slot {
+  position: relative;
+  width: 100%;
+  height: calc(12140 / 1440 * 100vw);
+  overflow: hidden;
+  background: #fdf9f3;
+}
+
+.home-figma {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 12140px;
+  background: #fdf9f3;
+  transform-origin: top left;
+  color: #000000;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.home-figma img,
+.home-figma video,
+.home-figma iframe,
+.home-figma .fg-balance,
+.home-figma p,
+.home-figma h2 {
+  position: absolute;
+  margin: 0;
+  display: block;
+}
+
+.home-figma img,
+.home-figma video {
+  object-fit: fill;
+}
+
+.home-figma p,
+.home-figma h2 {
+  line-height: normal;
+  z-index: 3;
+}
+
+.fg-orange {
+  color: #ec882b;
+}
+
+.fg-olive {
+  color: #948f62;
+}
+
+.fg-teal {
+  color: #61a18f;
+}
+
+/* ==========================================================================
+   1. SYMPTOMS SECTION (y = 3096)
+   ========================================================================== */
+
+.fg-break1 {
+  left: 171px;
+  top: 36px;
+  width: 70px;
+  height: 52px;
+  opacity: 1;
+  z-index: 2;
+}
+
+.fg-break2 {
+  left: 215px;
+  top: 43px;
+  width: 137px;
+  height: 140px;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.fg-break3 {
+  left: 352px;
+  top: 178px;
+  width: 83px;
+  height: 116px;
+  opacity: 1;
+  z-index: 2;
+}
+
+.fg-break5 {
+  left: 260px;
+  top: 192px;
+  width: 56px;
+  height: 57px;
+  opacity: 0.35;
+  z-index: 2;
+}
+
+.fg-mirror {
+  left: 88px;
+  top: 301px;
+  width: 456px;
+  height: 592px;
+  opacity: 0.9;
+  border-radius: 136.5px;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Types of psoriasis — empty space to the right of the mirror */
+.fg-types {
+  position: absolute;
+  left: 540px;
+  top: 38px;
+  width: 900px;
+  height: 780px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.fg-types-copy {
+  position: absolute;
+  left: 30px;
+  top: 310px;
+  width: 400px;
+  pointer-events: none;
+}
+
+.fg-types-copy p,
+.fg-types-copy h3 {
+  position: static;
+  margin: 0;
+}
+
+.fg-types-hint {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  line-height: 1.35;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.fg-types.is-active .fg-types-hint {
+  display: none;
+}
+
+.fg-types-detail {
+  display: none;
+}
+
+.fg-types.is-active .fg-types-detail {
+  display: block;
+}
+
+.fg-types-title {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--fg-types-color, #2a5b6f);
+  margin: 0 0 16px;
+}
+
+.fg-types-text {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.fg-types-figure {
+  /* Edit these two numbers to move the man */
+  --man-left: 520px; /* smaller = left, larger = right */
+  --man-top: 30px;   /* smaller = up, larger = down */
+  position: absolute;
+  left: var(--man-left);
+  top: var(--man-top);
+  width: 244px;
+  height: 719px;
+  pointer-events: auto;
+}
+
+.fg-types-figure img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 244px;
+  height: 719px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.fg-types-overlay {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fg-types-base {
+  z-index: 2;
+}
+
+/* ==========================================================================
+   2. HISTORY SECTION (y = 3941)
+   ========================================================================== */
+
+.fg-break4 {
+  left: 47px;
+  top: 815px;
+  width: 1348px;
+  height: 415px;
+  opacity: 1;
+  z-index: 1;
+}
+
+.fg-title {
+  left: 590px;
+  top: 961px;
+  width: 739px;
+  height: 236px;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 64px;
+  line-height: 1.15;
+  color: #ec882b;
+}
+
+/* Figma stroke BOOLEAN_OPERATION: box = (210.5, 4242), width 1230, height 3629 */
+.fg-stroke {
+  left: 210px;
+  top: 1146px;
+  width: 1230px;
+  height: 3629px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.fg-year-460 {
+  left: 93px;
+  top: 1292px;
+  width: 322px;
+  font-size: 64px;
+  color: #948f62;
+}
+
+.fg-hippocrates {
+  left: 436px;
+  top: 1384px;
+  width: 658px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-history1 {
+  left: 113px;
+  top: 1519px;
+  width: 264px;
+  height: 351px;
+  z-index: 2;
+}
+
+.fg-year-150 {
+  left: 1225px;
+  top: 1644px;
+  width: 545px;
+  font-size: 64px;
+  color: #928f62;
+}
+
+.fg-galen {
+  left: 588px;
+  top: 1817px;
+  width: 610px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-history2 {
+  left: 181px;
+  top: 2009px;
+  width: 287px;
+  height: 270px;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.fg-history3 {
+  left: 853px;
+  top: 2026px;
+  width: 345px;
+  height: 208px;
+  z-index: 2;
+}
+
+.fg-castout {
+  left: 131px;
+  top: 2305px;
+  width: 851px;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.fg-history4 {
+  left: 352px;
+  top: 2552px;
+  width: 309px;
+  height: 323px;
+  z-index: 2;
+}
+
+.fg-leprosy {
+  left: 690px;
+  top: 2552px;
+  width: 470px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-history5 {
+  left: 776px;
+  top: 2999px;
+  width: 355px;
+  height: 357px;
+  z-index: 2;
+}
+
+.fg-exile {
+  left: 269px;
+  top: 3060px;
+  width: 474px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-history6 {
+  left: 1198px;
+  top: 3341px;
+  width: 241px;
+  height: 193px;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.fg-year-2026 {
+  left: 289px;
+  top: 3482px;
+  width: 545px;
+  font-size: 64px;
+  color: #d09945;
+}
+
+.fg-centuries {
+  left: 550px;
+  top: 3605px;
+  width: 857px;
+  font-size: 40px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-history7 {
+  left: 815px;
+  top: 3709px;
+  width: 287px;
+  height: 335px;
+  z-index: 2;
+}
+
+.fg-tragedy {
+  left: 249px;
+  top: 3987px;
+  width: 503px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-riddle {
+  left: 857px;
+  top: 4022px;
+  width: 503px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-history8 {
+  left: 117px;
+  top: 4066px;
+  width: 288px;
+  height: 282px;
+  opacity: 0.9;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   3. VOICES SECTION (y = 7462)
+   ========================================================================== */
+
+.fg-stigma {
+  left: 21px;
+  top: 4518px;
+  width: 1353px;
+  font-size: 64px;
+  text-align: center;
+  color: #000000;
+}
+
+.fg-voice1 {
+  left: 3px;
+  top: 4607px;
+  width: 1444px;
+  height: 1228px;
+  opacity: 0.81;
+  z-index: 1;
+}
+
+.fg-voices-map {
+  position: absolute;
+  left: 220px;
+  top: 4691px;
+  width: 1064px;
+  height: 911px;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+.fg-voices-map .fg-voice2 {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.fg-voices-hint {
+  position: absolute;
+  left: 8px;
+  top: 300px;
+  width: 250px;
+  z-index: 4;
+  margin: 0;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 28px;
+  line-height: 1.35;
+  color: #f6e7a8;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+
+.fg-voices-map.is-hint-hidden .fg-voices-hint {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.fg-star-nodes {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fg-star-node {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+  box-shadow:
+    0 0 6px 2px rgba(255, 236, 170, 0.7),
+    0 0 12px 5px rgba(232, 196, 90, 0.35);
+  animation: fg-star-pulse 2.4s ease-in-out infinite;
+}
+
+.fg-star-node::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+}
+
+.fg-star-node:hover,
+.fg-star-node:focus-visible {
+  outline: none;
+  animation: none;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.35);
+  box-shadow:
+    0 0 10px 4px rgba(255, 244, 200, 0.95),
+    0 0 20px 8px rgba(232, 196, 90, 0.55);
+}
+
+@keyframes fg-star-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow:
+      0 0 4px 1px rgba(255, 236, 170, 0.4),
+      0 0 10px 4px rgba(232, 196, 90, 0.22);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.18);
+    box-shadow:
+      0 0 8px 3px rgba(255, 244, 200, 0.85),
+      0 0 16px 6px rgba(232, 196, 90, 0.45);
+  }
+}
+
+.fg-star-quote {
+  position: absolute;
+  left: 36px;
+  top: 96px;
+  width: 280px;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  line-height: 1.35;
+  color: #f3dd8a;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E"),
+    linear-gradient(165deg, #fff8d0 0%, #f0d56a 42%, #c9a227 100%);
+  background-size: 140px 140px, 100% 100%;
+  background-repeat: repeat, no-repeat;
+  background-blend-mode: overlay;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  mix-blend-mode: screen;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(0.92);
+  filter:
+    blur(5px)
+    drop-shadow(0 0 4px rgba(255, 244, 200, 0.85))
+    drop-shadow(0 0 12px rgba(232, 196, 90, 0.45));
+}
+
+.fg-star-quote--right {
+  left: auto;
+  right: 24px;
+  top: 560px;
+  width: 320px;
+}
+
+.fg-star-quote--top-right {
+  left: auto;
+  right: 28px;
+  top: 36px;
+  width: 290px;
+}
+
+.fg-star-quote--bottom-left {
+  left: -48px;
+  top: 620px;
+  width: 280px;
+}
+
+.fg-star-quote.is-visible {
+  visibility: visible;
+  animation: fg-star-quote-rise 5s ease-in-out forwards;
+}
+
+@keyframes fg-star-quote-rise {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+    filter:
+      blur(3px)
+      drop-shadow(0 0 0 rgba(255, 244, 200, 0));
+  }
+  8% {
+    opacity: 1;
+    transform: scale(1);
+    filter:
+      blur(0)
+      drop-shadow(0 0 6px rgba(255, 244, 200, 0.95))
+      drop-shadow(0 0 16px rgba(232, 196, 90, 0.55));
+  }
+  72% {
+    opacity: 1;
+    filter:
+      blur(0)
+      drop-shadow(0 0 5px rgba(255, 244, 200, 0.9))
+      drop-shadow(0 0 14px rgba(232, 196, 90, 0.45));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.06);
+    filter:
+      blur(4px)
+      drop-shadow(0 0 2px rgba(255, 244, 200, 0.3));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-star-node {
+    animation: none;
+    opacity: 0.75;
+  }
+
+  .fg-star-quote {
+    filter: none;
+    transform: none;
+  }
+
+  .fg-star-quote.is-visible {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.fg-balance {
+  left: -116px;
+  top: 5855px;
+  width: 868px;
+  height: 505px;
+  z-index: 2;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+}
+
+.fg-balance svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.fg-steroids {
+  left: 808px;
+  top: 5879px;
+  width: 559px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-methotrexate {
+  left: 821px;
+  top: 6125px;
+  width: 546px;
+  font-size: 36px;
+  line-height: 1.25;
+  color: #000000;
+}
+
+.fg-how-might-we {
+  left: 241px;
+  top: 6549px;
+  width: 958px;
+  font-size: 40px;
+  line-height: 1.25;
+  text-align: center;
+  color: #000000;
+  z-index: 4;
+}
+
+.fg-how-might-we .fg-how-lg {
+  font-size: 48px;
+}
+
+/* ==========================================================================
+   4. OUR SOLUTION SECTION (y = 9865)
+   ========================================================================== */
+
+.fg-solution {
+  left: 114px;
+  top: 6889px;
+  width: 927px;
+  font-size: 128px;
+  line-height: 1;
+  color: #000000;
+}
+
+.fg-pipette {
+  left: 546px;
+  top: 6852px;
+  width: 691px;
+  height: 694px;
+  z-index: 2;
+}
+
+.fg-logo-big {
+  left: 76px;
+  top: 7379px;
+  width: 1340px;
+  height: 354px;
+  z-index: 2;
+}
+
+.fg-bottle {
+  left: -32px;
+  top: 7558px;
+  width: 924px;
+  height: 1048px;
+  z-index: 2;
+}
+
+.fg-open-frame {
+  left: 553px;
+  top: 8039px;
+  width: 486px;
+  height: 541px;
+  z-index: 2;
+}
+
+.fg-bacteria {
+  left: 297px;
+  top: 8163px;
+  width: 296px;
+  height: 254px;
+  z-index: 3;
+}
+
+.fg-plasmid {
+  left: 836px;
+  top: 8088px;
+  width: 511px;
+  height: 436px;
+  z-index: 2;
+}
+
+.fg-engineered {
+  left: 99px;
+  top: 8584px;
+  width: 1273px;
+  font-size: 36px;
+  line-height: 1.35;
+  color: #000000;
+}
+
+.fg-fused {
+  left: -3px;
+  top: 8828px;
+  width: 952px;
+  height: 494px;
+  z-index: 2;
+}
+
+.fg-skin {
+  left: 0;
+  top: 8802px;
+  width: 1440px;
+  height: 1714px;
+  z-index: 1;
+}
+
+.fg-label-il23ra {
+  left: 194px;
+  top: 8939px;
+  width: 151px;
+  font-size: 24px;
+  color: #ec882b;
+}
+
+.fg-label-lkekk {
+  left: 624px;
+  top: 8977px;
+  width: 151px;
+  font-size: 24px;
+  color: #ec882b;
+}
+
+.fg-label-tace {
+  left: 473px;
+  top: 9161px;
+  width: 151px;
+  font-size: 24px;
+  color: #61a18f;
+}
+
+.fg-label-tnfa {
+  left: 892px;
+  top: 9270px;
+  width: 514px;
+  font-size: 36px;
+  line-height: 1.3;
+  color: #000000;
+}
+
+.fg-peptide {
+  left: 280px;
+  top: 9378px;
+  width: 193px;
+  height: 85px;
+  z-index: 2;
+}
+
+.fg-tnf1 {
+  left: 1054px;
+  top: 9382px;
+  width: 80px;
+  height: 81px;
+  z-index: 2;
+}
+
+.fg-tnf2 {
+  left: 347px;
+  top: 9434px;
+  width: 82px;
+  height: 83px;
+  z-index: 2;
+}
+
+.fg-tace-cleaved {
+  left: 70px;
+  top: 9476px;
+  width: 306px;
+  font-size: 36px;
+  color: #000000;
+}
+
+.fg-il23ra {
+  left: 178px;
+  top: 9857px;
+  width: 198px;
+  height: 128px;
+  z-index: 2;
+}
+
+.fg-lkekk {
+  left: 1001px;
+  top: 9889px;
+  width: 148px;
+  height: 122px;
+  z-index: 2;
+}
+
+.fg-macro {
+  left: 45px;
+  top: 9985px;
+  width: 312px;
+  height: 207px;
+  z-index: 2;
+}
+
+.fg-macrophage {
+  left: 286px;
+  top: 10064px;
+  width: 514px;
+  font-size: 24px;
+  color: #000000;
+}
+
+.fg-lkekk-up {
+  left: 892px;
+  top: 10143px;
+  width: 514px;
+  font-size: 40px;
+  line-height: 1.3;
+  color: #000000;
+}
+
+.fg-il23r-inhibited {
+  left: 68px;
+  top: 10220px;
+  width: 409px;
+  font-size: 36px;
+  line-height: 1.3;
+  color: #000000;
+}
+
+.fg-cover {
+  left: 9px;
+  top: 10221px;
+  width: 29px;
+  height: 160px;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   5. MAP / COMMUNITY / SUPPORTERS SECTION (y = 13612)
+   ========================================================================== */
+
+.fg-map-frame {
+  position: absolute;
+  left: 5px;
+  top: 10516px;
+  width: 1440px;
+  height: 1624px;
+  background: #f8f3e7;
+  z-index: 0;
+}
+
+.fg-map {
+  left: -23px;
+  top: 10641px;
+  width: 1473px;
+  height: 1473px;
+  z-index: 1;
+}
+
+.fg-arena {
+  left: 722px;
+  top: 10691px;
+  width: 686px;
+  height: 686px;
+  z-index: 3;
+}
+
+.fg-people {
+  left: 185px;
+  top: 10817px;
+  width: 340px;
+  height: 300px;
+  z-index: 3;
+}
+
+.fg-building {
+  left: 760px;
+  top: 11299px;
+  width: 516px;
+  height: 491px;
+  z-index: 3;
+}
+
+.fg-tree {
+  left: 28px;
+  top: 11400px;
+  width: 655px;
+  height: 617px;
+  z-index: 3;
+}
+
+.fg-map-hotspot {
+  position: absolute;
+  display: block;
+  pointer-events: auto;
+  cursor: pointer;
+  transform-origin: center center;
+  transition: transform 0.28s ease, filter 0.28s ease, z-index 0s;
+}
+
+.fg-map-hotspot img {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.fg-map-hotspot-label {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(26, 18, 8, 0.82);
+  color: #f7f1de;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.fg-map-hotspot:hover,
+.fg-map-hotspot:focus-visible {
+  outline: none;
+  z-index: 6;
+  transform: scale(1.045);
+  filter: drop-shadow(0 10px 22px rgba(26, 18, 8, 0.28)) brightness(1.06);
+}
+
+.fg-map-hotspot:hover .fg-map-hotspot-label,
+.fg-map-hotspot:focus-visible .fg-map-hotspot-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-map-hotspot,
+  .fg-map-hotspot-label {
+    transition: none;
+  }
+
+  .fg-map-hotspot:hover,
+  .fg-map-hotspot:focus-visible {
+    transform: none;
+  }
+}
+

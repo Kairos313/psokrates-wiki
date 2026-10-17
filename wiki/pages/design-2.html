@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+{% include 'designs/_head.html' %}
+    <link href="{{ url_for('static', filename = 'designs/d2.css') }}" rel="stylesheet">
+    <title>Design 2 · Amphora | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="d2">
+  <a class="dz-skip" href="#d2-main">Skip to content</a>
+  <canvas class="dz-stage" id="d2-stage" aria-hidden="true"></canvas>
+
+  <a class="dz-brand" href="{{ url_for('home') }}">
+    <img src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+    <span>CUHK-HongKong-SBS</span>
+  </a>
+
+  <main class="dz-content" id="d2-main">
+    <section class="d2-hero">
+      <svg class="d2-meander d2-meander-top" aria-hidden="true"><path/></svg>
+      <div class="d2-hero-copy">
+        <p class="d2-kicker">iGEM 2026 &middot; CUHK-HongKong-SBS</p>
+        <h1 class="d2-title"><span class="d2-title-line" id="d2-title">[PROJECT NAME]</span></h1>
+        <p class="d2-tagline">[One-line project tagline]</p>
+        <a class="d2-btn" href="#d2-panels" data-hover><span>Turn the vessel</span></a>
+      </div>
+      <svg class="d2-meander d2-meander-bottom" aria-hidden="true"><path/></svg>
+    </section>
+
+    <div class="d2-panels" id="d2-panels">
+      {% for n in ['Α','Β','Γ','Δ'] %}
+      <section class="d2-panel" data-index="{{ loop.index0 }}">
+        <div class="d2-panel-copy">
+          <span class="d2-letter">{{ n }}</span>
+          <p class="d2-panel-kicker">Panel {{ loop.index }} of 4</p>
+          <h2>[Section title]</h2>
+          <p>[Short paragraph — team to write]</p>
+          <p class="ph-note">[Optional second paragraph — team to write]</p>
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+
+    <section class="d2-stats">
+      {% for i in range(3) %}
+      <div class="d2-stat">
+        <span class="d2-stat-n">[00]</span>
+        <span class="d2-stat-l">[Stat label]</span>
+      </div>
+      {% endfor %}
+    </section>
+
+    <section class="d2-shards">
+      <h2 class="d2-shards-title">Pick up a shard</h2>
+      <p class="d2-shards-sub">Every ostrakon leads somewhere.</p>
+      <div class="d2-shard-grid">
+        {% set nav = [('Project','description'),('Wet Lab','experiments'),('Dry Lab','model'),('Human Practices','human-practices'),('Education','education'),('Team','team')] %}
+        {% for label, page in nav %}
+        <a class="d2-shard d2-shard-{{ loop.index }}" href="{{ url_for('pages', page=page) }}">
+          <span class="d2-shard-n">{{ ['Ι','ΙΙ','ΙΙΙ','ΙV','V','VΙ'][loop.index0] }}</span>
+          <span class="d2-shard-label">{{ label }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+
+  {% include 'footer.html' %}
+  {% set current = 2 %}{% include 'designs/_switcher.html' %}
+{% include 'designs/_scripts.html' %}
+  <script src="{{ url_for('static', filename = 'designs/d2.js') }}"></script>
+  </body>
+</html>

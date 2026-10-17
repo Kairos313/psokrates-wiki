@@ -1,0 +1,6 @@
+<nav class="dz-switcher" aria-label="Design prototypes">
+  <a class="dz-switcher-home" href="{{ url_for('pages', page='designs') }}" aria-label="All designs">&#9638;</a>
+  {% for n in range(1, 6) %}
+  <a class="dz-switcher-dot{% if n == current %} is-active{% endif %}" href="{{ url_for('pages', page='design-' ~ n) }}"{% if n == current %} aria-current="page"{% endif %}>{{ n }}</a>
+  {% endfor %}
+</nav>

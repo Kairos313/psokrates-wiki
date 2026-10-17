@@ -1,0 +1,70 @@
+{% import 'stoa/_nav_data.html' as sn with context %}<!doctype html>
+<html lang="en" class="nova {% block html_class %}{% endblock %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#05070b">
+    <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+    <link href="{{ url_for('static', filename = 'bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename = 'nova/nova.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename = 'nova/nova-pages.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename = 'nova/nova-greek.css') }}" rel="stylesheet">
+    <script>
+      document.documentElement.classList.add("js");
+      try { if (sessionStorage.getItem("nova-seen")) document.documentElement.classList.add("nova-seen"); if (sessionStorage.getItem("nova-transition")) document.documentElement.classList.add("nv-arriving"); } catch (e) {}
+    </script>
+    <title>{% block title %}{% endblock %} | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="nova-body {% block body_class %}{% endblock %}" data-page="{{ sn.slug }}">
+  <a class="nv-skip" href="#nv-main">Skip to content</a>
+
+  <!-- Loader (first visit in a session) -->
+  <div class="nv-loader" id="nv-loader" aria-hidden="true">
+    <div class="nv-loader-inner">
+      <img class="nv-loader-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+      <p class="nv-loader-name" data-scramble>CUHK-HongKong-SBS</p>
+      <p class="nv-loader-count"><span id="nv-count">000</span><i>%</i></p>
+      <p class="nv-loader-sub">iGEM 2026</p>
+    </div>
+    <span class="nv-corner tl"></span><span class="nv-corner tr"></span><span class="nv-corner bl"></span><span class="nv-corner br"></span>
+  </div>
+
+  <!-- Page transition -->
+  <div class="nv-wipe" id="nv-wipe" aria-hidden="true"><canvas id="nv-wipe-canvas"></canvas><p class="nv-wipe-label" id="nv-wipe-label"></p></div>
+
+  <!-- Ambient layers -->
+  <div class="nv-grain" id="nv-grain" aria-hidden="true"></div>
+  <div class="nv-vignette" aria-hidden="true"></div>
+
+  {% include 'menu.html' %}
+
+  {% block intro_overlay %}{% endblock %}
+
+  <main id="nv-main" class="nv-main">
+  {% block site_header %}
+  <header class="nv-hero" data-hero>
+    <canvas class="nv-hero-canvas" aria-hidden="true"></canvas>
+    <div class="nv-hero-inner">
+      <p class="nv-label">{% if sn.section %}[ {{ sn.numerals[sn.section] }} ] {{ sn.section }}{% else %}[ CUHK-HongKong-SBS ]{% endif %}</p>
+      <h1 class="nv-hero-title" data-split>{{ self.title() }}</h1>
+      <p class="nv-hero-lead">{% block lead %}{% endblock %}</p>
+    </div>
+    <div class="nv-hero-meta" aria-hidden="true"><span>iGEM 2026</span><span class="nv-scrollcue">Scroll</span></div>
+  </header>
+  {% endblock %}
+
+  <div class="container nv-container">
+    {% block page_content %}{% endblock %}
+  </div>
+
+  {{ sn.pager() }}
+  </main>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  {% include 'footer.html' %}
+
+  <script src="{{ url_for('static', filename = 'nova/nova.js') }}"></script>
+  {% block page_scripts %}{% endblock %}
+</body>
+</html>

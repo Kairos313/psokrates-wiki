@@ -1,0 +1,347 @@
+.home-socrates-scroll {
+  position: relative;
+  height: 420vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+.home-socrates-scroll .pin-spacer {
+  background: #ffffff;
+}
+
+.home-socrates-pin {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #ffffff;
+  --home-socrates-veil: 0;
+}
+
+/* Merged into home pin — no separate runway */
+.home-merged-pin .home-socrates-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  color: #0a0a0a;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.home-merged-pin .test-teams-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #0a0a0a;
+  min-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.home-merged-pin .test-teams-layer .test-teams-pin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.home-merged-pin .home-socrates-layer #home-socrates-canvas {
+  pointer-events: none;
+}
+
+.home-socrates-pin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: #ffffff;
+  opacity: var(--home-socrates-veil, 0);
+  pointer-events: none;
+}
+
+.home-socrates-color-wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+#home-socrates-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#home-socrates-canvas.home-socrates-canvas-visible {
+  mix-blend-mode: normal;
+  filter: contrast(1.04) saturate(0.92) brightness(1.02);
+}
+
+#home-socrates-canvas.home-socrates-canvas-handoff {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  inset: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 40;
+  will-change: opacity, filter;
+}
+
+.home-socrates-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.home-socrates-voices-heading {
+  position: absolute;
+  top: 28%;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  margin: 0;
+  height: 0;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: rgba(18, 14, 10, 0.9);
+  pointer-events: none;
+}
+
+.home-socrates-voices-heading__word {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  font-size: clamp(3.2rem, 7.2vw, 6rem);
+  font-style: italic;
+  opacity: 0;
+  will-change: opacity, transform, filter, letter-spacing;
+}
+
+.home-socrates-voices-heading__word--left {
+  left: 7vw;
+  transform-origin: right center;
+}
+
+.home-socrates-voices-heading__word--right {
+  right: 7vw;
+  transform-origin: left center;
+  text-align: right;
+}
+
+.home-socrates-voices-heading__word::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.28em;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 160, 89, 0.75) 18%,
+    rgba(197, 160, 89, 0.75) 82%,
+    transparent 100%
+  );
+  transform: scaleX(var(--heading-rule, 0));
+  transform-origin: center;
+}
+
+.home-socrates-voices {
+  position: absolute;
+  inset: 0;
+}
+
+.home-socrates-voice {
+  position: absolute;
+  max-width: min(22rem, 36vw);
+  margin: 0;
+  padding: 0 0 0 0.85rem;
+  border: none;
+  border-left: 2px solid rgba(197, 160, 89, 0.7);
+  font-size: clamp(1.12rem, 1.85vw, 1.42rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: rgba(26, 18, 8, 0.88);
+  text-shadow: none;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.home-socrates-voice--pos-2,
+.home-socrates-voice--pos-4,
+.home-socrates-voice--pos-5 {
+  padding: 0 0.85rem 0 0;
+  border-left: none;
+  border-right: 2px solid rgba(197, 160, 89, 0.7);
+}
+
+.home-socrates-voice--pos-1 {
+  top: 16%;
+  left: 8vw;
+}
+
+.home-socrates-voice--pos-2 {
+  top: 34%;
+  right: 8vw;
+  text-align: right;
+}
+
+.home-socrates-voice--pos-3 {
+  top: 54%;
+  left: 10vw;
+}
+
+.home-socrates-voice--pos-4 {
+  top: 24%;
+  right: 12vw;
+  text-align: right;
+}
+
+.home-socrates-voice--pos-5 {
+  top: 68%;
+  right: 9vw;
+  text-align: right;
+}
+
+.home-socrates-voice--pos-6 {
+  top: 44%;
+  left: 7vw;
+}
+
+.home-socrates-treatment-transition {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 8vw;
+  pointer-events: none;
+}
+
+.home-socrates-transition-line {
+  position: absolute;
+  max-width: min(78vw, 860px);
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.45rem, 3.4vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: #0a0a0a;
+  text-shadow: none;
+  opacity: 0;
+}
+
+.home-socrates-transition-line--secondary {
+  color: #8f6634;
+  font-size: clamp(1.25rem, 2.8vw, 2.2rem);
+  font-weight: 550;
+  line-height: 1.28;
+}
+
+.home-socrates-transition-beam {
+  display: none;
+}
+
+.home-socrates-hint {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 50%;
+  z-index: 5;
+  margin: 0;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26, 18, 8, 0.42);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .home-socrates-scroll {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .home-socrates-pin {
+    position: relative;
+    min-height: 100svh;
+  }
+
+  #home-socrates-canvas {
+    opacity: 0.72;
+    min-height: 70vh;
+  }
+
+  #home-socrates-canvas.home-socrates-canvas-visible {
+    mix-blend-mode: normal;
+    filter: contrast(1.04) saturate(0.92) brightness(1.02);
+  }
+
+  .home-socrates-voices,
+  .home-socrates-voices-heading,
+  .home-socrates-treatment-transition {
+    display: none;
+  }
+
+  .home-socrates-hint {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #home-socrates-canvas {
+    opacity: 0.72;
+  }
+
+  #home-socrates-canvas.home-socrates-canvas-visible {
+    mix-blend-mode: normal;
+    filter: contrast(1.04) saturate(0.92) brightness(1.02);
+  }
+
+  .home-socrates-voices,
+  .home-socrates-voices-heading,
+  .home-socrates-treatment-transition {
+    display: none;
+  }
+
+  .home-socrates-hint {
+    opacity: 1;
+  }
+}

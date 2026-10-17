@@ -1,0 +1,377 @@
+/* IHP page — layout matches current Figma after sofa/frame resize. */
+
+body.page-ihp {
+  background: #fcf9f3;
+}
+
+body.page-ihp > .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
+.ihp-slot {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #fcf9f3;
+}
+
+.ihp-board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 8200px;
+  transform-origin: top left;
+  color: #000000;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+/* Figma 717:233 / 717:235 — stroked Fredoka One titles as SVG exports. */
+.ihp-title-integrated,
+.ihp-title-practice {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  z-index: 3;
+}
+
+.ihp-title-integrated {
+  left: 82px;
+  top: 171px;
+  width: 488px;
+  height: 104px;
+}
+
+.ihp-title-practice {
+  left: 493px;
+  top: 368px;
+  width: 728px;
+  height: 86px;
+}
+
+.ihp-title-integrated img,
+.ihp-title-practice img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Figma: x=106, y=560, 1184×740 — matches ihp-frame-1.png */
+.ihp-parchment {
+  position: absolute;
+  left: 106px;
+  top: 560px;
+  width: 1184px;
+  height: 740px;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Figma Group 1: x=-140.7, y=1269, 1691.7×1013 */
+.ihp-group1 {
+  position: absolute;
+  left: -140.7px;
+  top: 1269px;
+  width: 1691.7px;
+  height: 1013px;
+  z-index: 2;
+}
+
+.ihp-group1-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: default;
+}
+
+.ihp-group1-viewport.is-over-char {
+  cursor: pointer;
+}
+
+.ihp-group1-scene {
+  position: absolute;
+  inset: 0;
+  width: 1691.7px;
+  height: 1013px;
+  transform-origin: 0 0;
+  transform: translate3d(var(--ihp-tx, 0px), var(--ihp-ty, 0px), 0)
+    scale(var(--ihp-zoom, 1));
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Board-aligned overlay (1440 wide) so text never sits outside the screen. */
+.ihp-group1-ui {
+  position: absolute;
+  left: 0;
+  top: 1269px;
+  width: 1440px;
+  height: 1013px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.ihp-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 64px;
+  height: 64px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(252, 249, 243, 0.94);
+  color: #1a1208;
+  box-shadow: 0 10px 28px rgba(26, 18, 8, 0.16);
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+  z-index: 45;
+  display: grid;
+  place-items: center;
+}
+
+.ihp-nav-prev {
+  left: 18px;
+}
+
+.ihp-nav-next {
+  right: 18px;
+}
+
+.ihp-group1-ui.is-focusing .ihp-nav-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ihp-nav-arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.ihp-nav-arrow:focus-visible {
+  outline: 3px solid rgba(26, 18, 8, 0.35);
+  outline-offset: 3px;
+}
+
+.ihp-char-panel {
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  width: 680px;
+  max-width: calc(100% - 96px);
+  height: 400px;
+  max-height: 40%;
+  padding: 28px 30px 32px;
+  border-radius: 28px;
+  background: rgba(252, 249, 243, 0.96);
+  color: #1a1208;
+  box-shadow: 0 18px 40px rgba(26, 18, 8, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-50% + 12px));
+  transition: opacity 0.35s ease 0.08s, transform 0.35s ease 0.08s;
+  z-index: 40;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.ihp-char-panel.is-side-left {
+  left: 56px;
+  right: auto;
+}
+
+.ihp-char-panel.is-side-right {
+  right: 56px;
+  left: auto;
+}
+
+.ihp-char-panel.is-visible {
+  opacity: 1;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+/* Uncropped *_1 portraits placed below Group 1 (Figma layout). */
+.ihp-portraits {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ihp-portrait-page {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  display: block;
+  object-fit: contain;
+  object-position: center bottom;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Figma sofa inside group: x=246.7, y=0, 1225×1013 — matches sofa.png */
+.ihp-sofa {
+  position: absolute;
+  left: 246.7px;
+  top: 0;
+  width: 1225px;
+  height: 1013px;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.ihp-sofa.is-dim {
+  opacity: 0.3;
+}
+
+.ihp-art {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  z-index: var(--z);
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 1;
+  transform-origin: center bottom;
+  transition: opacity 0.4s ease, transform 0.28s ease, filter 0.28s ease;
+}
+
+.ihp-art.is-away {
+  opacity: 0;
+}
+
+.ihp-art.is-hint {
+  transform: translateY(-10px) scale(1.04);
+  filter: drop-shadow(0 12px 18px rgba(26, 18, 8, 0.28));
+  z-index: 28;
+}
+
+.ihp-art.is-focus {
+  opacity: 1;
+  z-index: 30;
+  transform: none;
+  filter: none;
+}
+
+.ihp-hit {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  z-index: var(--z);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  /* Mouse uses alpha picking on the art; hits stay for keyboard / a11y. */
+  pointer-events: none;
+}
+
+.ihp-hit:focus-visible {
+  outline: 3px solid rgba(26, 18, 8, 0.35);
+  outline-offset: 4px;
+  pointer-events: auto;
+}
+
+.ihp-hit.is-away {
+  pointer-events: none;
+}
+
+.ihp-hit.is-hint {
+  z-index: 40;
+}
+
+.ihp-char-name {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%) translateY(6px);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(252, 249, 243, 0.96);
+  color: #1a1208;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  line-height: 1.15;
+  white-space: normal;
+  text-align: center;
+  max-width: 240px;
+  box-shadow: 0 6px 18px rgba(26, 18, 8, 0.14);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 50;
+}
+
+.ihp-hit.is-hint .ihp-char-name,
+.ihp-hit:focus-visible .ihp-char-name {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  bottom: calc(100% + 22px);
+}
+
+.ihp-group1.is-focusing .ihp-char-name {
+  opacity: 0 !important;
+}
+
+.ihp-char-panel-title {
+  margin: 0 0 12px;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.ihp-char-panel-body {
+  margin: 0;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.35;
+  color: rgba(26, 18, 8, 0.82);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ihp-group1-scene,
+  .ihp-sofa,
+  .ihp-art,
+  .ihp-char-panel,
+  .ihp-char-name {
+    transition: none;
+  }
+}

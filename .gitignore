@@ -1,0 +1,18 @@
+env
+venv
+.vscode
+__pycache__
+public
+.venv
+.DS_Store
+.claude/desktop-preview/
+.claude/stoa-overnight-preview.jpg
+.claude/launch.json
+.claude/nova-preview-*.jpg
+
+# local
+.venv/
+public/
+__pycache__/
+.DS_Store
+*.mp4
