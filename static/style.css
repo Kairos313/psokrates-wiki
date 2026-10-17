@@ -1,0 +1,1774 @@
+@font-face {
+  font-family: "Fredericka the Great";
+  src: url("fonts/FrederickatheGreat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fredoka One";
+  src: url("fonts/FredokaOne-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("fonts/Fredoka-Regular.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("https://static.igem.wiki/teams/6309/wiki/fonts/ibmplexserif-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  padding-top: 56px;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+}
+
+/* Custom circle cursor (desktop; enabled by custom-cursor.js) */
+html.custom-cursor-active,
+html.custom-cursor-active body {
+  cursor: none;
+}
+
+html.custom-cursor-active a,
+html.custom-cursor-active button,
+html.custom-cursor-active .btn,
+html.custom-cursor-active input,
+html.custom-cursor-active select,
+html.custom-cursor-active textarea,
+html.custom-cursor-active label,
+html.custom-cursor-active summary {
+  cursor: none;
+}
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #1a1208;
+  border-radius: 50%;
+  background: rgba(214, 178, 108, 0.65);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  z-index: 2147483647;
+  opacity: 0;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+  transition:
+    opacity 0.12s ease,
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+#custom-cursor.is-visible {
+  opacity: 1;
+}
+
+#custom-cursor.is-hover {
+  background: rgba(214, 178, 108, 0.85);
+  border-color: #1a1208;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.9);
+}
+
+#custom-cursor.is-pressed {
+  background: #d6b26c;
+}
+.left-aligned { margin-left: auto; }
+.bg-dark { background-color: #343a40 !important; }
+.bg-hero { background-color: #45b06cff; }
+
+/* CALLOUT */
+.bd-callout { padding:1.25rem; margin-top:1.25rem; margin-bottom:1.25rem; border:1px solid #e9ecef; border-left-width:.25rem; border-radius:.25rem }
+.bd-callout h4 { margin-bottom: 1.25rem }
+.bd-callout p:last-child { margin-bottom:0 }
+.bd-callout code { border-radius:.25rem }
+.bd-callout+.bd-callout { margin-top:-.25rem }
+.bd-callout-info { border-left-color:#5bc0de }
+.bd-callout-warning { border-left-color:#f0ad4e }
+.bd-callout-danger { border-left-color:#d9534f }
+
+/* footer — Figma 666:2 / 667:13, cream board 1440 × 749 */
+.site-footer {
+  background: #f8f3e7;
+  color: #000000;
+}
+
+.site-footer-slot {
+  width: 100%;
+  height: calc(749 / 1440 * 100vw);
+  max-height: 749px;
+  overflow: hidden;
+}
+
+.site-footer-inner {
+  position: relative;
+  width: 1440px;
+  height: 749px;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  transform-origin: top left;
+  transform: scale(calc(100vw / 1440));
+}
+
+@media (min-width: 1440px) {
+  .site-footer-slot {
+    display: flex;
+    justify-content: center;
+  }
+
+  .site-footer-inner {
+    transform: none;
+    flex: 0 0 1440px;
+  }
+}
+
+.site-footer-cluster {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 963px;
+  height: 372px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.site-footer-wordmark {
+  position: absolute;
+  left: 267px;
+  top: 44px;
+  width: 666px;
+  height: 177px;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+}
+
+.site-footer-connect,
+.site-footer-thanks {
+  position: absolute;
+  margin: 0;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.site-footer-connect {
+  left: 1106px;
+  top: 133px;
+  width: 310px;
+}
+
+.site-footer-thanks {
+  left: 93px;
+  top: 391px;
+  width: 475px;
+}
+
+.site-footer-legal {
+  position: absolute;
+  left: 93px;
+  right: 93px;
+  bottom: 48px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.site-footer-legal p {
+  margin: 0;
+}
+
+.site-footer a {
+  color: #000000;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.site-footer a:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.home-kicker {
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #d6b26c;
+}
+
+.home-title {
+  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.home-copy {
+  max-width: 46rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Home */
+html.page-home,
+body.page-home {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+body.page-home {
+  padding-top: 64px;
+  background: #fdf9f3;
+}
+
+html.page-engineering,
+body.page-engineering {
+  overflow-x: hidden;
+  max-width: 100%;
+  overscroll-behavior-x: none;
+}
+
+body.page-home > .container {
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin: 0 !important;
+}
+
+/* ==========================================================================
+   FIGMA HEADER / NAVBAR (Exact Match to Figma 98:808)
+   ========================================================================== */
+
+.igem-navbar {
+  height: 64px;
+  background-color: #fdf9f3 !important;
+  border-bottom: 1px solid #c5a059 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 0;
+  z-index: 1050;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.igem-navbar-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: relative;
+}
+
+.igem-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  height: 64px;
+  gap: 8px;
+}
+
+.igem-brand-logo {
+  height: 68px;
+  width: auto;
+  object-fit: contain;
+  margin-top: -2px;
+  display: block;
+}
+
+.igem-brand-text {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.igem-nav-list {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 36px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.igem-nav-item {
+  position: relative;
+}
+
+.igem-nav-link {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 1.6vw, 24px) !important;
+  font-weight: 400 !important;
+  color: #000000 !important;
+  line-height: 1 !important;
+  padding: 8px 4px !important;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.igem-nav-link:hover,
+.igem-nav-link:focus,
+.igem-nav-item:hover > .igem-nav-link {
+  color: #d9882b !important;
+}
+
+/* Custom Dropdowns */
+.igem-dropdown {
+  background: #fdf9f3;
+  border: 1px solid #c5a059;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  min-width: 200px;
+  margin-top: 2px;
+}
+
+.igem-dropdown-end {
+  right: 0;
+  left: auto;
+}
+
+.igem-dropdown-item {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  color: #1a1208;
+  padding: 8px 20px;
+  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+
+.igem-dropdown-item:hover,
+.igem-dropdown-item:focus {
+  background-color: rgba(197, 160, 89, 0.15);
+  color: #d9882b;
+  padding-left: 24px;
+}
+
+.igem-dropdown-divider {
+  border-color: rgba(197, 160, 89, 0.3);
+  margin: 6px 0;
+}
+
+/* Open dropdowns on hover on desktop */
+@media (min-width: 992px) {
+  .igem-nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    animation: igemNavFade 0.2s ease forwards;
+  }
+}
+
+@keyframes igemNavFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Toggler */
+.igem-toggler {
+  border: 1px solid #c5a059;
+  padding: 4px 8px;
+}
+
+.igem-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(197, 160, 89, 0.25);
+}
+
+@media (max-width: 991px) {
+  .igem-navbar {
+    height: auto;
+    min-height: 64px;
+  }
+
+  .igem-navbar-container {
+    height: auto;
+    min-height: 64px;
+    flex-wrap: wrap;
+    padding: 6px 16px;
+  }
+
+  .navbar-collapse {
+    width: 100%;
+    background: #fdf9f3;
+    padding: 16px 0;
+    border-top: 1px solid rgba(197, 160, 89, 0.3);
+  }
+
+  .igem-nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+body.page-home .dropdown-item:hover,
+body.page-home .dropdown-item:focus {
+  background: rgba(214, 178, 108, 0.18);
+  color: #1a1208;
+}
+
+.home-banner-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #fdf9f3;
+}
+
+.home-banner-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: #fdf9f3;
+  /* Let the parent catch taps; avoids Safari's native play overlay. */
+  pointer-events: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.home-banner-video::-webkit-media-controls,
+.home-banner-video::-webkit-media-controls-enclosure,
+.home-banner-video::-webkit-media-controls-panel,
+.home-banner-video::-webkit-media-controls-start-playback-button,
+.home-banner-video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.home-banner-lottie {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  background: #fdf9f3;
+}
+
+.home-banner-lottie svg {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover;
+}
+
+.home-banner-fallback {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.home-hero-shell {
+  padding: 2rem 0 4rem;
+}
+
+.home-placeholder-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #f5efe6;
+  border: 1px solid rgba(84, 67, 46, 0.18);
+  box-shadow: 0 1rem 2rem rgba(54, 40, 24, 0.08);
+}
+
+.home-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4rem 0 2rem;
+  color: #8a7355;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.home-scroll-line {
+  display: block;
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, #d6b26c, transparent);
+}
+
+body.page-home > .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+}
+
+body.page-home .pin-spacer {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+/* Heidelberg-style scroll story (after home banner) */
+.home-psoriasis-story {
+  background: #ffffff;
+  color: #0a0a0a;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  --logo-teal: #2a5b6f;
+  --logo-green: #4a6d55;
+  --logo-gold: #c5a059;
+  --logo-orange: #e89149;
+  --logo-navy: #1e3a4c;
+}
+
+.home-psoriasis-inner {
+  width: 100%;
+}
+
+.home-psoriasis-lead {
+  display: block;
+  margin: 0;
+  padding: 5rem 6vw clamp(6rem, 28vh, 16rem);
+  text-align: center;
+  font-size: clamp(2.25rem, 6.5vw, 4.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  overflow-wrap: break-word;
+}
+
+.home-psoriasis-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.home-psoriasis-char {
+  display: inline;
+  opacity: 0;
+}
+
+.home-psoriasis-rows {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4.5rem, 18vh, 11rem);
+  padding: 0 6vw 6rem;
+}
+
+.home-psoriasis-row-block {
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+}
+
+.home-psoriasis-row-block .home-psoriasis-row {
+  position: relative;
+  z-index: 1;
+}
+
+.home-psoriasis-row-block--right .home-psoriasis-row--right {
+  margin-left: auto;
+}
+
+.home-psoriasis-row-media {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: auto;
+  z-index: 0;
+  display: block;
+  margin: 0;
+  --gif-x: 0px; /* + right, - left */
+  --gif-y: 0px; /* + down, - up */
+  transform: translate(var(--gif-x), calc(-50% + var(--gif-y)));
+  pointer-events: none;
+  line-height: 0;
+}
+
+.home-psoriasis-row-media--left {
+  right: auto;
+  left: 0;
+}
+
+/*
+  Edit each GIF independently (desktop).
+  width  = size
+  --gif-x = left/right  (+ right, - left)
+  --gif-y = up/down     (+ down, - up)
+*/
+.home-psoriasis-gif--proliferate {
+  width: 180px;
+  --gif-x: -80px;
+  --gif-y: -20px;
+}
+
+.home-psoriasis-gif--too-fast {
+  width: 180px;
+  --gif-x: 50px;
+  --gif-y: -10px;
+}
+
+.home-psoriasis-gif--immune {
+  width: 280px;
+  --gif-x: -20px;
+  --gif-y: 0px;
+}
+
+.home-psoriasis-gif--plaque {
+  width: 230px;
+  --gif-x: 20px;
+  --gif-y: 0px;
+}
+
+.home-psoriasis-cell-gif {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 848 / 566;
+  object-fit: contain;
+  object-position: center;
+}
+
+.home-psoriasis-row {
+  max-width: min(78vw, 920px);
+  margin: 0;
+  padding: 0;
+  font-size: clamp(1.35rem, 2.8vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.home-psoriasis-row--left {
+  align-self: flex-start;
+  text-align: left;
+}
+
+.home-psoriasis-row--right {
+  align-self: flex-end;
+  text-align: left;
+}
+
+.home-psoriasis-blank {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  max-width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  overflow-x: clip;
+}
+
+.home-psoriasis-blank .pin-spacer,
+.home-psoriasis-story .pin-spacer {
+  background: #ffffff;
+}
+
+.home-psoriasis-exit-line {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 2rem 8vw;
+  text-align: center;
+  font-size: clamp(1.45rem, 3.4vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.02em;
+  color: #1a1208;
+  text-wrap: balance;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Stay on screen across the pin boundary into History */
+.home-psoriasis-exit-line--handoff {
+  position: fixed !important;
+  inset: 0;
+  z-index: 45;
+  background: #ffffff;
+}
+
+.psoriasis-reveal {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(12rem, 36vw) minmax(16rem, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: clamp(3rem, 8vh, 7rem) 6vw;
+  overflow-x: clip;
+}
+
+.psoriasis-reveal.is-cursor-active,
+.psoriasis-reveal.is-cursor-active * {
+  cursor: none;
+}
+
+.psoriasis-reveal-visual {
+  justify-self: start;
+}
+
+.psoriasis-reveal-image {
+  position: relative;
+  width: min(30vw, 400px);
+  height: min(48vw, 680px);
+  aspect-ratio: auto;
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+
+  /* BOX size — outer boundary only */
+  /* IMAGE size — adjust these to scale base / reveal man inside the box */
+  --reveal-base-size: 470%;
+  --reveal-overlay-size: 470%;
+  --reveal-base-x: 68%;
+  --reveal-base-y: 50%;
+  --reveal-overlay-x: 68%;
+  --reveal-overlay-y: 50%;
+}
+
+.psoriasis-reveal-img {
+  position: absolute;
+  inset: auto;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.psoriasis-reveal-img--base {
+  width: var(--reveal-base-size);
+  height: var(--reveal-base-size);
+  left: var(--reveal-base-x);
+  top: var(--reveal-base-y);
+}
+
+.psoriasis-reveal-img--overlay {
+  width: var(--reveal-overlay-size);
+  height: var(--reveal-overlay-size);
+  left: var(--reveal-overlay-x);
+  top: var(--reveal-overlay-y);
+  clip-path: circle(0 at 50% 50%);
+  will-change: clip-path;
+}
+
+/* ══ HINT — same spot as detail text; shown when not hovering a plaque ══ */
+.psoriasis-reveal-hint {
+  position: absolute;
+  top: 90px;
+  left: 120px;
+  width: 420px;
+  max-width: 420px;
+  margin: 110px 0 0 0;
+  font-size: clamp(1.55rem, 2.8vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: rgba(30, 58, 76, 0.72);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 180ms ease, visibility 180ms ease;
+  z-index: 2;
+}
+
+.psoriasis-reveal-info.is-active .psoriasis-reveal-hint {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.psoriasis-reveal-info {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  min-height: 80vh;
+  padding: 0;
+  overflow: visible;
+}
+
+.psoriasis-reveal-info.is-active #psoriasis-reveal-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ══ LEAF — edit top / left / width here ══ */
+#psoriasis-reveal-leaf {
+  position: absolute;
+  top: 280px;
+  left: -200px;
+  width: 1000px;
+  margin: -260px 0 0 0;
+  opacity: 0.92;
+  pointer-events: none;
+}
+
+/* ══ TEXT — edit top / left / width here ══ */
+#psoriasis-reveal-text {
+  position: absolute;
+  top: 90px;
+  left: 120px;
+  width: 420px;
+  max-width: 420px;
+  margin: 110px 0 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+
+.psoriasis-reveal-info__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.1rem, 3.2vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  color: var(--psoriasis-info-color, #1a1208);
+}
+
+.psoriasis-reveal-info__title:empty,
+.psoriasis-reveal-info__description:empty {
+  display: none;
+}
+
+.psoriasis-reveal-info__description {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(26, 18, 8, 0.78);
+}
+
+.psoriasis-reveal-lens {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1200;
+  width: var(--reveal-lens-size, 260px);
+  height: var(--reveal-lens-size, 260px);
+  border: 1px solid rgba(42, 91, 111, 0.38);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+    0 1.5rem 4rem rgba(30, 58, 76, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
+  transition: opacity 180ms ease;
+  will-change: transform;
+}
+
+.psoriasis-reveal-lens.is-visible {
+  opacity: 1;
+}
+
+body.psoriasis-reveal-lens-active #custom-cursor {
+  opacity: 0 !important;
+  visibility: hidden;
+}
+
+.home-psoriasis-accent {
+  font-weight: 700;
+}
+
+.home-psoriasis-accent--teal {
+  color: var(--logo-teal);
+}
+
+.home-psoriasis-accent--gold {
+  color: var(--logo-gold);
+}
+
+.home-psoriasis-accent--orange {
+  color: var(--logo-orange);
+}
+
+.home-psoriasis-accent--green {
+  color: var(--logo-green);
+}
+
+.home-psoriasis-story--revealed .home-psoriasis-char,
+.home-psoriasis-lead.is-typed .home-psoriasis-char,
+.home-psoriasis-row.is-typed .home-psoriasis-char {
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .home-psoriasis-lead {
+    padding: 3rem 1.5rem clamp(4rem, 20vh, 8rem);
+    font-size: clamp(1.85rem, 9vw, 2.75rem);
+  }
+
+  .home-psoriasis-rows {
+    gap: 3.5rem;
+    padding: 0 1.5rem 4rem;
+  }
+
+  /* Edit each GIF size independently (mobile) */
+  .home-psoriasis-gif--proliferate {
+    width: 140px;
+  }
+
+  .home-psoriasis-gif--too-fast {
+    width: 140px;
+  }
+
+  .home-psoriasis-gif--immune {
+    width: 140px;
+  }
+
+  .home-psoriasis-gif--plaque {
+    width: 140px;
+  }
+
+  .home-psoriasis-row {
+    max-width: 100%;
+    font-size: 1.2rem;
+  }
+
+  .home-psoriasis-row--right {
+    align-self: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-psoriasis-char {
+    opacity: 1;
+  }
+}
+
+.home-story-cta {
+  margin: 2rem 1.5rem 5rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #1a1208 0%, #2d2218 55%, #1a1208 100%);
+  color: #f5ede0;
+  box-shadow: 0 1.5rem 3rem rgba(26, 18, 8, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.home-story-cta-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.home-story-cta-hidden {
+  pointer-events: none;
+}
+
+.home-story-cta-visible {
+  pointer-events: auto;
+}
+
+.home-story-title {
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.home-story-copy {
+  max-width: 36rem;
+  margin: 0 auto 1.75rem;
+  line-height: 1.7;
+  color: rgba(245, 237, 224, 0.88);
+}
+
+.home-story-btn {
+  display: inline-block;
+  padding: 1rem 2.25rem;
+  border: 2px solid #f5ede0;
+  border-radius: 999px;
+  background: #d6b26c;
+  color: #1a1208;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.home-story-btn:hover {
+  background: #f0d08a;
+  color: #1a1208;
+}
+
+/* Intro Psora popup — scroll-scrubbed Lottie inside modal */
+body.intro-psora-modal-open {
+  overflow: hidden;
+}
+
+.intro-psora-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.intro-psora-modal-hidden {
+  display: none;
+}
+
+.intro-psora-modal-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #000000;
+  border: none;
+  box-shadow: none;
+}
+
+.intro-psora-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  padding: 0;
+  border: 2px solid #f5ede0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f5ede0;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.intro-psora-close span {
+  display: block;
+  margin-top: -0.1rem;
+}
+
+.intro-psora-close:hover {
+  background: #d6b26c;
+  border-color: #d6b26c;
+  color: #1a1208;
+}
+
+.intro-psora-skip {
+  position: absolute;
+  top: 1rem;
+  right: 4rem;
+  z-index: 10002;
+  padding: 0.5rem 1rem;
+  border: 2px solid #f5ede0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f5ede0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.intro-psora-skip:hover {
+  background: #d6b26c;
+  border-color: #d6b26c;
+  color: #1a1208;
+}
+
+.intro-psora-next {
+  top: auto;
+  bottom: 1rem;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+
+.intro-psora-next-hidden {
+  display: none;
+}
+
+.intro-psora-cream-next {
+  top: 1rem;
+  left: 1rem;
+  right: auto;
+  bottom: auto;
+  transform: none;
+}
+
+.intro-psora-cream-next-hidden {
+  display: none;
+}
+
+.intro-psora-modal-scroll {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.intro-psora-page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.intro-psora-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.intro-psora-start-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  pointer-events: none;
+  text-align: center;
+}
+
+.intro-psora-start-layer-hidden {
+  display: none;
+}
+
+.intro-psora-journey-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(92vw, 22rem);
+  max-width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: #1a1208;
+  cursor: pointer;
+  box-shadow: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.intro-psora-journey-lottie {
+  width: 100%;
+  height: auto;
+  min-height: 3.5rem;
+  line-height: 0;
+}
+
+.intro-psora-journey-lottie svg {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.intro-psora-journey-btn-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.intro-psora-journey-btn--text-fallback {
+  width: auto;
+  max-width: min(92vw, 26rem);
+  padding: 1.15rem 2rem;
+  border: 3px solid #f5ede0;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #f2d495 0%, #d6b26c 42%, #a8843f 100%);
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  box-shadow:
+    0 0 0 2px #5c4a32,
+    0 0 0 6px rgba(214, 178, 108, 0.25),
+    0 10px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.intro-psora-journey-btn--text-fallback .intro-psora-journey-lottie {
+  display: none;
+}
+
+.intro-psora-journey-btn--text-fallback .intro-psora-journey-btn-label {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.intro-psora-journey-btn:disabled {
+  opacity: 0.5;
+  cursor: wait;
+  transform: none;
+}
+
+.intro-psora-journey-btn:hover:not(:disabled):not(.intro-psora-journey-btn--text-fallback) {
+  transform: scale(1.02);
+}
+
+.intro-psora-journey-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.intro-psora-lottie-pending {
+  opacity: 0.45;
+}
+
+.intro-psora-lottie {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  line-height: 0;
+  overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.intro-psora-lottie > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.intro-psora2-lottie {
+  z-index: 2;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.intro-psora3-lottie {
+  z-index: 3;
+  display: block;
+}
+
+.intro-psora2-lottie > div,
+.intro-psora2-lottie svg,
+.intro-psora3-lottie > div,
+.intro-psora3-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.intro-psora3-lottie-preload,
+.intro-psora4-lottie-preload,
+.intro-psora5-lottie-preload,
+.intro-psora6-lottie-preload {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: 1;
+}
+
+.intro-psora4-lottie {
+  z-index: 4;
+  display: block;
+  transition: opacity 0.55s ease;
+}
+
+.intro-psora4-lottie-fading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-psora4-lottie > div,
+.intro-psora4-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.intro-psora5-lottie {
+  z-index: 12;
+  display: block;
+}
+
+.intro-psora5-lottie > div,
+.intro-psora5-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.intro-psora6-lottie {
+  z-index: 14;
+  display: block;
+}
+
+.intro-psora6-lottie > div,
+.intro-psora6-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.intro-psora2-lottie-hidden,
+.intro-psora3-lottie-hidden,
+.intro-psora4-lottie-hidden,
+.intro-psora5-lottie-hidden,
+.intro-psora6-lottie-hidden,
+.intro-psora-lottie-hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.intro-shine-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.intro-shine-layer-hidden {
+  display: none !important;
+}
+
+.intro-shine-layer:not(.intro-shine-layer-hidden) {
+  pointer-events: auto;
+}
+
+.intro-shine-artboard {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.intro-shine-artboard > * {
+  pointer-events: auto;
+}
+
+.intro-shine-circle {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #ffb3b3 0%,
+    #e85d5d 48%,
+    #b83232 100%
+  );
+  box-shadow:
+    0 0 4px 1px rgba(255, 140, 140, 0.95),
+    0 0 12px 4px rgba(184, 50, 50, 0.45);
+  animation: intro-shine-pulse 2.2s ease-in-out infinite;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.intro-shine-circle::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+}
+
+.intro-shine-circle-reduced {
+  animation: none;
+}
+
+.intro-shine-circle:hover,
+.intro-shine-circle:focus-visible,
+.intro-shine-circle-active {
+  animation: none;
+  transform: scale(1.55);
+  filter: brightness(1.1);
+  outline: none;
+  box-shadow:
+    0 0 6px 2px rgba(255, 170, 170, 1),
+    0 0 16px 6px rgba(200, 50, 50, 0.65),
+    0 0 0 3px rgba(255, 220, 220, 0.35);
+}
+
+@keyframes intro-shine-pulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.14);
+  }
+}
+
+.intro-shine-chat {
+  position: absolute;
+  z-index: 30;
+  width: min(20rem, 52vw);
+  padding: 1.15rem 1.35rem;
+  border-radius: 1.75rem;
+  background: #ffffff;
+  border: 2px solid #1a1208;
+  box-shadow: none;
+  color: #1a1208;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+}
+
+.intro-shine-chat-positioning {
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: none;
+}
+
+.intro-shine-chat-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.intro-shine-chat-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-shine-chat-quote {
+  margin: 0;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(0.88rem, 1.75vw, 1.05rem);
+  line-height: 1.55;
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  color: #1a1208;
+}
+
+@media (max-width: 640px) {
+  .intro-shine-chat {
+    width: min(17rem, 78vw);
+    padding: 1rem 1.15rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.intro-psora-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Skin cream interactive test (after intro part 4) */
+.skin-cream-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  pointer-events: none;
+}
+
+.skin-cream-artboard {
+  position: absolute;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.skin-cream-scene-hidden {
+  display: none !important;
+}
+
+.skin-cream-scene-preload {
+  display: block !important;
+  visibility: visible;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skin-cream-scene-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.skin-cream-base {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skin-cream-plaques {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.skin-cream-plaque {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+  will-change: opacity;
+}
+
+.skin-cream-plaque-ellipse {
+  aspect-ratio: auto;
+}
+
+.skin-cream-canvas-fading {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.skin-cream-plaque-healed,
+.skin-cream-plaque-patch {
+  position: absolute;
+  max-width: none;
+  max-height: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skin-cream-plaque-healed {
+  z-index: 1;
+}
+
+.skin-cream-plaque-patch {
+  z-index: 2;
+  transition: opacity 0.8s ease;
+}
+
+.skin-cream-plaque-fading .skin-cream-plaque-patch {
+  opacity: 0;
+}
+
+.skin-cream-plaque-returning .skin-cream-plaque-patch {
+  opacity: 1;
+}
+
+.skin-cream-tube {
+  position: absolute;
+  z-index: 9;
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.skin-cream-tube img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
+}
+
+.skin-cream-tube:hover,
+.skin-cream-tube:focus-visible {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 12px rgba(255, 248, 235, 0.85));
+}
+
+.skin-cream-tube:hover img,
+.skin-cream-tube:focus-visible img {
+  opacity: 1;
+  filter: brightness(1.08);
+}
+
+.skin-cream-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+.skin-cream-scene.skin-cream-brush-ready .skin-cream-canvas {
+  pointer-events: auto;
+  cursor: none;
+}
+
+.skin-cream-scene.skin-cream-drawing .skin-cream-hint {
+  opacity: 0.35;
+}
+
+.skin-cream-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  transform: translateX(-80%);
+  
+  margin: 0;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #f5ede0;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  pointer-events: none;
+  z-index: 6;
+}
+
+body.skin-cream-brush-active #custom-cursor {
+  opacity: 1 !important;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 248, 235, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(255, 248, 235, 0.75);
+}
+
+body.skin-cream-brush-active #custom-cursor.is-hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  background: #fff8eb;
+}
+
+.intro-psora-fallback {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: #f5ede0;
+  text-align: center;
+}
+
+@media (max-width: 767.98px) {
+  .intro-psora-modal-panel {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .home-hero-shell {
+    padding-top: 1rem;
+  }
+
+  .home-story-cta {
+    padding: 2rem 1.25rem;
+  }
+
+  .home-banner-block {
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .intro-psora-lottie {
+    width: 100%;
+    height: 100%;
+  }
+}

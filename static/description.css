@@ -1,0 +1,408 @@
+/* Project description — reading page */
+
+html.page-description,
+body.page-description {
+  background: #fcf9f3;
+  color: #1a1208;
+}
+
+html.page-description {
+  scroll-padding-top: 96px;
+}
+
+body.page-description {
+  padding-top: 64px;
+}
+
+body.page-description > .container {
+  width: 100%;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.desc-page {
+  width: min(1120px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 56px 0 96px;
+}
+
+.desc-kicker,
+.desc-hero h1,
+.desc-read h2,
+.desc-index a,
+.desc-callout,
+.desc-figure figcaption,
+.desc-problem-lead,
+.desc-stat-row strong,
+.desc-burden h3,
+.desc-wha cite {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.desc-kicker {
+  margin: 0 0 8px;
+  color: #c5a059;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.desc-hero h1 {
+  margin: 0;
+  color: #4d7552;
+  font-size: clamp(56px, 7vw, 88px);
+  line-height: 0.95;
+}
+
+.desc-lead {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: #1a1208;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+.desc-layout {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 760px);
+  gap: 48px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.desc-index {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.desc-index a {
+  color: #8a7355;
+  font-size: 16px;
+  line-height: 1.3;
+  text-decoration: none;
+}
+
+.desc-index a:hover,
+.desc-index a:focus-visible {
+  color: #1a1208;
+  outline: none;
+}
+
+.desc-read section {
+  scroll-margin-top: 96px;
+}
+
+.desc-read h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: #1a1208;
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.desc-num {
+  color: #c5a059;
+  font-size: 22px;
+}
+
+.desc-read section + section,
+.desc-close,
+.desc-refs {
+  margin-top: 48px;
+}
+
+.desc-read p,
+.desc-read li,
+.desc-close,
+.desc-refs li {
+  color: #1a1208;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.desc-read p {
+  margin: 0 0 14px;
+}
+
+.desc-read ul {
+  margin: 0 0 14px;
+  padding-left: 1.2em;
+}
+
+.desc-read li + li {
+  margin-top: 8px;
+}
+
+.desc-callout {
+  margin: 18px 0;
+  padding: 14px 16px;
+  color: #1a1208;
+  font-size: 18px;
+  line-height: 1.45;
+  background: #fff;
+  border-left: 4px solid #c5a059;
+  border-radius: 0 12px 12px 0;
+}
+
+.desc-callout p {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.desc-callout p + p {
+  margin-top: 8px;
+}
+
+.desc-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 128px;
+  margin: 18px 0 8px;
+  padding: 24px;
+  background: #fff;
+  border: 1.5px dashed #c5a059;
+  border-radius: 16px;
+}
+
+.desc-figure figcaption {
+  margin: 0;
+  max-width: 42em;
+  color: #8a7355;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.desc-read .desc-problem-lead {
+  margin: 0 0 16px;
+  color: #4d7552;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3.2vw, 36px);
+  line-height: 1.2;
+}
+
+.desc-wha {
+  margin: 0 0 18px;
+  padding: 4px 0 4px 16px;
+  border-left: 4px solid #c5a059;
+}
+
+.desc-wha p {
+  margin: 0;
+  color: #1a1208;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.desc-wha cite {
+  display: block;
+  margin-top: 8px;
+  color: #c5a059;
+  font-size: 15px;
+  font-style: normal;
+}
+
+.desc-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.desc-stat-row li {
+  margin: 0;
+  padding: 16px 14px 14px;
+  background: #fff;
+  border-top: 4px solid #c5a059;
+  border-radius: 16px;
+}
+
+.desc-stat-row strong {
+  display: block;
+  color: #c5a059;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.desc-stat-row span {
+  display: block;
+  margin-top: 8px;
+  color: #1a1208;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.desc-burden {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 0 0 16px;
+}
+
+.desc-burden article {
+  padding: 16px 16px 4px;
+  background: #fff;
+  border-radius: 16px;
+}
+
+.desc-burden-body {
+  border-top: 4px solid #c57a2e;
+}
+
+.desc-burden-mind {
+  border-top: 4px solid #4d7552;
+}
+
+.desc-burden h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.desc-burden-body h3 {
+  color: #c57a2e;
+}
+
+.desc-burden-mind h3 {
+  color: #4d7552;
+}
+
+.desc-burden p {
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.desc-refs h2 {
+  margin-bottom: 12px;
+}
+
+.desc-refs ol {
+  margin: 0;
+  padding-left: 1.3em;
+}
+
+.desc-edu {
+  margin-top: 48px;
+}
+.desc-edu-step h3,
+.desc-edu-num,
+.desc-edu-method {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.desc-read .desc-edu > .desc-edu-zh {
+  display: block;
+  margin: -6px 0 14px;
+  color: #8a7355;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 15px;
+}
+
+.desc-edu-flow {
+  margin: 8px 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.desc-edu-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 12px;
+  padding-bottom: 18px;
+}
+
+.desc-edu-step:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  bottom: 0;
+  left: 17px;
+  width: 2px;
+  background: #e6dcc8;
+}
+
+.desc-edu-num {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  font-size: 16px;
+  background: #8a7355;
+  border-radius: 50%;
+}
+
+.desc-edu-step:nth-child(2) .desc-edu-num { background: #c5a059; }
+.desc-edu-step:nth-child(3) .desc-edu-num { background: #c57a2e; }
+.desc-edu-step:nth-child(4) .desc-edu-num { background: #4d7552; }
+.desc-edu-step:nth-child(5) .desc-edu-num { background: #2f5a3a; }
+
+.desc-edu-step h3 {
+  margin: 4px 0 4px;
+  color: #1a1208;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.desc-edu-step h3 .desc-edu-zh {
+  color: #8a7355;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: 14px;
+}
+
+.desc-read .desc-edu-method {
+  margin: 0 0 4px;
+  color: #c5a059;
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.desc-read .desc-edu-step p:last-child {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .desc-page {
+    width: min(100% - 32px, 760px);
+    padding-top: 32px;
+  }
+
+  .desc-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .desc-index {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .desc-stat-row,
+  .desc-burden {
+    grid-template-columns: 1fr;
+  }
+
+}

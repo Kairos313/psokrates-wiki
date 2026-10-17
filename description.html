@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en" class="nova page-description">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#05070b">
+    <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/nova/nova.css" rel="stylesheet">
+    <link href="static/nova/nova-pages.css" rel="stylesheet">
+    <link href="static/nova/nova-greek.css" rel="stylesheet">
+    <script>
+      document.documentElement.classList.add("js");
+      try { if (sessionStorage.getItem("nova-seen")) document.documentElement.classList.add("nova-seen"); if (sessionStorage.getItem("nova-transition")) document.documentElement.classList.add("nv-arriving"); } catch (e) {}
+    </script>
+    <title>Project Description | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="nova-body page-description" data-page="description">
+  <a class="nv-skip" href="#nv-main">Skip to content</a>
+
+  <!-- Loader (first visit in a session) -->
+  <div class="nv-loader" id="nv-loader" aria-hidden="true">
+    <div class="nv-loader-inner">
+      <img class="nv-loader-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+      <p class="nv-loader-name" data-scramble>CUHK-HongKong-SBS</p>
+      <p class="nv-loader-count"><span id="nv-count">000</span><i>%</i></p>
+      <p class="nv-loader-sub">iGEM 2026</p>
+    </div>
+    <span class="nv-corner tl"></span><span class="nv-corner tr"></span><span class="nv-corner bl"></span><span class="nv-corner br"></span>
+  </div>
+
+  <!-- Page transition -->
+  <div class="nv-wipe" id="nv-wipe" aria-hidden="true"><canvas id="nv-wipe-canvas"></canvas><p class="nv-wipe-label" id="nv-wipe-label"></p></div>
+
+  <!-- Ambient layers -->
+  <div class="nv-grain" id="nv-grain" aria-hidden="true"></div>
+  <div class="nv-vignette" aria-hidden="true"></div>
+
+  <header class="nv-header" id="nv-header">
+  <a class="nv-brand" href="index.html" aria-label="CUHK-HongKong-SBS Home" data-cursor="Home">
+    <img class="nv-brand-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+    <span class="nv-brand-text">CUHK-HongKong-SBS</span>
+  </a>
+  <div class="nv-header-meta" aria-hidden="true">
+    <span>HKT <b id="nv-clock">00:00:00</b></span>
+    <span>Frame <b id="nv-frame">0000</b></span>
+  </div>
+  <div class="nv-header-actions">
+    <button class="nv-audio" id="nv-audio" type="button" aria-pressed="false" aria-label="Toggle ambient sound" data-cursor="Sound">
+      <span class="nv-audio-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="nv-audio-label">Sound off</span>
+    </button>
+    <button class="nv-menu-btn" id="nv-menu-btn" type="button" aria-expanded="false" aria-controls="nv-menu" data-cursor="Menu">
+      <span class="nv-menu-btn-label">Menu</span><span class="nv-menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<nav class="nv-menu" id="nv-menu" aria-label="Main navigation" hidden>
+  <canvas class="nv-menu-canvas" aria-hidden="true"></canvas>
+  <div class="nv-menu-grid">
+    
+    <div class="nv-menu-col nv-menu-home">
+      <p class="nv-label">[ 00 ]</p>
+      <a class="nv-menu-link nv-menu-link-xl" href="index.html" data-cursor="Open"><span data-scramble>Home</span></a>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 01 ] Project</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="description" data-cursor="Open"><span data-scramble>Description</span></a></li>
+        
+        <li><a class="nv-menu-link" href="engineering" data-cursor="Open"><span data-scramble>Engineering</span></a></li>
+        
+        <li><a class="nv-menu-link" href="results" data-cursor="Open"><span data-scramble>Results</span></a></li>
+        
+        <li><a class="nv-menu-link" href="contribution" data-cursor="Open"><span data-scramble>Contribution</span></a></li>
+        
+        <li><a class="nv-menu-link" href="software" data-cursor="Open"><span data-scramble>Software</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 02 ] Wet Lab</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="experiments" data-cursor="Open"><span data-scramble>Experiments</span></a></li>
+        
+        <li><a class="nv-menu-link" href="notebook" data-cursor="Open"><span data-scramble>Notebook</span></a></li>
+        
+        <li><a class="nv-menu-link" href="safety-and-security" data-cursor="Open"><span data-scramble>Safety and Security</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 03 ] Dry Lab</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="model" data-cursor="Open"><span data-scramble>Model</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 04 ] Human Practice</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="human-practices" data-cursor="Open"><span data-scramble>Human Practices</span></a></li>
+        
+        <li><a class="nv-menu-link" href="education" data-cursor="Open"><span data-scramble>Education</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 05 ] Team</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="members" data-cursor="Open"><span data-scramble>Team Roster</span></a></li>
+        
+        <li><a class="nv-menu-link" href="team" data-cursor="Open"><span data-scramble>Team</span></a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  <p class="nv-menu-foot nv-label">CUHK-HongKong-SBS &middot; iGEM 2026</p>
+</nav>
+
+  
+
+  <main id="nv-main" class="nv-main">
+  
+
+  <div class="container nv-container">
+    
+
+<div class="desc-page">
+  <header class="desc-hero">
+    <p class="desc-kicker">Project description</p>
+    <h1>PSORATES</h1>
+    <p class="desc-lead">PSORATES is a topical living therapy for plaque psoriasis. An engineered <em>Lactiplantibacillus plantarum</em>, held in a hydrogel, secretes a fusion peptide that is meant to act in the lesion and not only on the surface.</p>
+  </header>
+
+  <div class="desc-layout">
+    <nav class="desc-index" aria-label="On this page">
+      <a href="#problem">Problem</a>
+      <a href="#why">Why this project</a>
+      <a href="#loop">The loop</a>
+      <a href="#therapeutic">The therapeutic</a>
+      <a href="#choice">How we chose it</a>
+      <a href="#binding">Binding and entry</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#cells">What the cells showed</a>
+      <a href="#education">Education</a>
+    </nav>
+
+    <article class="desc-read">
+      <section id="problem">
+        <h2><span class="desc-num">1</span> The problem</h2>
+        <p class="desc-problem-lead">There is no cure. The flare is treated, and then it comes back.</p>
+        <blockquote class="desc-wha">
+          <p>In addition to the pain, itching and bleeding caused by psoriasis, many affected individuals around the world experience social and work-related stigma and discrimination.</p>
+          <cite>World Health Assembly resolution WHA67.9, 2014</cite>
+        </blockquote>
+        <p>Plaque psoriasis is a chronic, immune-mediated skin disease affecting about 2–3% of people, at least 100 million worldwide (World Health Organization, 2016; National Psoriasis Foundation, 2022). In 2014 every Member State of the World Health Assembly called it painful, disfiguring, and disabling, and agreed that too many people suffer because diagnosis comes late, treatment falls short, and care is hard to reach.</p>
+        <ul class="desc-stat-row">
+          <li>
+            <strong>100 million</strong>
+            <span>people live with psoriasis. None of them has a cure.</span>
+          </li>
+          <li>
+            <strong>72%</strong>
+            <span>report itch. Scale and cracked skin come with it.</span>
+          </li>
+          <li>
+            <strong>28%</strong>
+            <span>live with depressive symptoms. The plaque does not stay on the skin.</span>
+          </li>
+        </ul>
+        <div class="desc-burden">
+          <article class="desc-burden-body">
+            <h3>On the skin</h3>
+            <p>The lesion is a raised plaque, sharp at the edge, covered in silver-white scale. In the EUROPSO survey, 92% of people with psoriasis reported scaling, 72% itch, and 20% bleeding (Dubertret et al., 2006). Scale sheds onto clothes and sheets. Itch stays through the night. Skin that is asked to bend can crack open.</p>
+            <p>About 30% also develop psoriatic arthritis, which can deform the joints and disable them (National Psoriasis Foundation, 2022). The same inflammation is tied to a higher risk of cardiovascular disease (World Health Organization, 2016). A flare is not a rash that waits its turn. It is the body, ongoing.</p>
+          </article>
+          <article class="desc-burden-mind">
+            <h3>In the mind</h3>
+            <p>People are turned away from swimming pools, classrooms, and jobs because the plaques are mistaken for something contagious. They report loneliness, isolation, and the feeling of being unattractive (World Health Organization, 2016).</p>
+            <p>A meta-analysis found depressive symptoms in 28% of patients, and 1.57 times the odds of a clinical diagnosis of depression (Dowlatshahi et al., 2014). In the National Psoriasis Foundation’s 2019 survey, 20.7% of respondents with psoriatic disease had moderate to severe depression, against 7.1% of the U.S. population. The World Health Organization also records a higher rate of suicidal ideation. How much skin is covered is a poor guide to the harm: quality of life often fails to follow the visible severity, and the losses accumulate across a life, in work, in relationships, and in the years spent covering up.</p>
+          </article>
+        </div>
+        <p>Plaque psoriasis is the form in about 80–90% of cases (Wu, 2017). It is the one this project takes on. The body and the mind are both in the flare, and a treatment that only calms the surface leaves the person waiting for the next one.</p>
+        <figure class="desc-figure">
+          <figcaption>Figure to come: a plaque, and what it takes from the body and from ordinary life.</figcaption>
+        </figure>
+      </section>
+
+      <section id="why">
+        <h2><span class="desc-num">2</span> Why we chose this</h2>
+        <p>Interviews with people who have psoriasis convinced us that current care is not good enough. Topical steroids often work briefly, and stopping them can bring a worse flare. Methotrexate raises teratogenicity concerns, and patients described drugs losing effect over time. Systemic psoriasis drugs can also injure organs. Biologics that block the disease pathways are hard to make and costly (Makurvet, 2021). Peptides are cheaper to produce and break down by simpler routes, which makes their safety easier to reason about (Xiao et al., 2025). We therefore set out to build a peptide therapeutic that a skin-compatible bacterium could keep secreting at the plaque, for longer than a cream that washes off.</p>
+        <figure class="desc-figure">
+          <figcaption>Figure to come.</figcaption>
+        </figure>
+      </section>
+
+      <section id="loop">
+        <h2><span class="desc-num">3</span> The loop</h2>
+        <p>Psoriasis is a conversation between innate and adaptive immunity that does not shut off (Omali et al., 2023). Innate cells release inflammatory cytokines, which activate T cells, including Th17 cells. IL-17 then drives keratinocytes to divide too fast. As those cells die, they wake the innate cells again. The IL-23/IL-17 axis is central, but it is not the whole disease: IL-16 and the IL-1 family also push naive T cells toward pathogenic Th17 cells (Wu et al., 2023). Blocking only IL-23/IL-17 is unlikely to hold the symptoms. The therapeutic has to do two jobs at once.</p>
+        <figure class="desc-figure">
+          <figcaption>Diagram to come: a cycle of keratinocyte, macrophage, IL-23, and IL-17, with the two peptide domains sitting on that cycle.</figcaption>
+        </figure>
+      </section>
+
+      <section id="therapeutic">
+        <h2><span class="desc-num">4</span> The therapeutic</h2>
+        <p>Each fusion peptide has four parts.</p>
+        <ul>
+          <li>An IL-23 receptor antagonist, so the IL-23/IL-17 axis is interrupted at the receptor.</li>
+          <li>LKEKK, a broad immunomodulator, so the other cytokines in the loop are not ignored.</li>
+          <li>A linker cut by TNF-α converting enzyme (TACE). TACE is upregulated in psoriatic skin (Kawaguchi and Kondo, 2005), so the linker is a prodrug switch: the two domains separate where the lesion is active.</li>
+          <li>DRTTLTN, a skin-penetrating peptide. It fluidizes stratum corneum lipids and extends keratin, which helps a larger molecule cross the skin, and it resists proteases that are high in psoriatic skin (Gennari et al., 2016).</li>
+        </ul>
+        <p>Two versions, FP2 and FP3, each pair one IL-23 receptor antagonist with LKEKK. The bacterium is <em>Lactiplantibacillus plantarum</em>. It is the secretion chassis. It is not expected to live on bare skin for long, so the gel is the cargo that keeps it there.</p>
+        <figure class="desc-figure">
+          <figcaption>Diagram to come: one linear map of antagonist, TACE linker, LKEKK, and DRTTLTN, above a bead of bacteria in gel on a plaque.</figcaption>
+        </figure>
+      </section>
+
+      <section id="choice">
+        <h2><span class="desc-num">5</span> How we chose the parts</h2>
+        <p>The first design used REX009, an IL-23 receptor antagonist, and α-MSH, an immunomodulator, expressed from pET-32a in <em>E. coli</em> so the peptide could be purified. Western blot showed the product was unstable: <em>E. coli</em> endopeptidases cut it. Prof. Chester Lai also told us that patients worry about the pigmentation α-MSH can cause. We dropped that pair.</p>
+        <p>We then screened 48 peptides with reported anti-inflammatory activity, either IL-23/IL-17 receptor antagonists or broad immunomodulators. Each candidate had to pass, in order, mechanism, toxicity (ToxinPred), structural complexity (DSSP), and proteolytic resistance (PeptideCutter), with AlphaFold3 used to look at shape. Three leads remained: two IL-23 receptor antagonists, TEE and MEE, and one immunomodulator, LKEKK. TEE and MEE with LKEKK became the two fusion peptides.</p>
+        <figure class="desc-figure">
+          <figcaption>Figure to come.</figcaption>
+        </figure>
+      </section>
+
+      <section id="binding">
+        <h2><span class="desc-num">6</span> Binding and entry</h2>
+        <p>A static AlphaFold model is a poor picture of these peptides because GGGS linkers let them move. We sampled the TACE-cleaved pieces with multi-volume replica-exchange molecular dynamics in CHARMM36m, at 300–380 K, then docked the top clusters to IL-23R (PDB 6WDQ) with ClusPro, refined the poses in HADDOCK, and scored them in PRODIGY.</p>
+        <aside class="desc-callout">
+          <p>For the MEE fragment MEESKQLQLGGGSLAQA, the mean binding free energy was −10.5 kcal/mol on domain 1, the cytokine-binding site, and −11.1 kcal/mol on domains 2 and 3.</p>
+          <p>With DRTTLTN on a psoriatic barrier, lateral lipid fluidity rose by about 46%.</p>
+        </aside>
+        <p>That is consistent with both competitive and allosteric antagonism. The same question still has to be closed for the TEE design. Those numbers are predictions, not a cell result.</p>
+        <p>The stratum corneum normally blocks anything much above 500 Da (Bos and Meinardi, 2000). Psoriatic stratum corneum is leakier because its lipids shift toward cholesterol and shorter chains (Uchino et al., 2023). A Martini coarse-grained simulation of that psoriatic barrier, with DRTTLTN on the surface, raised lateral lipid fluidity and lowered lipid-tail order. Five of six peptides had entered the headgroup region. A simulation of the full fusion peptide, and of keratin extension with the SIRAH force field, has not been run.</p>
+        <figure class="desc-figure">
+          <figcaption>Figure to come.</figcaption>
+        </figure>
+      </section>
+
+      <section id="delivery">
+        <h2><span class="desc-num">7</span> Delivery</h2>
+        <p><em>L. plantarum</em> needs a gel if it is to remain on skin. Sodium alginate beads, made with MRS broth at 1:5 and 1:9, were cross-linked and then challenged with sodium citrate.</p>
+        <aside class="desc-callout">
+          <p>Viability fell sharply over two days: 1:5 went from 9×10⁷ to 6×10⁶ CFU/mL, and 1:9 from 6×10⁷ to 3×10⁶ CFU/mL.</p>
+        </aside>
+        <p>Alginate alone does not protect the chassis. The next platform is Pluronic F127. That formulation is the current build, not a finished result. A literature gel based on Tao et al. (2024), with GelMA in place of their adhesive hydrogel, is background for this choice and is not described as the present recipe.</p>
+        <figure class="desc-figure">
+          <figcaption>Figure to come.</figcaption>
+        </figure>
+      </section>
+
+      <section id="cells">
+        <h2><span class="desc-num">8</span> What the cells showed</h2>
+        <p>To test the peptide we needed an inflamed-cell model. THP-1 monocytes stand in for macrophages. HaCaT keratinocytes stand in for the epidermis. CCK-8 set the highest LPS dose the cells survive. ELISA and RT-qPCR for IL-23 and TNF-α set the dose that actually inflames them.</p>
+        <aside class="desc-callout">
+          <p>Both pointed to 5 μg/mL LPS, and later experiments use that dose.</p>
+        </aside>
+        <p>The fusion peptide was incubated with TACE, and mass spectrometry was used to identify the pieces.</p>
+        <p>Efficacy used the same two cell types. Cells were pretreated with peptide, then challenged with 5 μg/mL LPS. In THP-1 we measured IL-23 and TNF-α by RT-qPCR and ELISA. In HaCaT we measured proliferation by CCK-8 and migration by a wound-healing assay. The data support an anti-inflammatory effect in monoculture and in indirect co-culture, and they identify an optimal peptide concentration.</p>
+        <p>Those wells still miss the conversation between the two cell types. The next experiment is a direct THP-1 and HaCaT co-culture, read out by HaCaT proliferation and ELISA. It is designed. It is not reported here.</p>
+        <figure class="desc-figure">
+          <figcaption>Figure to come.</figcaption>
+        </figure>
+      </section>
+
+      <p class="desc-close">PSORATES is our answer to a care gap we heard from patients: a plaque-focused, locally secreted peptide therapy, with two jobs, a lesion-triggered linker, a skin-entry peptide, and a gel that can hold the bacterium. The first peptide and the first gel both failed, and those failures set the design that is now in cell assays.</p>
+
+      <section id="education" class="desc-edu">
+        <h2>Education</h2>
+        <p class="desc-edu-zh">柏拉圖《洞穴寓言》 — 四階段教育藍圖</p>
+        <p>We teach with Plato’s Allegory of the Cave. Each activity is placed by what the learner is asked to do: meet a molecule, play with the idea, design with it, or teach it to someone else. Public teaching about psoriasis sits in Stage 4.</p>
+
+        <ol class="desc-edu-flow">
+          <li class="desc-edu-step">
+            <span class="desc-edu-num">0</span>
+            <div>
+              <h3>Background <span class="desc-edu-zh">洞穴</span></h3>
+              <p class="desc-edu-method">The beliefs people arrive with: incomplete, often fearful stories about modern biology, taken as the whole truth.</p>
+              <p>Stage 0 is that starting point. The four stages below are built to replace it.</p>
+            </div>
+          </li>
+          <li class="desc-edu-step">
+            <span class="desc-edu-num">1</span>
+            <div>
+              <h3>Initial enlightenment <span class="desc-edu-zh">初步啟蒙</span></h3>
+              <p class="desc-edu-method">Experiential learning. The learner meets DNA in person.</p>
+              <p>Primary and secondary DNA workshops, and the MedGene laboratory practical.</p>
+            </div>
+          </li>
+          <li class="desc-edu-step">
+            <span class="desc-edu-num">2</span>
+            <div>
+              <h3>Stepping into the light <span class="desc-edu-zh">踏入光明</span></h3>
+              <p class="desc-edu-method">Gamification and scaffolding. The hard ideas arrive as a game, a comic, or an object.</p>
+              <p>Biopet, Plasmid Race, online games, a codon keychain, a science comic, and booths at science fairs, an arts fair, a pop-culture convention, and on campus.</p>
+            </div>
+          </li>
+          <li class="desc-edu-step">
+            <span class="desc-edu-num">3</span>
+            <div>
+              <h3>Looking at the sky <span class="desc-edu-zh">仰望天空</span></h3>
+              <p class="desc-edu-method">Project-based learning. Learners design, write, and answer for the safety of what they make.</p>
+              <p>MedGene hackathon and bioethics workshop, a scientific-writing workshop, CU CHAMPION training in which students design health leaflets, a comparison of secondary curricula, and a workshop for pre-service biology teachers.</p>
+            </div>
+          </li>
+          <li class="desc-edu-step">
+            <span class="desc-edu-num">4</span>
+            <div>
+              <h3>The return <span class="desc-edu-zh">返回</span></h3>
+              <p class="desc-edu-method">Service learning. Learners teach the public. This is the psoriasis stage.</p>
+              <p>A multilingual leaflet, CHAMP outreach with the students’ own leaflets, a public talk on live biotherapeutics, a patient FAQ site, and CUBE articles.</p>
+            </div>
+          </li>
+        </ol>
+
+        <aside class="desc-callout">
+          <p>One programme can be two stages. At MedGene, handling the tools is Stage 1 and designing a project is Stage 3. In CU CHAMPION, designing a leaflet is Stage 3 and explaining it to elderly participants is Stage 4.</p>
+        </aside>
+        <p>Each activity is written up on the <a href="education">Education</a> page.</p>
+      </section>
+
+      <section class="desc-refs" id="references">
+        <h2>References</h2>
+        <ol>
+          <li>World Health Organization, 2016. Global report on psoriasis.</li>
+          <li>World Health Assembly, 2014. Resolution WHA67.9.</li>
+          <li>National Psoriasis Foundation, 2022.</li>
+          <li>Dubertret et al., 2006.</li>
+          <li>Dowlatshahi et al., 2014.</li>
+          <li>National Psoriasis Foundation, 2019.</li>
+          <li>Wu, 2017.</li>
+          <li>Makurvet, 2021.</li>
+          <li>Xiao et al., 2025.</li>
+          <li>Omali et al., 2023.</li>
+          <li>Wu et al., 2023.</li>
+          <li>Kawaguchi and Kondo, 2005.</li>
+          <li>Gennari et al., 2016.</li>
+          <li>Bos and Meinardi, 2000.</li>
+          <li>Uchino et al., 2023.</li>
+          <li>Tao et al., 2024.</li>
+        </ol>
+      </section>
+    </article>
+  </div>
+</div>
+
+  </div>
+
+  <nav class="stoa-pager" aria-label="Previous and next page">
+  <a class="stoa-pager-link stoa-pager-prev" href="index.html">
+    <span class="stoa-pager-dir">&larr; Previous</span>
+    <span class="stoa-pager-title">Home</span>
+  </a>
+  <a class="stoa-pager-link stoa-pager-next" href="engineering">
+    <span class="stoa-pager-dir">Next &rarr;</span>
+    <span class="stoa-pager-title">Engineering</span>
+  </a>
+</nav>
+  </main>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  <footer class="site-footer">
+  <div class="site-footer-slot">
+    <div class="site-footer-inner">
+      <img
+        class="site-footer-cluster"
+        src="https://static.igem.wiki/teams/6309/wiki/home/logo1.avif"
+        alt="PSOKRATES emblem and full name"
+      >
+      <img
+        class="site-footer-wordmark"
+        src="https://static.igem.wiki/teams/6309/wiki/home/logo-text.avif"
+        alt="PSOKRATES"
+      >
+      <p class="site-footer-connect">CONNECT WITH US!</p>
+      <p class="site-footer-thanks">WE THANK OUR SUPPORTERS:</p>
+      <!-- The following MUST be on every page: license information and link to the repository on gitlab.igem.org -->
+      <div class="site-footer-legal">
+        <p>© 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International license</a>.</p>
+        <p>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/cuhk-hongkong-sbs">gitlab.igem.org/2026/cuhk-hongkong-sbs</a>.</p>
+      </div>
+      <p class="site-footer-credit">Music: <a href="https://www.jamendo.com/track/2326386">&ldquo;Ancient Harp for Study Aid&rdquo;</a> by KonstantinPazuzuStudio, licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> (trimmed and levelled for looping).</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="static/nova/nova.js"></script>
+  
+</body>
+</html>

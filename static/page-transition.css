@@ -1,0 +1,238 @@
+/* Full-page wiki transition — cream overlay, Lottie frame, loading, quote */
+
+html.is-page-transitioning {
+  background: #f5efdb;
+}
+
+html.is-page-transitioning body {
+  overflow: hidden;
+}
+
+html.is-page-transitioning .igem-navbar {
+  visibility: hidden;
+}
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 200000;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 20px;
+  padding: 48px 56px 36px;
+  background: #f5efdb;
+  color: #1a1208;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html.is-page-transitioning .page-transition,
+.page-transition.is-on {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.page-transition.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.38s ease, visibility 0.38s ease;
+}
+
+.page-transition-stage {
+  display: grid;
+  grid-template-columns: minmax(240px, 36%) minmax(0, 1fr);
+  align-items: center;
+  min-height: 0;
+  gap: 24px;
+}
+
+.page-transition-lottie-frame {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition-lottie {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-transition-lottie svg,
+.page-transition-lottie > div {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.page-transition-lottie.is-cycle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition-lottie.is-cycle svg {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 100%;
+  transform: none;
+}
+
+.page-transition-lottie.is-anime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-transition-lottie.is-anime svg {
+  width: auto !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  transform: none;
+}
+
+.page-transition-loading {
+  margin: 0;
+  justify-self: center;
+  align-self: center;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(44px, 5.6vw, 84px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: #1a1208;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.page-transition-dots {
+  display: inline-flex;
+  align-items: flex-end;
+  margin-left: 0.06em;
+}
+
+.page-transition-dots span {
+  display: inline-block;
+  color: #e8872c;
+  transform-origin: 50% 80%;
+}
+
+html.is-page-transitioning .page-transition-dots span,
+.page-transition.is-on .page-transition-dots span {
+  animation: page-transition-dot-pop 1.05s cubic-bezier(0.34, 1.5, 0.64, 1) infinite;
+}
+
+.page-transition-dots span:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.page-transition-dots span:nth-child(3) {
+  animation-delay: 0.32s;
+}
+
+@keyframes page-transition-dot-pop {
+  0%,
+  100% {
+    transform: translateY(0) scale(0.55);
+    opacity: 0.2;
+  }
+  35% {
+    transform: translateY(-0.22em) scale(1.28);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(0.04em) scale(0.92);
+    opacity: 0.85;
+  }
+}
+
+.page-transition-quote {
+  flex: 0 0 auto;
+  margin: 0 auto;
+  padding: 12px 24px 8px;
+  max-width: 46rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-transition-quote.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-quote-text {
+  margin: 0;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(18px, 2.1vw, 28px);
+  line-height: 1.35;
+  color: #1a1208;
+}
+
+.page-transition-quote-cite {
+  display: block;
+  margin-top: 12px;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-size: clamp(14px, 1.4vw, 18px);
+  font-style: normal;
+  color: #c5a059;
+}
+
+@media (max-width: 800px) {
+  .page-transition {
+    padding: 72px 20px 24px;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+  }
+
+  .page-transition-stage {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    gap: 16px;
+  }
+
+  .page-transition-lottie-frame {
+    width: min(100%, 420px);
+    height: min(48vh, 380px);
+  }
+
+  .page-transition-loading {
+    justify-self: center;
+    margin-left: 0;
+    white-space: normal;
+    text-align: center;
+    font-size: clamp(36px, 9vw, 64px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition.is-leaving {
+    transition: none;
+  }
+
+  .page-transition-dots span {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  html.is-page-transitioning .page-transition-quote,
+  .page-transition-quote.is-in {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

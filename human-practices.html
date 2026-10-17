@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" class="nova page-ihp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#05070b">
+    <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/nova/nova.css" rel="stylesheet">
+    <link href="static/nova/nova-pages.css" rel="stylesheet">
+    <link href="static/nova/nova-greek.css" rel="stylesheet">
+    <script>
+      document.documentElement.classList.add("js");
+      try { if (sessionStorage.getItem("nova-seen")) document.documentElement.classList.add("nova-seen"); if (sessionStorage.getItem("nova-transition")) document.documentElement.classList.add("nv-arriving"); } catch (e) {}
+    </script>
+    <title>Human Practices | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="nova-body page-ihp nv-no-read" data-page="human-practices">
+  <a class="nv-skip" href="#nv-main">Skip to content</a>
+
+  <!-- Loader (first visit in a session) -->
+  <div class="nv-loader" id="nv-loader" aria-hidden="true">
+    <div class="nv-loader-inner">
+      <img class="nv-loader-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+      <p class="nv-loader-name" data-scramble>CUHK-HongKong-SBS</p>
+      <p class="nv-loader-count"><span id="nv-count">000</span><i>%</i></p>
+      <p class="nv-loader-sub">iGEM 2026</p>
+    </div>
+    <span class="nv-corner tl"></span><span class="nv-corner tr"></span><span class="nv-corner bl"></span><span class="nv-corner br"></span>
+  </div>
+
+  <!-- Page transition -->
+  <div class="nv-wipe" id="nv-wipe" aria-hidden="true"><canvas id="nv-wipe-canvas"></canvas><p class="nv-wipe-label" id="nv-wipe-label"></p></div>
+
+  <!-- Ambient layers -->
+  <div class="nv-grain" id="nv-grain" aria-hidden="true"></div>
+  <div class="nv-vignette" aria-hidden="true"></div>
+
+  <header class="nv-header" id="nv-header">
+  <a class="nv-brand" href="index.html" aria-label="CUHK-HongKong-SBS Home" data-cursor="Home">
+    <img class="nv-brand-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+    <span class="nv-brand-text">CUHK-HongKong-SBS</span>
+  </a>
+  <div class="nv-header-meta" aria-hidden="true">
+    <span>HKT <b id="nv-clock">00:00:00</b></span>
+    <span>Frame <b id="nv-frame">0000</b></span>
+  </div>
+  <div class="nv-header-actions">
+    <button class="nv-audio" id="nv-audio" type="button" aria-pressed="false" aria-label="Toggle ambient sound" data-cursor="Sound">
+      <span class="nv-audio-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="nv-audio-label">Sound off</span>
+    </button>
+    <button class="nv-menu-btn" id="nv-menu-btn" type="button" aria-expanded="false" aria-controls="nv-menu" data-cursor="Menu">
+      <span class="nv-menu-btn-label">Menu</span><span class="nv-menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<nav class="nv-menu" id="nv-menu" aria-label="Main navigation" hidden>
+  <canvas class="nv-menu-canvas" aria-hidden="true"></canvas>
+  <div class="nv-menu-grid">
+    
+    <div class="nv-menu-col nv-menu-home">
+      <p class="nv-label">[ 00 ]</p>
+      <a class="nv-menu-link nv-menu-link-xl" href="index.html" data-cursor="Open"><span data-scramble>Home</span></a>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 01 ] Project</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="description" data-cursor="Open"><span data-scramble>Description</span></a></li>
+        
+        <li><a class="nv-menu-link" href="engineering" data-cursor="Open"><span data-scramble>Engineering</span></a></li>
+        
+        <li><a class="nv-menu-link" href="results" data-cursor="Open"><span data-scramble>Results</span></a></li>
+        
+        <li><a class="nv-menu-link" href="contribution" data-cursor="Open"><span data-scramble>Contribution</span></a></li>
+        
+        <li><a class="nv-menu-link" href="software" data-cursor="Open"><span data-scramble>Software</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 02 ] Wet Lab</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="experiments" data-cursor="Open"><span data-scramble>Experiments</span></a></li>
+        
+        <li><a class="nv-menu-link" href="notebook" data-cursor="Open"><span data-scramble>Notebook</span></a></li>
+        
+        <li><a class="nv-menu-link" href="safety-and-security" data-cursor="Open"><span data-scramble>Safety and Security</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 03 ] Dry Lab</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="model" data-cursor="Open"><span data-scramble>Model</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 04 ] Human Practice</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="human-practices" data-cursor="Open"><span data-scramble>Human Practices</span></a></li>
+        
+        <li><a class="nv-menu-link" href="education" data-cursor="Open"><span data-scramble>Education</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 05 ] Team</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="members" data-cursor="Open"><span data-scramble>Team Roster</span></a></li>
+        
+        <li><a class="nv-menu-link" href="team" data-cursor="Open"><span data-scramble>Team</span></a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  <p class="nv-menu-foot nv-label">CUHK-HongKong-SBS &middot; iGEM 2026</p>
+</nav>
+
+  
+
+  <main id="nv-main" class="nv-main">
+  
+  <header class="nv-hero" data-hero>
+    <canvas class="nv-hero-canvas" aria-hidden="true"></canvas>
+    <div class="nv-hero-inner">
+      <p class="nv-label">[ IV ] Human Practices</p>
+      <h1 class="nv-hero-title" data-split>Human Practices</h1>
+      <p class="nv-hero-lead"></p>
+    </div>
+    <div class="nv-hero-meta" aria-hidden="true"><span>iGEM 2026</span><span class="nv-scrollcue">Scroll</span></div>
+  </header>
+  
+
+  <div class="container nv-container">
+    
+
+
+<section class="nv-orbit" data-nova-scene="nova-orbit" aria-label="Stakeholders">
+  <div class="nv-orbit-pin">
+    <canvas class="nv-orbit-canvas" aria-hidden="true"></canvas>
+    <div class="nv-orbit-head">
+      <p class="nv-label">[ Integrated ]</p>
+      <h2 class="nv-orbit-title">Human Practice</h2>
+    </div>
+    <ol class="nv-orbit-list" id="nv-orbit-list">
+      
+      <li><button type="button" data-i="0" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">01</span><span>Bioethics experts</span></button></li>
+      
+      <li><button type="button" data-i="1" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">02</span><span>Patients</span></button></li>
+      
+      <li><button type="button" data-i="2" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">03</span><span>Clinician / Dermatologist</span></button></li>
+      
+      <li><button type="button" data-i="3" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">04</span><span>Biotech, business sector</span></button></li>
+      
+      <li><button type="button" data-i="4" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">05</span><span>Public</span></button></li>
+      
+      <li><button type="button" data-i="5" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">06</span><span>Professors</span></button></li>
+      
+      <li><button type="button" data-i="6" data-cursor="Open" aria-pressed="false"><span class="nv-orbit-n">07</span><span>iGEM outreach</span></button></li>
+      
+    </ol>
+    <aside class="nv-orbit-panel" id="nv-orbit-panel" aria-live="polite">
+      
+      <div class="nv-orbit-card" data-i="0" hidden>
+        <p class="nv-label">[ 01 / 07 ]</p>
+        <h3>Bioethics experts</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+      <div class="nv-orbit-card" data-i="1" hidden>
+        <p class="nv-label">[ 02 / 07 ]</p>
+        <h3>Patients</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+      <div class="nv-orbit-card" data-i="2" hidden>
+        <p class="nv-label">[ 03 / 07 ]</p>
+        <h3>Clinician / Dermatologist</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+      <div class="nv-orbit-card" data-i="3" hidden>
+        <p class="nv-label">[ 04 / 07 ]</p>
+        <h3>Biotech, business sector</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+      <div class="nv-orbit-card" data-i="4" hidden>
+        <p class="nv-label">[ 05 / 07 ]</p>
+        <h3>Public</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+      <div class="nv-orbit-card" data-i="5" hidden>
+        <p class="nv-label">[ 06 / 07 ]</p>
+        <h3>Professors</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+      <div class="nv-orbit-card" data-i="6" hidden>
+        <p class="nv-label">[ 07 / 07 ]</p>
+        <h3>iGEM outreach</h3>
+        <p>Stakeholder note coming soon.</p>
+      </div>
+      
+    </aside>
+    <div class="nv-orbit-tags" aria-hidden="true">
+      <span class="nv-orbit-tag" data-i="0">Bioethics experts</span><span class="nv-orbit-tag" data-i="1">Patients</span><span class="nv-orbit-tag" data-i="2">Clinician / Dermatologist</span><span class="nv-orbit-tag" data-i="3">Biotech, business sector</span><span class="nv-orbit-tag" data-i="4">Public</span><span class="nv-orbit-tag" data-i="5">Professors</span><span class="nv-orbit-tag" data-i="6">iGEM outreach</span>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+  <nav class="stoa-pager" aria-label="Previous and next page">
+  <a class="stoa-pager-link stoa-pager-prev" href="model">
+    <span class="stoa-pager-dir">&larr; Previous</span>
+    <span class="stoa-pager-title">Model</span>
+  </a>
+  <a class="stoa-pager-link stoa-pager-next" href="education">
+    <span class="stoa-pager-dir">Next &rarr;</span>
+    <span class="stoa-pager-title">Education</span>
+  </a>
+</nav>
+  </main>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  <footer class="site-footer">
+  <div class="site-footer-slot">
+    <div class="site-footer-inner">
+      <img
+        class="site-footer-cluster"
+        src="https://static.igem.wiki/teams/6309/wiki/home/logo1.avif"
+        alt="PSOKRATES emblem and full name"
+      >
+      <img
+        class="site-footer-wordmark"
+        src="https://static.igem.wiki/teams/6309/wiki/home/logo-text.avif"
+        alt="PSOKRATES"
+      >
+      <p class="site-footer-connect">CONNECT WITH US!</p>
+      <p class="site-footer-thanks">WE THANK OUR SUPPORTERS:</p>
+      <!-- The following MUST be on every page: license information and link to the repository on gitlab.igem.org -->
+      <div class="site-footer-legal">
+        <p>© 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International license</a>.</p>
+        <p>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/cuhk-hongkong-sbs">gitlab.igem.org/2026/cuhk-hongkong-sbs</a>.</p>
+      </div>
+      <p class="site-footer-credit">Music: <a href="https://www.jamendo.com/track/2326386">&ldquo;Ancient Harp for Study Aid&rdquo;</a> by KonstantinPazuzuStudio, licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> (trimmed and levelled for looping).</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="static/nova/nova.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,564 @@
+body.page-testing-teams {
+  padding-top: 0;
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+.page-testing-teams .container {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+.test-teams-page {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.test-teams-page--home {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* Normal document flow after Socrates (no ScrollTrigger pin) */
+.test-teams-page--flow {
+  position: relative;
+  min-height: 0;
+  overflow: visible;
+}
+
+.test-teams-page--flow .test-teams-pin {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  padding: clamp(3rem, 8vh, 5.5rem) 0 4rem;
+}
+
+.test-teams-page--home .test-teams-scroll {
+  background: #ffffff;
+}
+
+.test-teams-page--home .test-teams-pin {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.test-teams-balance-bg {
+  position: absolute;
+  left: 6vw;
+  top: -380px;
+  bottom: 0;
+  width: min(45vw, 560px);
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#test-teams-balance-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.32;
+}
+
+.test-teams-balance-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 10, 10, 0.05) 0%,
+    rgba(10, 10, 10, 0.35) 55%,
+    rgba(10, 10, 10, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+.test-teams-page--home .test-teams-balance-bg::after {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.35) 55%,
+    rgba(255, 255, 255, 0.92) 100%
+  );
+}
+
+.test-teams-page--home .test-teams-color-wipe {
+  display: none;
+}
+
+.test-teams-page--home .pin-spacer {
+  background: #ffffff;
+}
+
+.test-teams-color-wipe {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #f5f5f5;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.test-teams-page--home .test-teams-intro-wrap {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  overflow: hidden;
+  will-change: height, opacity;
+}
+
+.test-teams-page--home .test-teams-list {
+  position: relative;
+  z-index: 2;
+}
+
+.test-teams-page-label {
+  position: fixed;
+  top: 5.5rem;
+  left: 1rem;
+  z-index: 30;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.88);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+.test-teams-hero {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 6rem 8vw 4rem;
+}
+
+.test-teams-hero-title {
+  margin: 0 0 1rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.test-teams-hero-copy {
+  margin: 0;
+  max-width: 36rem;
+  color: #a8a8a8;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.test-teams-scroll {
+  position: relative;
+  width: 100%;
+}
+
+.test-teams-pin {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 2rem 8vw 3rem;
+  box-sizing: border-box;
+  background: #0a0a0a;
+}
+
+.test-teams-section-title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.test-teams-page--home .test-teams-section-title {
+  margin-bottom: 0.75rem;
+  color: #0a0a0a;
+}
+
+.test-teams-page--home .test-teams-section-lead {
+  color: #5c5c5c;
+}
+
+.test-teams-page--home .test-teams-summary {
+  color: #3a3a3a;
+}
+
+.test-teams-page--home .test-teams-desc {
+  color: #2a2a2a;
+}
+
+.test-teams-page--home .test-teams-desc-label {
+  color: #6a6a6a;
+}
+
+.test-teams-page--home .test-teams-title,
+.test-teams-page--home .test-teams-num {
+  color: #0a0a0a;
+}
+
+.test-teams-page--home .test-teams-splitter {
+  background: rgba(10, 10, 10, 0.18);
+}
+
+.test-teams-section-lead {
+  margin: 0 0 1.5rem;
+  max-width: 36rem;
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: #a8a8a8;
+}
+
+.test-teams-desc-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.72rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.test-teams-summary {
+  margin: 0;
+  max-width: 26rem;
+  font-size: 0.98rem;
+  line-height: 1.58;
+  color: #c8c8c8;
+  opacity: 0;
+}
+
+.test-teams-splitter {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  width: 100%;
+}
+
+.test-teams-splitter--section {
+  margin-bottom: 0;
+}
+
+.test-teams-splitter--mobile {
+  display: none;
+}
+
+.test-teams-list {
+  width: 100%;
+  will-change: transform;
+}
+
+.test-teams-row {
+  width: 100%;
+}
+
+.test-teams-row-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0.25rem 0;
+}
+
+.test-teams-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.1rem 0;
+  flex-shrink: 0;
+}
+
+.test-teams-num {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.test-teams-title {
+  margin: 0;
+  font-size: clamp(1.35rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.test-teams-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.test-teams-desc {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #b0b0b0;
+  opacity: 0;
+}
+
+.test-teams-img-box {
+  height: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  will-change: height;
+}
+
+.test-teams-img {
+  width: 100%;
+  height: min(45vh, 480px);
+  min-height: 200px;
+  background-size: cover;
+  background-position: center;
+  transform-origin: center center;
+  transform: scale(1.08);
+  transition: transform 0.6s ease;
+}
+
+.test-teams-row.is-expanded .test-teams-img {
+  transform: scale(1);
+}
+
+.test-teams-img--da {
+  background-image: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 45%, #4a7eb0 100%);
+}
+
+.test-teams-img--education {
+  background-image: linear-gradient(135deg, #5c3d1a 0%, #a67c3d 45%, #d6b26c 100%);
+}
+
+.test-teams-img--ihp {
+  background-image: linear-gradient(135deg, #1a4a4a 0%, #2d7a6e 45%, #5ab8a8 100%);
+}
+
+.test-teams-img--lab {
+  background-image: linear-gradient(135deg, #2d4a1a 0%, #4a7a2d 45%, #7ab85a 100%);
+}
+
+.test-teams-img--topical {
+  background-image: linear-gradient(135deg, #1a3a5c 0%, #2d5a87 45%, #6a9ec4 100%);
+}
+
+.test-teams-img--phototherapy {
+  background-image: linear-gradient(135deg, #5c3d1a 0%, #a67c3d 45%, #e8c878 100%);
+}
+
+.test-teams-img--systemic {
+  background-image: linear-gradient(135deg, #4a1a3a 0%, #7a2d5a 45%, #b86a9e 100%);
+}
+
+.test-teams-img--biologics {
+  background-image: linear-gradient(135deg, #1a4a4a 0%, #2d7a6e 45%, #5ab8a8 100%);
+}
+
+.test-teams-img--placeholder {
+  position: relative;
+  background-color: #1a1a1a;
+}
+
+.test-teams-img--placeholder::after {
+  content: "Photo";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.test-teams-end {
+  min-height: 40vh;
+  padding: 4rem 8vw 6rem;
+  text-align: center;
+  background: #111;
+}
+
+.test-teams-end p {
+  margin: 0 0 1.25rem;
+  color: #999;
+}
+
+.test-teams-end a {
+  display: inline-block;
+  margin: 0 0.5rem;
+  color: #f5f5f5;
+}
+
+.test-teams-end a:hover {
+  color: #d6b26c;
+}
+
+/* ——— Desktop: Q-Industrial row layout + scroll expand ——— */
+@media (min-width: 1024px) {
+  .test-teams-row-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 0.5rem 0 1rem;
+  }
+
+  .test-teams-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: min(36%, 440px);
+    padding: 1.5rem 0;
+  }
+
+  .test-teams-page--home .test-teams-meta {
+    width: min(34%, 400px);
+  }
+
+  .test-teams-page--home .test-teams-summary {
+    max-width: 22rem;
+    padding-top: 0.35rem;
+  }
+
+  .test-teams-splitter--mobile {
+    display: block;
+    width: 100%;
+  }
+
+  .test-teams-body {
+    flex: 1;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    min-width: 0;
+  }
+
+  .test-teams-desc {
+    flex: 0 0 min(280px, 32%);
+    padding-top: 0.5rem;
+  }
+
+  .test-teams-page--home .test-teams-desc {
+    flex: 1 1 min(360px, 40%);
+    max-width: 28rem;
+    padding-top: 0.5rem;
+    font-size: 1.02rem;
+    line-height: 1.62;
+  }
+
+  .test-teams-img-box {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .test-teams-page--home .test-teams-img-box {
+    flex: 0 0 auto;
+    width: min(28vw, 380px);
+    max-width: 380px;
+  }
+
+  .test-teams-img {
+    width: 100%;
+    height: min(48vh, 520px);
+  }
+
+  .test-teams-page--home .test-teams-img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* ——— Mobile / tablet: static list, no scroll animation ——— */
+@media (max-width: 1023px) {
+  .test-teams-balance-bg {
+    display: none;
+  }
+
+  .test-teams-page-label::after {
+    content: " · static on phone";
+  }
+
+  .test-teams-page--home .test-teams-color-wipe {
+    display: none;
+  }
+
+  .test-teams-page--home .test-teams-intro-wrap {
+    opacity: 1;
+  }
+
+  .test-teams-desc,
+  .test-teams-summary {
+    opacity: 1;
+  }
+
+  .test-teams-img-box {
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .test-teams-img {
+    transform: scale(1);
+    height: min(42vw, 280px);
+    min-height: 160px;
+  }
+
+  .test-teams-page--home .test-teams-img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .test-teams-page--home .test-teams-color-wipe {
+    display: none;
+  }
+
+  .test-teams-page--home .test-teams-intro-wrap {
+    opacity: 1;
+  }
+
+  .test-teams-img {
+    transform: none;
+    transition: none;
+  }
+
+  .test-teams-img-box {
+    height: auto !important;
+  }
+
+  .test-teams-desc,
+  .test-teams-summary {
+    opacity: 1;
+  }
+}
+
+/* Expanded static layout used on home (always, not only mobile) */
+html.test-teams-static .test-teams-intro-wrap {
+  opacity: 1;
+}
+
+html.test-teams-static .test-teams-desc,
+html.test-teams-static .test-teams-summary {
+  opacity: 1;
+  visibility: visible;
+}
+
+html.test-teams-static .test-teams-img-box {
+  height: auto !important;
+  overflow: visible;
+}
+
+html.test-teams-static .test-teams-img {
+  transform: scale(1);
+}

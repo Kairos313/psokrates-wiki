@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en" class="nova page-home">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#05070b">
+    <link rel="shortcut icon" href="https://static.igem.wiki/common/icons/favicons/igem-2022.svg"/>
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/nova/nova.css" rel="stylesheet">
+    <link href="static/nova/nova-pages.css" rel="stylesheet">
+    <link href="static/nova/nova-greek.css" rel="stylesheet">
+    <script>
+      document.documentElement.classList.add("js");
+      try { if (sessionStorage.getItem("nova-seen")) document.documentElement.classList.add("nova-seen"); if (sessionStorage.getItem("nova-transition")) document.documentElement.classList.add("nv-arriving"); } catch (e) {}
+    </script>
+    <title>Home | CUHK-HongKong-SBS - iGEM 2026</title>
+  </head>
+  <body class="nova-body page-home nv-no-read" data-page="home">
+  <a class="nv-skip" href="#nv-main">Skip to content</a>
+
+  <!-- Loader (first visit in a session) -->
+  <div class="nv-loader" id="nv-loader" aria-hidden="true">
+    <div class="nv-loader-inner">
+      <img class="nv-loader-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+      <p class="nv-loader-name" data-scramble>CUHK-HongKong-SBS</p>
+      <p class="nv-loader-count"><span id="nv-count">000</span><i>%</i></p>
+      <p class="nv-loader-sub">iGEM 2026</p>
+    </div>
+    <span class="nv-corner tl"></span><span class="nv-corner tr"></span><span class="nv-corner bl"></span><span class="nv-corner br"></span>
+  </div>
+
+  <!-- Page transition -->
+  <div class="nv-wipe" id="nv-wipe" aria-hidden="true"><canvas id="nv-wipe-canvas"></canvas><p class="nv-wipe-label" id="nv-wipe-label"></p></div>
+
+  <!-- Ambient layers -->
+  <div class="nv-grain" id="nv-grain" aria-hidden="true"></div>
+  <div class="nv-vignette" aria-hidden="true"></div>
+
+  <header class="nv-header" id="nv-header">
+  <a class="nv-brand" href="index.html" aria-label="CUHK-HongKong-SBS Home" data-cursor="Home">
+    <img class="nv-brand-logo" src="https://static.igem.wiki/teams/6309/wiki/home/team-logo.avif" alt="">
+    <span class="nv-brand-text">CUHK-HongKong-SBS</span>
+  </a>
+  <div class="nv-header-meta" aria-hidden="true">
+    <span>HKT <b id="nv-clock">00:00:00</b></span>
+    <span>Frame <b id="nv-frame">0000</b></span>
+  </div>
+  <div class="nv-header-actions">
+    <button class="nv-audio" id="nv-audio" type="button" aria-pressed="false" aria-label="Toggle ambient sound" data-cursor="Sound">
+      <span class="nv-audio-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="nv-audio-label">Sound off</span>
+    </button>
+    <button class="nv-menu-btn" id="nv-menu-btn" type="button" aria-expanded="false" aria-controls="nv-menu" data-cursor="Menu">
+      <span class="nv-menu-btn-label">Menu</span><span class="nv-menu-btn-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<nav class="nv-menu" id="nv-menu" aria-label="Main navigation" hidden>
+  <canvas class="nv-menu-canvas" aria-hidden="true"></canvas>
+  <div class="nv-menu-grid">
+    
+    <div class="nv-menu-col nv-menu-home">
+      <p class="nv-label">[ 00 ]</p>
+      <a class="nv-menu-link nv-menu-link-xl" href="index.html" data-cursor="Open"><span data-scramble>Home</span></a>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 01 ] Project</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="description" data-cursor="Open"><span data-scramble>Description</span></a></li>
+        
+        <li><a class="nv-menu-link" href="engineering" data-cursor="Open"><span data-scramble>Engineering</span></a></li>
+        
+        <li><a class="nv-menu-link" href="results" data-cursor="Open"><span data-scramble>Results</span></a></li>
+        
+        <li><a class="nv-menu-link" href="contribution" data-cursor="Open"><span data-scramble>Contribution</span></a></li>
+        
+        <li><a class="nv-menu-link" href="software" data-cursor="Open"><span data-scramble>Software</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 02 ] Wet Lab</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="experiments" data-cursor="Open"><span data-scramble>Experiments</span></a></li>
+        
+        <li><a class="nv-menu-link" href="notebook" data-cursor="Open"><span data-scramble>Notebook</span></a></li>
+        
+        <li><a class="nv-menu-link" href="safety-and-security" data-cursor="Open"><span data-scramble>Safety and Security</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 03 ] Dry Lab</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="model" data-cursor="Open"><span data-scramble>Model</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 04 ] Human Practice</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="human-practices" data-cursor="Open"><span data-scramble>Human Practices</span></a></li>
+        
+        <li><a class="nv-menu-link" href="education" data-cursor="Open"><span data-scramble>Education</span></a></li>
+        
+      </ul>
+    </div>
+    
+    <div class="nv-menu-col">
+      <p class="nv-label">[ 05 ] Team</p>
+      <ul>
+        
+        <li><a class="nv-menu-link" href="members" data-cursor="Open"><span data-scramble>Team Roster</span></a></li>
+        
+        <li><a class="nv-menu-link" href="team" data-cursor="Open"><span data-scramble>Team</span></a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  <p class="nv-menu-foot nv-label">CUHK-HongKong-SBS &middot; iGEM 2026</p>
+</nav>
+
+  
+<div class="nh" data-nova-home>
+  <canvas class="nh-stage" id="nh-stage" aria-hidden="true"></canvas>
+
+  <!-- I · Hero -->
+  <section class="nh-act nh-hero" data-act="hero" aria-label="CUHK-HongKong-SBS iGEM 2026">
+    <div class="nh-hero-inner">
+      <p class="nv-label nh-hero-kicker">[ iGEM 2026 ] &nbsp; CUHK-HongKong-SBS</p>
+      <h1 class="nh-wordmark"><img src="https://static.igem.wiki/teams/6309/wiki/home/logo-text.avif" alt="PSOKRATES"></h1>
+    </div>
+    <div class="nh-hero-foot">
+      <p class="nv-label">[ 01 ] &mdash; Move the cursor across the surface</p>
+      <p class="nv-label nv-scrollcue">Scroll</p>
+    </div>
+  </section>
+
+  <!-- II · The clock -->
+  <section class="nh-act nh-clock" data-act="clock" data-pin>
+    <div class="nh-pin">
+      <div class="nh-clock-col nh-clock-a">
+        <p class="nv-label">[ 02 ]</p>
+        <p class="nh-big">Our body takes <span class="hl">28 days</span> to grow new skin cells.</p>
+        <p class="nh-count"><span data-count-to="28">0</span><small>days</small></p>
+      </div>
+      <div class="nh-clock-col nh-clock-b">
+        <p class="nh-mid">But for <span class="hl">125 million</span> people, that clock runs violently fast.</p>
+        <p class="nh-mid">In psoriasis, the immune system panics, forcing cells to replicate in just <span class="hl">3 days</span>.</p>
+        <p class="nh-count nh-count-hot"><span data-count-to="3">0</span><small>days</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- III · The armour -->
+  <section class="nh-act nh-armor" data-act="armor">
+    <p class="nh-giant" data-reveal>The result is a chaotic traffic jam on the surface - building a <span class="hl">visible, painful armor</span>.</p>
+  </section>
+
+  <!-- IV · Types -->
+  <section class="nh-act nh-types" data-act="types" id="nh-types">
+    <div class="nh-types-copy">
+      <p class="nv-label">[ 03 ] &mdash; Hover over the body to explore types of psoriasis.</p>
+      <ul class="nh-types-list" id="nh-types-list"></ul>
+      <div class="nh-types-detail" aria-live="polite"><h3 id="nh-types-name"></h3><p id="nh-types-text"></p></div>
+    </div>
+  </section>
+
+  <!-- V · History (horizontal) -->
+  <section class="nh-act nh-story" data-act="story" data-pin>
+    <div class="nh-pin">
+      <div class="nh-track" id="nh-track">
+        <article class="nh-panel nh-panel-title"><p class="nv-label">[ 04 ]</p><h2 class="nh-story-title">The Story of Psoraisis started in the Ancient Greece</h2></article>
+        <article class="nh-panel"><p class="nh-year">460BC</p><p class="nh-mid">Hippocrates looked at the <span class="hl2">dry, scale like plaques</span> of the afflicted and classified it as<br/>"<span class="hl">Lopoi</span>"</p></article>
+        <article class="nh-panel"><p class="nh-year">150AD</p><p class="nh-mid">Later, the ancient Greek physician Galen formally gave this torment its modern name --"<span class="hl">PSORA</span>", meaning <span class="hl">itchy</span>.</p></article>
+        <article class="nh-panel nh-panel-wide"><p class="nh-big">But in antiquity, to itch was to <span class="hl2">be cast out</span>.....</p><p class="nh-mid">Because society could not tell it apart from leprosy, patients were <span class="hl">stripped off their dignity</span> and forced to carry <span class="hl">bronze bells</span> to clapper their approach.</p><p class="nh-mid">Patients were not just suffering from diseases, they were exiled to the <span class="hl">shadows</span> of the ancient world.</p></article>
+        <article class="nh-panel nh-panel-wide"><p class="nh-year">2026AD</p><p class="nh-big">Centuries have passed, empires have fallen, and the modern medicine has eroded.</p><p class="nh-mid">Yet, the core of this <span class="hl2">tragedy</span> remains entirely unchanged.</p><p class="nh-mid">Psora remains an <span class="hl">unhealed</span>, <span class="hl">deeply stubborn riddle</span> of human biology.</p></article>
+      </div>
+      <div class="nh-track-bar" aria-hidden="true"><i id="nh-track-bar"></i></div>
+    </div>
+  </section>
+
+  <!-- VI · Voices -->
+  <section class="nh-act nh-voices" data-act="voices" data-pin>
+    <div class="nh-pin">
+      <p class="nh-giant nh-stigma" data-reveal>Has the ancient <span class="hl">stigma</span> truly vanished?</p>
+      <p class="nv-label nh-voices-hint">[ 05 ] &mdash; Hover on the glowing stars to check our patients' voices</p>
+      <blockquote class="nh-quote" id="nh-quote" aria-live="polite"></blockquote>
+    </div>
+  </section>
+
+  <!-- VII · Treatments -->
+  <section class="nh-act nh-balance" data-act="balance" data-pin>
+    <div class="nh-pin">
+      <div class="nh-balance-grid">
+        <p class="nh-mid nh-bal-a">Topical steroids and biologics offer relief, but <span class="hl">serious side effects</span>—like skin atrophy and immunosuppression—<span class="hl2">limit long-term use</span>.</p>
+        <p class="nh-mid nh-bal-b">Many patients experience <span class="hl">treatment resistance</span>. For instance, long-term methotrexate use risks severe liver <span class="hl2">toxicity</span> and <span class="hl2">frequent relapse</span>.</p>
+      </div>
+      <div class="nh-bal-tags" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- VIII · How might we -->
+  <section class="nh-act nh-hmw" data-act="hmw">
+    <p class="nv-label">[ 06 ]</p>
+    <p class="nh-hmw-text" id="nh-hmw"><span class="hl2 lg">How Might We</span> leverage <span class="hl lg">synthetic biology</span> to create a <span class="hl2">targeted</span>, <span class="hl2">non-invasive</span> therapeutic for <span class="hl">plaque psoriasis</span> that prevents plaque formation <span class="hl lg">at its root</span>?</p>
+  </section>
+
+  <!-- IX · Solution -->
+  <section class="nh-act nh-solution" data-act="solution" data-pin>
+    <div class="nh-pin">
+      <div class="nh-sol-head">
+        <p class="nv-label">[ 07 ]</p>
+        <h2 class="nh-sol-title">Our<br/>Solution</h2>
+        <p class="nh-sol-text">We genetically modified <span class="hl2">Lactiplantibacillus plantarum</span> to transcribe <span class="hl">inflammatory antagonist</span> and <span class="hl">immunomodulator</span> linked by <span class="hl2">TACE</span> (TNF-α Converting Enzyme) <span class="hl2">Cleavable Linker</span> with a <span class="hl">skin penetrating peptide</span>.</p>
+      </div>
+      <div class="nh-tags" aria-hidden="true">
+        <span class="nh-tag" data-tag="0">IL23RA</span>
+        <span class="nh-tag" data-tag="1">TACE</span>
+        <span class="nh-tag" data-tag="2">LKEKK</span>
+      </div>
+      <ol class="nh-steps">
+        <li class="nh-step" data-step="0"><span class="hl2">TNF-a converting enzyme</span> is <span class="hl">upregulated</span> in psoriatic skin</li>
+        <li class="nh-step" data-step="1">TACE Cleavable Linker is cleaved</li>
+        <li class="nh-step" data-step="2"><b>Macrophage</b> &mdash; LKEKK upregulates IL-10 &amp; IFH-γ</li>
+        <li class="nh-step" data-step="3">IL23R is inhibited and downstream inflammatory response is terminated</li>
+      </ol>
+      <div class="nh-sol-bar" aria-hidden="true"><i id="nh-sol-bar"></i></div>
+    </div>
+  </section>
+
+  <!-- X · Hub -->
+  <section class="nh-act nh-hub" data-act="hub">
+    <p class="nv-label">[ 08 ]</p>
+    <div class="nh-hub-grid">
+      
+      
+      <a class="nh-hub-card" href="human-practices" data-cursor="Enter" data-blip>
+        <span class="nv-label">[ 01 ]</span>
+        <span class="nh-hub-label" data-scramble>Human Practices</span>
+        <span class="nh-hub-arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      
+      <a class="nh-hub-card" href="engineering" data-cursor="Enter" data-blip>
+        <span class="nv-label">[ 02 ]</span>
+        <span class="nh-hub-label" data-scramble>Engineering cycle</span>
+        <span class="nh-hub-arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      
+      <a class="nh-hub-card" href="experiments" data-cursor="Enter" data-blip>
+        <span class="nv-label">[ 03 ]</span>
+        <span class="nh-hub-label" data-scramble>Lab</span>
+        <span class="nh-hub-arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      
+      <a class="nh-hub-card" href="education" data-cursor="Enter" data-blip>
+        <span class="nv-label">[ 04 ]</span>
+        <span class="nh-hub-label" data-scramble>Education</span>
+        <span class="nh-hub-arrow" aria-hidden="true">&#8599;</span>
+      </a>
+      
+    </div>
+  </section>
+</div>
+
+
+  <main id="nv-main" class="nv-main">
+  
+
+  <div class="container nv-container">
+    
+  </div>
+
+  <nav class="stoa-pager" aria-label="Previous and next page"><span></span>
+  <a class="stoa-pager-link stoa-pager-next" href="description">
+    <span class="stoa-pager-dir">Next &rarr;</span>
+    <span class="stoa-pager-title">Description</span>
+  </a>
+</nav>
+  </main>
+
+  <!-- Footer: MUST mention license AND have a link to team wiki's repository on gitlab.igem.org -->
+  <footer class="site-footer">
+  <div class="site-footer-slot">
+    <div class="site-footer-inner">
+      <img
+        class="site-footer-cluster"
+        src="https://static.igem.wiki/teams/6309/wiki/home/logo1.avif"
+        alt="PSOKRATES emblem and full name"
+      >
+      <img
+        class="site-footer-wordmark"
+        src="https://static.igem.wiki/teams/6309/wiki/home/logo-text.avif"
+        alt="PSOKRATES"
+      >
+      <p class="site-footer-connect">CONNECT WITH US!</p>
+      <p class="site-footer-thanks">WE THANK OUR SUPPORTERS:</p>
+      <!-- The following MUST be on every page: license information and link to the repository on gitlab.igem.org -->
+      <div class="site-footer-legal">
+        <p>© 2026 - Content on this site is licensed under a <a class="subfoot" href="https://creativecommons.org/licenses/by/4.0/" rel="license">Creative Commons Attribution 4.0 International license</a>.</p>
+        <p>The repository used to create this website is available at <a href="https://gitlab.igem.org/2026/cuhk-hongkong-sbs">gitlab.igem.org/2026/cuhk-hongkong-sbs</a>.</p>
+      </div>
+      <p class="site-footer-credit">Music: <a href="https://www.jamendo.com/track/2326386">&ldquo;Ancient Harp for Study Aid&rdquo;</a> by KonstantinPazuzuStudio, licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> (trimmed and levelled for looping).</p>
+    </div>
+  </div>
+</footer>
+
+  <script src="static/nova/nova.js"></script>
+  
+</body>
+</html>

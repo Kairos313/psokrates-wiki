@@ -1,0 +1,283 @@
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("https://static.igem.wiki/teams/6309/wiki/fonts/ibmplexserif-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+html.page-roster,
+body.page-roster {
+  background: #fcf9f3;
+  color: #1a1208;
+}
+
+body.page-roster {
+  padding-top: 64px;
+}
+
+body.page-roster > .container {
+  width: 100%;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.roster-page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 72px 96px;
+  background: #fcf9f3;
+}
+
+.roster-title,
+.roster-section h2,
+.roster-name,
+.roster-lead,
+.roster-role {
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+}
+
+.roster-title {
+  margin: 0;
+  color: #4d7552;
+  font-size: clamp(56px, 6.6vw, 96px);
+  line-height: 1;
+}
+
+.roster-lead {
+  margin: 18px 0 0;
+  color: #c5a059;
+  font-size: clamp(24px, 2.8vw, 40px);
+  line-height: 1.1;
+}
+
+.roster-hero-photo {
+  position: relative;
+  display: block;
+  margin: 48px auto 0;
+  padding: 0;
+  width: min(1145px, calc(100% - 80px));
+  aspect-ratio: 1145 / 762;
+  overflow: hidden;
+  border: 0;
+  background: #fff6e3;
+  cursor: pointer;
+}
+
+.roster-hero-photo img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  pointer-events: none;
+}
+
+.roster-hero-photo img.is-crop {
+  inset: auto;
+  object-fit: cover;
+}
+
+.roster-hero-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  color: #c5a059;
+  background: rgba(252, 249, 243, 0.88);
+  border: 2px solid #c5a059;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.roster-hero-arrow.is-prev {
+  left: 28px;
+}
+
+.roster-hero-arrow.is-next {
+  right: 28px;
+}
+
+.roster-hero-arrow svg {
+  width: 22px;
+  height: 22px;
+}
+
+.roster-hero-arrow:hover,
+.roster-hero-arrow:focus-visible {
+  color: #fdf9f3;
+  background: #c5a059;
+  outline: none;
+}
+
+.roster-hero-photo img.is-active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .roster-hero-photo img {
+    transition: none;
+  }
+}
+
+.roster-section {
+  margin-top: 88px;
+}
+
+.roster-section h2 {
+  margin: 0 0 36px;
+  color: #1a1208;
+  font-size: clamp(40px, 5vw, 80px);
+  line-height: 1.05;
+}
+
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 279px);
+  justify-content: center;
+  gap: 48px 117px;
+}
+
+.roster-grid + .roster-grid {
+  margin-top: 48px;
+}
+
+.roster-grid.is-center {
+  grid-template-columns: 279px;
+  justify-content: center;
+}
+
+.roster-card {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 434px;
+  overflow: hidden;
+  background: #fff6e3;
+  border: 0;
+}
+
+.roster-frame {
+  position: absolute;
+  inset: 8px;
+  z-index: 3;
+  pointer-events: none;
+  border: 1px solid #c5a059;
+}
+
+.roster-frame::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 1px solid #c5a059;
+  background:
+    linear-gradient(#c5a059, #c5a059) left top / 26px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) left top / 2px 26px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right top / 26px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right top / 2px 26px no-repeat,
+    linear-gradient(#c5a059, #c5a059) left bottom / 26px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) left bottom / 2px 26px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right bottom / 26px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right bottom / 2px 26px no-repeat;
+}
+
+.roster-hero-photo .roster-frame {
+  inset: 14px;
+}
+
+.roster-hero-photo .roster-frame::before {
+  inset: -10px;
+  background:
+    linear-gradient(#c5a059, #c5a059) left top / 42px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) left top / 2px 42px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right top / 42px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right top / 2px 42px no-repeat,
+    linear-gradient(#c5a059, #c5a059) left bottom / 42px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) left bottom / 2px 42px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right bottom / 42px 2px no-repeat,
+    linear-gradient(#c5a059, #c5a059) right bottom / 2px 42px no-repeat;
+}
+
+.roster-photo {
+  position: relative;
+  flex: 0 0 273px;
+  height: 273px;
+  overflow: hidden;
+  background: #fff6e3;
+}
+
+.roster-photo img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  object-fit: cover;
+}
+
+.roster-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 12px 14px;
+  background: #fcf9f3;
+  text-align: center;
+}
+
+.roster-name {
+  margin: 0;
+  color: #3aada8;
+  font-size: 40px;
+  line-height: 1.05;
+}
+
+.roster-name.is-long {
+  font-size: 28px;
+}
+
+.roster-role {
+  margin: 0;
+  padding: 5px 14px;
+  color: #3aada8;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  background: #fff;
+  border: 2px solid #3aada8;
+  border-radius: 20px;
+}
+
+@media (max-width: 1100px) {
+  .roster-page {
+    padding: 36px 24px 72px;
+  }
+
+  .roster-grid,
+  .roster-grid.is-center {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 279px));
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .roster-card {
+    height: auto;
+    aspect-ratio: 279 / 434;
+  }
+}

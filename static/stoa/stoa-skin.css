@@ -1,0 +1,279 @@
+/* ==========================================================================
+   STOA SKIN — brings the team's original custom pages onto the Stoa system.
+   CSS only: no text or layout positions are changed.
+   Palette: ink #1a1208 · gold #c5a059 · gold-dk #9c7a3c · accent #d9882b · parchment #fdf9f3
+   ========================================================================== */
+
+/* ---------- Home story ---------- */
+/* Highlight words: two Stoa tones instead of orange / olive / teal */
+body.page-home .fg-orange, body.page-home .hi-orange { color: var(--stoa-accent); }
+body.page-home .fg-olive, body.page-home .fg-teal { color: var(--stoa-gold-dk); }
+
+/* Headlines and dates in the Stoa display face */
+body.page-home .fg-title,
+body.page-home .fg-stigma,
+body.page-home .fg-castout,
+body.page-home .fg-centuries,
+body.page-home .fg-types-title {
+  font-family: var(--stoa-display); font-weight: 400; color: var(--stoa-ink); letter-spacing: 0;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .7);
+}
+body.page-home .fg-year-460,
+body.page-home .fg-year-150,
+body.page-home .fg-year-2026 {
+  font-family: var(--stoa-display); font-weight: 400; color: var(--stoa-gold-dk); letter-spacing: .02em;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .8);
+}
+body.page-home .fg-how-might-we { color: var(--stoa-ink); }
+body.page-home .fg-label-il23ra, body.page-home .fg-label-lkekk { color: var(--stoa-accent); }
+body.page-home .fg-label-tace { color: var(--stoa-gold-dk); }
+body.page-home .fg-types-hint, body.page-home .fg-voices-hint {
+  font-family: var(--stoa-sans); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; line-height: 1.6;
+}
+body.page-home .fg-types-hint { color: var(--stoa-gold-dk); }
+
+/* The timeline brush-stroke reads as warm gilt rather than violet */
+body.page-home .fg-stroke { filter: sepia(.85) saturate(.9) hue-rotate(-8deg) brightness(.95); }
+
+/* Intro board copy */
+body.page-home .home-intro-copy { color: var(--stoa-ink); }
+
+/* ---------- Members / roster ---------- */
+.roster-lead { color: var(--stoa-gold-dk) !important; font-family: var(--stoa-serif); }
+.roster-section > h2, .roster-page h2 { font-family: var(--stoa-display) !important; font-weight: 400 !important; color: var(--stoa-ink) !important; }
+.roster-card {
+  background: linear-gradient(160deg, #fffdf8, #efe5d3) !important;
+  border-color: rgba(197, 160, 89, .55) !important;
+  box-shadow: 0 18px 36px -26px rgba(60, 40, 15, .6), inset 0 0 0 5px rgba(255, 255, 255, .5) !important;
+  transition: transform .45s cubic-bezier(.2, .8, .2, 1), box-shadow .45s;
+}
+.roster-card:hover { transform: translateY(-6px); box-shadow: 0 28px 50px -26px rgba(60, 40, 15, .7), inset 0 0 0 5px rgba(255, 255, 255, .5) !important; }
+.roster-name { font-family: var(--stoa-display) !important; font-weight: 400 !important; color: var(--stoa-ink) !important; }
+.roster-role {
+  color: var(--stoa-gold-dk) !important; border-color: rgba(197, 160, 89, .7) !important; background: transparent !important;
+  font-family: var(--stoa-sans) !important; letter-spacing: .14em; text-transform: uppercase;
+}
+.roster-photo img, .roster-hero-photo img { filter: sepia(.08) saturate(.95); }
+
+/* ---------- Shared Stoa "plaque" surface for the team's cards ---------- */
+body.page-description .desc-callout,
+body.page-description .desc-figure,
+body.page-description .desc-stat-row li,
+body.page-description .desc-burden article,
+body.page-education .edu-split,
+body.page-education .edu-tool,
+body.page-education .edu-stats li,
+body.page-education .edu-scene,
+body.page-education .edu-event,
+body.page-engineering .eng-sidebar,
+body.page-engineering .eng-frame {
+  background: linear-gradient(160deg, #fffdf8, #f4ecdd) !important;
+  box-shadow: 0 18px 36px -28px rgba(60, 40, 15, .55), inset 0 0 0 4px rgba(255, 255, 255, .55);
+  border-radius: 4px !important;
+}
+body.page-description .desc-figure { border: 1px solid rgba(197, 160, 89, .55) !important; outline: 1px solid rgba(197, 160, 89, .3); outline-offset: -8px; }
+body.page-description .desc-figure figcaption { font-family: var(--stoa-sans) !important; font-size: 13px; letter-spacing: .02em; color: var(--stoa-muted); }
+body.page-description .desc-stat-row strong { font-family: var(--stoa-display) !important; color: var(--stoa-gold-dk); }
+body.page-description .desc-burden h3 { font-family: var(--stoa-display) !important; font-weight: 400; }
+body.page-description .desc-burden-body { border-top-color: var(--stoa-accent) !important; }
+body.page-description .desc-num { font-family: var(--stoa-display); color: var(--stoa-gold); }
+body.page-description .desc-wha cite, body.page-description .desc-callout cite { font-family: var(--stoa-sans); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--stoa-gold-dk); font-style: normal; }
+
+/* Education stage scale: the cave (dark ink) → the light (bright gold) */
+body.page-description .desc-edu-step:nth-child(1) .desc-edu-num { background: #1a1208; }
+body.page-description .desc-edu-step:nth-child(2) .desc-edu-num { background: #5a4e3e; }
+body.page-description .desc-edu-step:nth-child(3) .desc-edu-num { background: #8a7355; }
+body.page-description .desc-edu-step:nth-child(4) .desc-edu-num { background: #c5a059; }
+body.page-description .desc-edu-step:nth-child(5) .desc-edu-num { background: #d9882b; }
+body.page-description .desc-edu-num { font-family: var(--stoa-display); box-shadow: 0 0 0 3px #fffdf8, 0 0 0 4px rgba(197, 160, 89, .6); }
+body.page-education .edu-stage-1 .edu-event, body.page-education .edu-stage-1 .edu-scene { border-left-color: #5a4e3e !important; }
+body.page-education .edu-stage-2 .edu-event, body.page-education .edu-stage-2 .edu-tool, body.page-education .edu-stage-2 .edu-scene { border-left-color: #8a7355 !important; }
+body.page-education .edu-stage-3 .edu-event, body.page-education .edu-stage-3 .edu-scene { border-left-color: #c5a059 !important; }
+body.page-education .edu-stage-4 .edu-event, body.page-education .edu-stage-4 .edu-scene { border-left-color: #d9882b !important; }
+body.page-education .edu-read section + section { border-top: 0; background: linear-gradient(var(--stoa-gold), var(--stoa-gold)) top / 100% 1px no-repeat; }
+body.page-education .edu-map { font-family: var(--stoa-serif); }
+body.page-education .edu-map td, body.page-education .edu-map th { border-color: rgba(197, 160, 89, .35) !important; }
+body.page-education .edu-meta { font-family: var(--stoa-sans); letter-spacing: .04em; color: var(--stoa-gold-dk); }
+
+/* ---------- Engineering ---------- */
+body.page-engineering .eng-hero-sub { font-family: var(--stoa-serif); color: var(--stoa-gold-dk); }
+body.page-engineering .eng-section-title,
+body.page-engineering .eng-head-title,
+body.page-engineering .eng-phase h4 { font-family: var(--stoa-display) !important; font-weight: 400 !important; color: var(--stoa-ink) !important; }
+body.page-engineering .eng-head-cycle, body.page-engineering .eng-progress-caption {
+  font-family: var(--stoa-sans) !important; font-size: 12px !important; letter-spacing: .2em; text-transform: uppercase; color: var(--stoa-gold-dk) !important;
+}
+body.page-engineering .eng-sidebar, body.page-engineering .eng-frame { border: 1px solid rgba(197, 160, 89, .45) !important; }
+body.page-engineering .eng-block[data-eng-section="education"] .eng-phase[data-phase="intro"] h4 { color: var(--stoa-ink) !important; }
+body.page-engineering .eng-hmw { background: linear-gradient(160deg, #fffdf8, #f4ecdd); }
+/* Leaf divider → the Stoa DNA-strand border used everywhere else */
+body.page-engineering .eng-section-line { opacity: 0; }
+body.page-engineering .eng-board { position: relative; }
+body.page-engineering .eng-board::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 34px; pointer-events: none;
+  background: url("https://static.igem.wiki/teams/6309/wiki/home/upper-frame-for-scene.avif") center / auto 100% repeat-x;
+}
+body.page-engineering .eng-step { border-radius: 2px !important; font-family: var(--stoa-sans) !important; letter-spacing: .12em; text-transform: uppercase; font-size: 12px !important; }
+body.page-engineering .eng-step-next { background: var(--stoa-ink) !important; color: var(--stoa-parch) !important; border-color: var(--stoa-ink) !important; }
+body.page-engineering .eng-step-next:hover { background: var(--stoa-accent) !important; border-color: var(--stoa-accent) !important; }
+
+/* ---------- Human Practices: bubble-letter title images → Stoa display type (same words) ---------- */
+body.page-ihp .ihp-title-integrated img, body.page-ihp .ihp-title-practice img { opacity: 0; }
+body.page-ihp .ihp-title-integrated::after, body.page-ihp .ihp-title-practice::after {
+  position: absolute; left: 0; top: 0; white-space: nowrap; line-height: 1;
+  font: 400 96px/1 var(--stoa-display); color: var(--stoa-ink); text-shadow: 0 3px 0 rgba(255, 255, 255, .7);
+}
+body.page-ihp .ihp-title-integrated::after { content: "Integrated"; color: var(--stoa-gold-dk); }
+body.page-ihp .ihp-title-practice::after { content: "Human Practice"; font-size: 84px; }
+body.page-ihp .ihp-char-panel-title, body.page-ihp .ihp-char-name { font-family: var(--stoa-display) !important; font-weight: 400 !important; }
+
+/* ---------- Footer: responsive Stoa layout (the required licence + GitLab text is untouched) ---------- */
+.site-footer {
+  position: relative; z-index: 2;
+  /* flat #f7f3e7 = the exact background baked into the logo images, so they sit seamlessly */
+  background: #f7f3e7 !important;
+  padding-top: clamp(26px, 3vw, 40px);
+}
+.site-footer::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: clamp(18px, 2.6vw, 38px);
+  background: url("https://static.igem.wiki/teams/6309/wiki/home/upper-frame-for-scene.avif") center / auto 100% repeat-x;
+}
+.site-footer-slot { height: auto !important; max-height: none !important; overflow: visible !important; display: block !important; }
+.site-footer-inner {
+  position: static !important; transform: none !important;
+  width: min(1240px, calc(100% - 48px)) !important; height: auto !important; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 963fr) minmax(200px, 280fr); gap: 20px 56px; align-items: center;
+  padding: clamp(36px, 5vw, 64px) 0 clamp(36px, 4vw, 52px);
+}
+.site-footer-cluster { position: static !important; grid-area: 1 / 1; width: 100% !important; height: auto !important; }
+.site-footer-wordmark {
+  position: static !important; grid-area: 1 / 1; align-self: start;
+  width: 69.2% !important; height: auto !important; margin: 4.57% 0 0 27.7%; /* % margins resolve against the cell width */
+}
+.site-footer-connect, .site-footer-thanks {
+  position: static !important; width: auto !important;
+  font: 600 13px/1.4 var(--stoa-sans) !important; letter-spacing: .26em; text-transform: uppercase; color: var(--stoa-gold-dk) !important;
+}
+.site-footer-connect { grid-area: 1 / 2; display: flex; align-items: center; gap: 12px; }
+.site-footer-connect::before { content: ""; width: 34px; height: 1px; background: var(--stoa-gold); }
+.site-footer-thanks { grid-column: 1 / -1; }
+.site-footer-legal {
+  position: static !important; grid-column: 1 / -1;
+  font: 400 14px/1.6 var(--stoa-serif) !important; color: var(--stoa-muted);
+  border-top: 1px solid rgba(197, 160, 89, .5); padding-top: 18px; margin-top: 8px;
+}
+.site-footer a { color: var(--stoa-ink) !important; text-decoration-color: rgba(197, 160, 89, .7) !important; text-underline-offset: 3px; }
+.site-footer a:hover { color: var(--stoa-accent) !important; }
+@media (max-width: 760px) {
+  .site-footer-inner { grid-template-columns: 1fr; }
+  .site-footer-connect { grid-area: auto; }
+}
+
+/* ---------- Page transition overlay ---------- */
+.page-transition {
+  background:
+    radial-gradient(900px 480px at 50% 60%, rgba(197, 160, 89, .22), transparent 70%),
+    linear-gradient(180deg, #fffdf8, var(--stoa-parch) 50%, var(--stoa-parch-2)) !important;
+}
+.page-transition::before, .page-transition::after {
+  content: ""; position: absolute; left: 0; right: 0; height: clamp(18px, 2.6vw, 38px); pointer-events: none;
+  background: url("https://static.igem.wiki/teams/6309/wiki/home/upper-frame-for-scene.avif") center / auto 100% repeat-x;
+}
+.page-transition::before { top: 0; }
+.page-transition::after { bottom: 0; background-image: url("https://static.igem.wiki/teams/6309/wiki/home/lower-frame-for-scene.avif"); }
+.page-transition-loading { font-family: var(--stoa-display) !important; color: var(--stoa-ink) !important; }
+.page-transition-dots { color: var(--stoa-gold) !important; }
+.page-transition-quote-text { font-style: italic; color: var(--stoa-ink) !important; }
+.page-transition-quote-cite { font-family: var(--stoa-sans) !important; font-size: 12px !important; letter-spacing: .28em; text-transform: uppercase; color: var(--stoa-gold-dk) !important; font-style: normal; }
+
+/* ---------- Education: Plato's Cave 3D hero (built by stoa-cave.js) ---------- */
+.stoa-cave { position: relative; height: 300vh; margin-inline: calc(50% - 50vw); margin-top: -56px; background: #0c0805; }
+.stoa-cave-sticky { position: sticky; top: var(--stoa-nav-h); height: calc(100vh - var(--stoa-nav-h)); height: calc(100svh - var(--stoa-nav-h)); overflow: hidden; }
+.stoa-cave-canvas { display: block; width: 100%; height: 100%; background: #0c0805; }
+.stoa-cave-flash { position: absolute; inset: 0; z-index: 4; background: #fcf9f3; opacity: 0; pointer-events: none; }
+body.page-education .stoa-cave .edu-hero.is-in-cave {
+  position: absolute; inset: 0; margin: 0 !important; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: radial-gradient(ellipse at 50% 50%, rgba(12, 8, 5, .55), rgba(12, 8, 5, 0) 70%) !important;
+  padding: 24px clamp(20px, 12vw, 200px) !important;
+}
+body.page-education .stoa-cave .edu-hero::before, body.page-education .stoa-cave .edu-hero::after { display: none; }
+body.page-education .stoa-cave .edu-hero h1 { color: #fbefd6 !important; text-shadow: 0 0 40px rgba(255, 150, 60, .45), 0 2px 0 rgba(0, 0, 0, .5) !important; }
+body.page-education .stoa-cave .edu-kicker { color: #e7c38a !important; }
+body.page-education .stoa-cave .edu-kicker::before, body.page-education .stoa-cave .edu-kicker::after { background: #e7c38a !important; }
+body.page-education .stoa-cave .edu-zh, body.page-education .stoa-cave .edu-lead { color: rgba(251, 239, 214, .86) !important; text-shadow: 0 1px 12px rgba(0, 0, 0, .7); }
+.stoa-cave-hint {
+  position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); margin: 0; z-index: 3; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  font: 600 12px/1 var(--stoa-sans); letter-spacing: .26em; text-transform: uppercase; color: #e7c38a;
+}
+.stoa-cave-hint::after { content: ""; width: 1px; height: 44px; background: linear-gradient(#e7c38a, transparent); animation: stoa-drip 2.2s ease-in-out infinite; transform-origin: top; }
+.stoa-cave.is-reduced { height: auto; }
+.stoa-cave.is-reduced .stoa-cave-sticky { position: relative; top: 0; height: 80vh; }
+.stoa-cave.is-reduced .stoa-cave-hint, .stoa-cave.is-reduced .stoa-cave-flash { display: none; }
+body.has-stoa-cave .edu-layout { margin-top: 72px; }
+.stoa-cave-sticky::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; background: radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(8, 5, 3, .55)); }
+
+/* ---------- Engineering: Tholos 3D hero (built by stoa-tholos.js) ---------- */
+.stoa-tholos { position: relative; height: 280vh; }
+.stoa-tholos-sticky {
+  position: sticky; top: var(--stoa-nav-h); height: calc(100vh - var(--stoa-nav-h)); height: calc(100svh - var(--stoa-nav-h)); overflow: hidden;
+  background: radial-gradient(900px 520px at 55% 78%, rgba(197, 160, 89, .22), transparent 70%), linear-gradient(180deg, #fffdf8, var(--stoa-parch) 60%, var(--stoa-parch-2));
+}
+.stoa-tholos-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+body.page-engineering .eng-hero.is-in-tholos { position: absolute; inset: 0; min-height: 0 !important; z-index: 2; pointer-events: none; }
+body.page-engineering .eng-hero.is-in-tholos .eng-hero-people { max-width: min(30vw, 420px); }
+.stoa-tholos-steps {
+  position: absolute; left: 50%; bottom: 5%; transform: translateX(-50%); z-index: 3;
+  display: flex; gap: clamp(14px, 3vw, 40px); pointer-events: none;
+  font: 600 12px/1 var(--stoa-sans); letter-spacing: .24em; text-transform: uppercase; color: rgba(26, 18, 8, .4);
+}
+.stoa-tholos-steps span { position: relative; padding-top: 14px; transition: color .4s; }
+.stoa-tholos-steps span::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(197, 160, 89, .3); transition: background .4s; }
+.stoa-tholos-steps span.is-active { color: var(--stoa-ink); }
+.stoa-tholos-steps span.is-active::before { background: var(--stoa-accent); }
+.stoa-tholos.is-reduced { height: auto; }
+.stoa-tholos.is-reduced .stoa-tholos-sticky { position: relative; top: 0; }
+@media (max-width: 760px) {
+  body.page-engineering .eng-hero.is-in-tholos { padding: 40px 22px !important; }
+  body.page-engineering .eng-hero.is-in-tholos .eng-hero-people { display: none; }
+}
+/* sticky needs a non-scrolling ancestor: clip instead of hidden */
+html.page-engineering, body.page-engineering { overflow-x: clip !important; }
+
+/* ---------- Portico treatment for the remaining headers ---------- */
+/* Team Roster */
+.roster-hero {
+  position: relative; text-align: center;
+  margin: -48px -72px 0; padding: clamp(80px, 8vw, 110px) 72px 48px;
+  background:
+    url("https://static.igem.wiki/teams/6309/wiki/home/upper-frame-for-scene.avif") center top / auto clamp(18px, 2.6vw, 38px) repeat-x,
+    url("https://static.igem.wiki/teams/6309/wiki/home/pillar1.avif") left clamp(-40px, 3vw, 70px) top 70px / auto 300px no-repeat,
+    url("https://static.igem.wiki/teams/6309/wiki/home/pillar1.avif") right clamp(-40px, 3vw, 70px) top 70px / auto 300px no-repeat,
+    radial-gradient(900px 380px at 50% 260px, rgba(197, 160, 89, .22), transparent 70%),
+    linear-gradient(180deg, #fffdf8, var(--stoa-parch) 420px);
+}
+.roster-hero .roster-hero-photo { margin-left: auto; margin-right: auto; }
+.roster-lead { margin-left: auto; margin-right: auto; }
+@media (max-width: 760px) {
+  .roster-hero { margin: -48px -20px 0; padding: 70px 20px 32px; background-size: auto 22px, 0 0, 0 0, auto, auto; }
+}
+/* Human Practices board */
+body.page-ihp .ihp-slot {
+  background:
+    url("https://static.igem.wiki/teams/6309/wiki/home/upper-frame-for-scene.avif") center top / auto clamp(18px, 2.6vw, 38px) repeat-x,
+    radial-gradient(1100px 520px at 40% 0, rgba(197, 160, 89, .2), transparent 70%),
+    var(--stoa-parch) !important;
+}
+/* Engineering 3D section */
+.stoa-tholos-sticky::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: clamp(18px, 2.6vw, 38px); z-index: 3; pointer-events: none;
+  background: url("https://static.igem.wiki/teams/6309/wiki/home/upper-frame-for-scene.avif") center / auto 100% repeat-x;
+}
+body.page-engineering .eng-hero.is-in-tholos { padding-top: calc(clamp(18px, 2.6vw, 38px) + 48px) !important; }
+/* Template callouts on reading pages */
+.stoa-read-main .bd-callout {
+  background: linear-gradient(160deg, #fffdf8, #f4ecdd); border: 1px solid rgba(197, 160, 89, .45); border-left: 4px solid var(--stoa-gold);
+  border-radius: 4px; box-shadow: 0 18px 36px -28px rgba(60, 40, 15, .55), inset 0 0 0 4px rgba(255, 255, 255, .55);
+}
+.stoa-read-main .bd-callout h4 { font-family: var(--stoa-display); font-weight: 400; }

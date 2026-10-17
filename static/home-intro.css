@@ -1,0 +1,176 @@
+.home-intro-pin {
+  position: relative;
+  height: 360vh;
+  background: #fdf9f3;
+}
+
+.home-intro-sticky {
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  height: calc(100svh - 64px);
+  overflow: hidden;
+  background: #fdf9f3;
+}
+
+.home-intro-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.home-intro-scene[data-scene="1"] {
+  opacity: 1;
+}
+
+.home-intro-board {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1440px;
+  height: 766px;
+  background: #fdf9f3;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.home-intro-board img,
+.home-intro-board p,
+.home-intro-board .home-intro-copy {
+  position: absolute;
+  margin: 0;
+  display: block;
+}
+
+.home-intro-board img {
+  object-fit: fill;
+}
+
+.home-intro-dna-top {
+  left: 0;
+  top: 0;
+  width: 1440px;
+  height: 79px;
+  opacity: 0.67;
+  z-index: 2;
+}
+
+.home-intro-dna-bottom {
+  left: 0;
+  top: 678px;
+  width: 1440px;
+  height: 88px;
+  opacity: 0.67;
+  z-index: 2;
+}
+
+.home-intro-cloud-l {
+  left: 110px;
+  top: 42px;
+  width: 273px;
+  height: 168px;
+  opacity: 0.53;
+  z-index: 1;
+}
+
+.home-intro-cloud-r {
+  left: 1095px;
+  top: 92px;
+  width: 273px;
+  height: 168px;
+  opacity: 0.53;
+  z-index: 1;
+}
+
+.home-intro-copy {
+  color: #000000;
+  font-family: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+}
+
+.hi-orange {
+  color: #ec882b;
+}
+
+.s1-pillar,
+.s2-pillar,
+.s3-pillar {
+  object-fit: contain;
+}
+
+/* Scene 1 — Figma pillar1 */
+.s1-pillar {
+  left: 110px;
+  top: 224px;
+  width: 424px;
+  height: 528px;
+  opacity: 0.7;
+}
+
+.s1-text {
+  left: 757px;
+  top: 383px;
+  width: 601px;
+  font-size: 48px;
+}
+
+/* Scene 2 — Figma pillar2 */
+.s2-pillar {
+  left: 143px;
+  top: 187px;
+  width: 287px;
+  height: 523px;
+  opacity: 0.7;
+}
+
+.s2-text {
+  left: 631px;
+  top: 222px;
+  width: 702px;
+  font-size: 48px;
+}
+
+.s2-text p {
+  position: static;
+  margin: 0 0 1em;
+}
+
+.s2-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Scene 3 — Figma pillar3, placed on the home frame beside intro3 */
+.s3-pillar {
+  left: 64px;
+  top: 114px;
+  width: 486px;
+  height: 619px;
+  opacity: 0.7;
+}
+
+.s3-text {
+  left: 661px;
+  top: 307px;
+  width: 788px;
+  font-size: 48px;
+}
+
+.home-intro-pin--static {
+  height: auto;
+}
+
+.home-intro-pin--static .home-intro-sticky {
+  position: relative;
+  height: calc(100vh - 64px);
+  height: calc(100svh - 64px);
+}
+
+.home-intro-pin--static .home-intro-board {
+  position: relative;
+  left: 50%;
+  top: 50%;
+}

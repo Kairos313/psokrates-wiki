@@ -1,0 +1,123 @@
+/* Shared base for the /design-N prototypes. Each design sets its own tokens. */
+@font-face { font-family: "Fredericka"; src: url("../fonts/FrederickatheGreat-Regular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Fredoka"; src: url("../fonts/Fredoka-Regular.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "InterV"; src: url("../fonts/Inter-Variable.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  --dz-bg: #f6f1e7;
+  --dz-ink: #1b1712;
+  --dz-muted: #6f655a;
+  --dz-accent: #d9792b;
+  --dz-line: rgba(27, 23, 18, .15);
+  --dz-footer-bg: #1b1712;
+  --dz-footer-ink: #f6f1e7;
+  --dz-sans: "InterV", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --dz-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--dz-bg);
+  color: var(--dz-ink);
+  font-family: var(--dz-sans);
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+::selection { background: var(--dz-accent); color: #fff; }
+
+/* Placeholder text the team will replace */
+.ph { font-style: normal; }
+.ph-note { opacity: .7; }
+
+/* Fixed WebGL stage */
+.dz-stage {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+  display: block;
+}
+.dz-content { position: relative; z-index: 2; }
+
+/* Prototype switcher */
+.dz-switcher {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+  z-index: 1000;
+  display: flex; gap: 4px; padding: 5px;
+  background: rgba(20, 18, 16, .78);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 999px;
+  font: 600 12px/1 var(--dz-sans);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+}
+.dz-switcher a {
+  display: grid; place-items: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  color: rgba(255, 255, 255, .7); text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.dz-switcher a:hover { background: rgba(255, 255, 255, .14); color: #fff; }
+.dz-switcher a.is-active { background: #fff; color: #111; }
+.dz-switcher-home { font-size: 15px; }
+
+/* Brand mark (top-left) */
+.dz-brand {
+  position: fixed; top: 18px; left: 22px; z-index: 50;
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; font: 600 13px/1 var(--dz-sans); letter-spacing: .02em;
+}
+.dz-brand img { width: 34px; height: 34px; object-fit: contain; }
+
+/* Footer — the required license + GitLab text lives in wiki/footer.html */
+.site-footer {
+  position: relative; z-index: 5;
+  background: var(--dz-footer-bg); color: var(--dz-footer-ink);
+  padding: 64px 24px 96px;
+}
+.site-footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: auto 1fr; gap: 14px 28px; align-items: center;
+}
+.site-footer-cluster { width: 88px; height: auto; grid-row: span 2; }
+.site-footer-wordmark { width: 200px; height: auto; filter: var(--dz-footer-logo-filter, none); }
+.site-footer-connect, .site-footer-thanks { margin: 0; font: 600 12px/1.4 var(--dz-sans); letter-spacing: .14em; opacity: .7; }
+.site-footer-legal { grid-column: 1 / -1; border-top: 1px solid currentColor; border-color: rgba(127, 127, 127, .3); padding-top: 18px; font-size: 13px; opacity: .85; }
+.site-footer-legal p { margin: 4px 0; }
+.site-footer-legal a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Custom cursor (opt-in via DZ.cursor) */
+.dz-cursor, .dz-cursor-dot {
+  position: fixed; top: 0; left: 0; z-index: 2000; pointer-events: none;
+  border-radius: 50%; transform: translate3d(-100px, -100px, 0);
+}
+.dz-cursor { width: 38px; height: 38px; margin: -19px 0 0 -19px; border: 1.5px solid currentColor; transition: width .25s, height .25s, margin .25s, background .25s; }
+.dz-cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: currentColor; }
+.dz-cursor.is-hover { width: 74px; height: 74px; margin: -37px 0 0 -37px; background: rgba(255, 255, 255, .08); }
+@media (hover: none), (pointer: coarse) { .dz-cursor, .dz-cursor-dot { display: none; } }
+
+/* Split-text pieces */
+.dz-line { display: block; overflow: hidden; padding-bottom: .06em; }
+.dz-word, .dz-char { display: inline-block; will-change: transform; }
+
+.dz-skip {
+  position: absolute; left: -999px; top: 8px; z-index: 3000;
+  background: #fff; color: #111; padding: 8px 12px;
+}
+.dz-skip:focus { left: 8px; }
+
+:focus-visible { outline: 2px solid var(--dz-accent); outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .site-footer-inner { grid-template-columns: 1fr; }
+  .site-footer-cluster { grid-row: auto; }
+  .dz-brand span { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
